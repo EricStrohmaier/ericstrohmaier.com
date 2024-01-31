@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <body>
-        <div className="prose-xl mx-auto my-20 w-full mx-w-4xl px-4 dark:prose-invert md:px-0">
+        <div className="prose-xl mx-auto my-20 w-full max-w-4xl px-4 dark:prose-invert md:px-0">
           <main>{children}</main>
         </div>
       </body>
