@@ -49,12 +49,13 @@ export default defineConfig({
           },
         ],
         ui: {
-          // This is an DEMO router. You can remove this to fit your site
+          //if i want blog posts router
           router: ({ document }) => {
-            if (document._sys.filename === 'home') {
-              return "/";
-            } else {
-              return undefined;
+            return `/posts/${document._sys.filename}`;
+          },
+          filename:{
+            slugify:(values)=> {
+              return `${(values.title|| "").replace(/ /g, '-').toLowerCase()}`.replace(/[^\w-]+/g, '')
             }
           }
         },
