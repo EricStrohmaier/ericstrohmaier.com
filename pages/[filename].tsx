@@ -2,10 +2,10 @@
 // @ts-nocheck
 // This is a demo file once you have tina setup feel free to delete this file
 
+import client from '@/tina/__generated__/client'
 import Head from 'next/head'
 import { useTina } from 'tinacms/dist/react'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
-import client from '../../../tina/__generated__/client'
 
 const BlogPage = (props) => {
   const { data } = useTina({
