@@ -47,6 +47,19 @@ export default defineConfig({
             label: "Body",
             isBody: true,
           },
+          {
+            type: "string",
+            name: "reminder",
+            label: "Reminder",
+            list: true,
+            description: "The reminders",
+            required: false,
+          },
+          {
+            type:"boolean",
+            name: "active",
+            label: "Active",
+          }
         ],
         ui: {
           //if i want blog posts router

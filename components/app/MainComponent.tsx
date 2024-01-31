@@ -9,14 +9,18 @@ export default function MainComponent(props: { query: string; variables: { relat
   const { data } = useTina(props);
 
   const content = data.page.body;
+
   const title = data.page.title;
+  const active = data.page.active;
+  const reminders = data.page.reminder;
+  if (!active) return null;
   return (
     <>
       <div >
         <div>{title}</div>
         <TinaMarkdown content={content} />
       </div>
-      <ReminderView/>
+      <ReminderView reminders={reminders} active={active} />
     </>
   );
 }
