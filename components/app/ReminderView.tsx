@@ -8,6 +8,7 @@ export const ReminderView: FC<ReminderViewProps> = ({reminders, active}) => {
     if (!reminders) {
         return null;
     }
+
     return (
         <div className="flex-grow p-4 shadow bg-[var(--secondary)] rounded-[10px]">
             <div className="flex flex-col gap-2">
