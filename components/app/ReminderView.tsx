@@ -11,8 +11,8 @@ export const ReminderView: FC<ReminderViewProps> = ({reminders, active}) => {
     return (
         <div className="flex-grow p-4 shadow bg-[var(--secondary)] rounded-[10px]">
             <div className="flex flex-col gap-2">
-            {reminders.map((reminder: string, index: { toString: () => string; }) => (
-                    <ReminderItem id={index.toString()} content={reminder} />
+            {reminders.map((reminder: string, index: number) => (
+                    <ReminderItem key={index} id={index.toString()} content={reminder} />
                 ))}
             </div>
         </div>
