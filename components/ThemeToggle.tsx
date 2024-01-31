@@ -9,12 +9,12 @@ export function ThemeToggle() {
             <button
                 onClick={() => setTheme("light")}
                 className="hidden  text-gray-300 dark:flex">
-                <RxSun className="w-[34px] h-[34px]"/>
+                <RxSun className="w-[29px] h-[29px]"/>
             </button >
             <button
                 onClick={() => setTheme("dark")}
-                className="flex w-[34px] h-[34px] text-gray-600 dark:hidden">
-                <RxMoon className="w-[34px] h-[34px]" />
+                className="flex  text-gray-600 dark:hidden">
+                <RxMoon className="w-[29px] h-[29px]" />
             </button >
         </div>
     )

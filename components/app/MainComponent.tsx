@@ -2,7 +2,7 @@
 import { PageQuery } from "@/tina/__generated__/types";
 import { useTina } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import AnimatedCard from "./AnimatedCard";
+import { ReminderView } from "./ReminderView";
 
 export default function MainComponent(props: { query: string; variables: { relativePath: string }; data: PageQuery; }) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
@@ -20,7 +20,7 @@ export default function MainComponent(props: { query: string; variables: { relat
         <h1>{title}</h1>
         <TinaMarkdown content={content} />
       </div>
-      <AnimatedCard/>
+      <ReminderView/>
     </>
   );
 }

@@ -1,9 +1,9 @@
 "use client"
 import React, { FC, useContext } from "react";
 import { FaServer, FaClock } from "react-icons/fa";
-import { NavItem } from "./NavList";
 import { ThemeToggle } from "../ThemeToggle";
 import { TimeContext } from "@/lib/time";
+import { NavItem } from "./NavItem";
 
 interface NavbarProps {
     children?: React.ReactNode;

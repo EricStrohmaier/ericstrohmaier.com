@@ -16,8 +16,8 @@ export default function Header() {
         </div>
 
         <div className="flex justify-between  items-center gap-4">
-          <div className={`flex  px-2 items-center  border-[1.5px] border-[var(--text)]   rounded-[70px] `}>
-            <RxClock className="mr-2 w-[24px] h-[24px]" />
+          <div className={`flex max-w-20 max-h-8 px-2 items-center   border-[1.5px] border-[var(--text)]   rounded-[70px] `}>
+            <RxClock className="" />
             <p className={`text-sm ml-[5px] `}> {currentTime}</p>
           </div>
           <ThemeToggle />
