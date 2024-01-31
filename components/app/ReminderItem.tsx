@@ -4,6 +4,7 @@ import { Checkbox } from '../ui/checkbox'; // Assuming you have a Checkbox compo
 interface ReminderItemProps {
     id: string;
     content: string;
+    note?:string
 }
 
 export const ReminderItem: FC<ReminderItemProps> = ({ id, content }) => {

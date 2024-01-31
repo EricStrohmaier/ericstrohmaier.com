@@ -9,10 +9,8 @@ export default function Header() {
 
   return (
     <div>
-      <header className="mb-5 mt-16 flex content-center items-center justify-between ">
+      <header className="flex content-center items-center justify-between ">
         <div className="flex gap-4">
-          {/* <Link href="/">Home</Link>
-            <Link href="/about">About</Link> */}
         </div>
 
         <div className="flex justify-between  items-center gap-4">
