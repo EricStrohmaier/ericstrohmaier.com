@@ -13,8 +13,17 @@ interface NavItemProps {
   
     const path = router?.split("/")[1];
     const isActive = `/${path}` === href;
-  
-    const navItemStyle = `relative flex items-center justify-start rounded-[10px] p-4 ${isActive ? `${style}` : "bg-[var(--secondary)]"}`;
+
+    const determineTextColor = (style:string | undefined) => {
+      if (style?.includes("bg-gray-600")) {
+        return "text-gray-100 bg-gray-600";
+      }
+      
+      return ""; 
+    };
+    const textColor = determineTextColor(style);
+
+    const navItemStyle = `relative flex items-center justify-start rounded-[10px] p-4 ${isActive ? `${style} ${textColor}` : "bg-[var(--secondary)]"} `;;
   
     return (
       <Link href={href || ""}>

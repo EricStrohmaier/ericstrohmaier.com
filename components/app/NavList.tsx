@@ -12,9 +12,9 @@ const NavList: FC = () => {
         <div className="grid grid-cols-2 gap-2 w-[90%]">
           <NavItem href="/today" title="Today" Icon={CalendarIcon} style="bg-blue-600" number="0" />
           <NavItem href="/scheduled" title="Scheduled" Icon={CalendarIcon} style="bg-red-500" number="2" />
-          <NavItem href="/all" title="All" Icon={InboxIcon} style="bg-gray-700" number="65" />
+          <NavItem href="/all" title="All" Icon={InboxIcon} style="bg-gray-600" number="65" />
           <NavItem href="/flagged" title="Flagged" Icon={FlagIcon} style="bg-yellow-500" number="0" />
-          <NavItem href="/completed" title="Completed" Icon={CheckIcon} style="bg-gray-700" number="0" />
+          <NavItem href="/completed" title="Completed" Icon={CheckIcon} style="bg-gray-600" number="0" />
         </div>
         <div className="w-[90%]">
           <h3 className="text-sm font-semibold">My Lists</h3>
