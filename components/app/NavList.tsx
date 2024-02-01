@@ -18,7 +18,7 @@ const NavList: FC = () => {
         </div>
         <div className="md:w-[90%]">
           <h3 className="text-sm font-semibold">My Lists</h3>
-          <nav className="mt-4 space-y-1 sm:block  flex flex-col justify-center items-center">
+          <nav className="mt-4 space-y-1 md:block  flex flex-col justify-center items-center">
             <ListNavItem href="/reminders" title="Reminders" Icon={ListIcon} number={5} iconBgColor="blue-600" />
             <ListNavItem href="/ideas" title="Ideas" Icon={ListIcon} number={10} iconBgColor="red-500" />
             <ListNavItem href="/recipe-ideas" title="Recipe Ideas" Icon={ListIcon} number={7} iconBgColor="green-600" />
