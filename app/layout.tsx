@@ -22,7 +22,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class">
           <TimeProvider>
             <LayoutPage>
-              <div className="prose-xl mx-auto m-4 mt-12 w-full max-w-4xl px-4 dark:prose-invert md:px-0">
+              <div className="prose-xl mx-auto m-4 mt-8 w-full max-w-4xl px-4 dark:prose-invert md:px-0">
                 <Header />
                 <main>{children}</main>
               </div>

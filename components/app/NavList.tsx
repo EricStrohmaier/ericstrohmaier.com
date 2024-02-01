@@ -6,7 +6,7 @@ import { NavItem } from "./NavItem";
 
 const NavList: FC = () => {
   return (
-    <div className="min-h-[50vh] flex flex-col justify-between my-20 w-full">
+    <div className="min-h-[50vh] flex flex-col justify-between my-10 w-full">
       <div className="flex flex-col items-center space-y-5 justify-center">
         {/* Adjust this grid to be 1 column on small screens and 2 columns on medium screens and up */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:w-[90%]">
