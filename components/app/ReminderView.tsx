@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { ReminderItem } from './ReminderItem';
 interface ReminderViewProps {
    reminders: any;
-   active: boolean;
+   active?: boolean;
   }
 export const ReminderView: FC<ReminderViewProps> = ({reminders, active}) => {
     if (!reminders) {

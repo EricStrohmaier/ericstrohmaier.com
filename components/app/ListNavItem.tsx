@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { FC } from "react";
 import { IconType } from "react-icons"; // Assuming you're using react-icons
 
@@ -12,19 +13,26 @@ interface ListNavItemProps {
 
 export const ListNavItem: FC<ListNavItemProps> = ({ href, title, Icon, number, iconBgColor }) => {
   // Style for the icon with dynamic background color, hidden on small screens
-  const iconStyle = `w-6 h-6 p-1 rounded-full ${iconBgColor ? `bg-${iconBgColor}` : ''}`;
+  const router = usePathname();
+  
+  const path = router?.split("/")[1];
+  const isActive = `/${path}` === href;
+
+  const activeStyle = `${isActive ? `bg-[var(--secondary)]` : ""}`
+  const iconStyle = `w-6 h-6 p-1 rounded-full bg-${iconBgColor}`;
 
   return (
     <Link href={href}>
-      <div className="flex items-center justify-between sm:space-y-3 sm:space-x-2">
-        <div className="flex items-center">
-          <Icon className={iconStyle} />
-          <span className="ml-2 hidden sm:block">{title}</span>
-        </div>
-        {number !== undefined && (
-          <span className="font-bold hidden sm:block">{number}</span> // Hide number on small screens
-        )}
+    <div className={`${activeStyle} px-2 py-1 rounded-[10px] flex items-center justify-between`}>
+      <div className="flex items-center">
+        <Icon className={iconStyle} />
+        <span className="ml-2 hidden sm:block">{title}</span>
       </div>
-    </Link>
+      {number !== undefined && (
+        <span className="font-bold hidden sm:flex items-center justify-center">{number}</span>
+      )}
+    </div>
+  </Link>
+  
   );
 };
