@@ -22,13 +22,13 @@ export default function MainComponent(props: { query: string; variables: { relat
   const titleColor = pathColorMapping[extractedPath] || 'text-[var(--text)]'; // Default color if path not found
 
   return (
-    <>
+    <div className="px-4">
       <div>
         <div className={`text-6xl font-semibold ${titleColor}`}>{title}</div>
         <TinaMarkdown content={content} />
       </div>
       <ReminderView reminders={reminders} active={active || false} />
-    </>
+    </div>
   );
 }
 

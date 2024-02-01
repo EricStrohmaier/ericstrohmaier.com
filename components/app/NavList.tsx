@@ -9,7 +9,7 @@ const NavList: FC = () => {
     <div className="min-h-[50vh] flex flex-col justify-between my-20 w-full">
       <div className="flex flex-col items-center space-y-5 justify-center">
         {/* Adjust this grid to be 1 column on small screens and 2 columns on medium screens and up */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:w-[90%]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:w-[90%]">
           <NavItem href="/today" title="Today" Icon={CalendarIcon} style="bg-blue-600" number="0" />
           <NavItem href="/scheduled" title="Scheduled" Icon={CalendarIcon} style="bg-red-500" number="2" />
           <NavItem href="/all" title="All" Icon={InboxIcon} style="bg-gray-600" number="65" />
