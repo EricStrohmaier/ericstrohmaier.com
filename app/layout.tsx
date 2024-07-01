@@ -16,12 +16,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+ 
+  
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <body>
         <ThemeProvider attribute="class">
           <TimeProvider>
-            <LayoutPage>
+            <LayoutPage params={{
+              slug: ""
+            }}>
               <div className="prose-xl mx-auto m-4 mt-8 w-full max-w-4xl px-4 dark:prose-invert md:px-0">
                 <Header />
                 <main>{children}</main>
