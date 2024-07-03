@@ -1,11 +1,11 @@
-import { defineConfig } from "tinacms";
+import { defineConfig } from "tinacms"
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
   process.env.GITHUB_BRANCH ||
   process.env.VERCEL_GIT_COMMIT_REF ||
   process.env.HEAD ||
-  "main";
+  "main"
 
 export default defineConfig({
   branch,
@@ -56,23 +56,44 @@ export default defineConfig({
             required: false,
           },
           {
-            type:"boolean",
+            type: "boolean",
             name: "active",
             label: "Active",
-          }
+          },
+        ],
+      },
+      {
+        label: "Blog Posts",
+        name: "post",
+        path: "content/posts",
+        fields: [
+          {
+            type: "string",
+            label: "Title",
+            name: "title",
+          },
+          {
+            type: "string",
+            label: "Post Body",
+            name: "body",
+            isBody: true,
+          },
         ],
         ui: {
           //if i want blog posts router
           router: ({ document }) => {
-            return `/posts/${document._sys.filename}`;
+            return `/posts/${document._sys.filename}`
           },
-          filename:{
-            slugify:(values)=> {
-              return `${(values.title|| "").replace(/ /g, '-').toLowerCase()}`.replace(/[^\w-]+/g, '')
-            }
-          }
+          filename: {
+            slugify: (values) => {
+              return `${(values.title || "").replace(/ /g, "-").toLowerCase()}`.replace(
+                /[^\w-]+/g,
+                "",
+              )
+            },
+          },
         },
       },
     ],
   },
-});
+})

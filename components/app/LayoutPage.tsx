@@ -1,13 +1,8 @@
-import React, { FC } from "react"
+import React from "react"
 import NavList from "./NavList"
 import CloseButtons from "./CloseButtons"
-import client from "@/tina/__generated__/client"
-import { notFound } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
-import LogoutButton from "./LogoutButton"
-import { Arrow } from "@radix-ui/react-select"
-import { ArrowBigRight } from "lucide-react"
 
 interface LayoutProps {
   children: React.ReactNode
@@ -34,15 +29,14 @@ export function LayoutPage({ children, params }: LayoutProps) {
                     className="flex w-full flex-1 items-center space-x-3 rounded-[20px] px-2 py-1.5 transition-all duration-150 ease-in-out hover:bg-stone-200 active:bg-stone-300 dark:text-white dark:hover:bg-stone-700 dark:active:bg-stone-800"
                   >
                     <Image
-                      // TODO: Change picutre
-                      src={`https://avatar.vercel.sh/eric.strohmaier00@gmail.com`}
-                      width={40}
-                      height={40}
+                      src={`/eric-head.jpeg`}
+                      width={50}
+                      height={50}
                       alt={"User avatar"}
-                      className="h-6 w-6 rounded-full"
+                      className="w-15 h-auto rounded-full"
                     />
-                    <span className="truncate text-sm font-medium">
-                      See Profile
+                    <span className="truncate text-base font-medium">
+                      See Full Profile
                     </span>
                   </Link>
                 </div>
