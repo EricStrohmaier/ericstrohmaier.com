@@ -5,11 +5,13 @@ import {
   CalendarIcon,
   CheckIcon,
   FlagIcon,
+  GitBranchIcon,
   InboxIcon,
   ListIcon,
 } from "lucide-react"
 import { ListNavItem } from "./ListNavItem"
 import { NavItem } from "./NavItem"
+import { BsLinkedin } from "react-icons/bs"
 
 const NavList: FC = () => {
   return (
@@ -22,13 +24,6 @@ const NavList: FC = () => {
             title="Today"
             Icon={CalendarIcon}
             style="bg-blue-600"
-            number="0"
-          />
-          <NavItem
-            href="/blog"
-            title="Blog"
-            Icon={CalendarIcon}
-            style="bg-red-500"
             number="2"
           />
           <NavItem
@@ -39,22 +34,22 @@ const NavList: FC = () => {
             number="65"
           />
           <NavItem
-            href="/flagged"
-            title="Flagged"
+            href="/todo"
+            title="Todo"
             Icon={FlagIcon}
             style="bg-yellow-500"
-            number="0"
+            number="1"
           />
           <NavItem
-            href="/completed"
-            title="Completed"
+            href="/projects"
+            title="Projects"
             Icon={CheckIcon}
-            style="bg-gray-600"
-            number="0"
+            style="bg-yellow-500"
+            number="4"
           />
         </div>
         <div className="md:w-[90%]">
-          <h3 className="text-sm font-semibold">My Lists</h3>
+          <h3 className="text-sm font-semibold">Lists</h3>
           <nav className="mt-4 flex flex-col  items-center justify-center space-y-1 md:block">
             <ListNavItem
               href="/reminders"
@@ -64,32 +59,30 @@ const NavList: FC = () => {
               iconBgColor="blue-600"
             />
             <ListNavItem
-              href="/ideas"
-              title="Ideas"
+              href="/resume"
+              title="Resume"
               Icon={ListIcon}
               number={10}
-              iconBgColor="red-500"
-            />
-            <ListNavItem
-              href="/recipe-ideas"
-              title="Recipe Ideas"
-              Icon={ListIcon}
-              number={7}
-              iconBgColor="green-600"
-            />
-            <ListNavItem
-              href="/programming-ideas"
-              title="Programming Ideas"
-              Icon={ListIcon}
-              number={12}
               iconBgColor="yellow-500"
             />
+          </nav>
+        </div>
+        <div className="md:w-[90%]">
+          <h3 className="text-sm font-semibold">Links</h3>
+          <nav className="mt-4 flex flex-col  items-center justify-center space-y-1 md:block">
             <ListNavItem
-              href="/bucket-list"
-              title="Bucket List"
-              Icon={ListIcon}
-              number={3}
-              iconBgColor="blue-600"
+              href="/github"
+              title="Github"
+              Icon={GitBranchIcon}
+              number={2}
+              iconBgColor=""
+            />
+            <ListNavItem
+              href="/linkedin"
+              title="LinkedIn"
+              Icon={BsLinkedin}
+              number={2}
+              iconBgColor=""
             />
           </nav>
         </div>

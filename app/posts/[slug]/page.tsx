@@ -7,7 +7,7 @@ import React from "react"
 export default async function page({ params }: { params: { slug: string } }) {
   const result = await client.queries
     .post({
-      relativePath: `${params.slug}.mdx`,
+      relativePath: `${params.slug}.md`,
     })
     .then((res) => {
       return res

@@ -20,7 +20,7 @@ export default function MainBlogPostComponent(props: {
   const id = data.post.id
 
   const idParts = id.split("/")
-  const extractedPath = idParts[idParts.length - 1].replace(".mdx", "") // Get the third last part (today from today.mdx)
+  const extractedPath = idParts[idParts.length - 1].replace(".md", "") // Get the third last part (today from today.mdx)
 
   const titleColor = pathColorMapping[extractedPath] || "text-[var(--text)]" // Default color if path not found
   console.log(extractedPath, titleColor)

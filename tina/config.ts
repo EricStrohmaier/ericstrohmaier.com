@@ -32,7 +32,7 @@ export default defineConfig({
         name: "page",
         label: "Pages",
         path: "content/page",
-        format: "mdx",
+        format: "md",
         fields: [
           {
             type: "string",
