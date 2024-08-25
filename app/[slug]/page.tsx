@@ -1,6 +1,7 @@
 import client from "@/tina/__generated__/client"
 import MainComponent from "../../components/app/MainComponent"
 import { notFound } from "next/navigation"
+import Header from "@/components/app/Header"
 
 export default async function Page({
   params,
@@ -21,5 +22,10 @@ export default async function Page({
       return notFound()
     })
 
-  return <MainComponent {...result} />
+  return (
+    <>
+      <Header />
+      <MainComponent {...result} />
+    </>
+  )
 }
