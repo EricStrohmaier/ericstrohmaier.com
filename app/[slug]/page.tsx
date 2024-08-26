@@ -10,6 +10,7 @@ export default async function Page({
     slug: string
   }
 }) {
+  // change this to fetch db content then make novel editor
   const result = await client.queries
     .page({
       relativePath: `${params.slug}.md`,

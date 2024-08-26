@@ -24,12 +24,13 @@ export default function MainComponent(props: {
   const extractedPath = idParts[idParts.length - 1].replace(".md", "") // Get the third last part (today from today.mdx)
 
   const titleColor = pathColorMapping[extractedPath] || "text-[var(--text)]" // Default color if path not found
-  console.log(extractedPath, titleColor)
+  console.log("content", content)
 
   return (
     <div className="px-4">
       <div>
         <p className={`text-6xl font-semibold ${titleColor} `}>{title}</p>
+        {/* novel editor */}
         <TinaMarkdown content={content} />
       </div>
       <ReminderView reminders={reminders} active={active || false} />
