@@ -6,6 +6,7 @@ interface ProfileProps {
   displayName?: string
   website?: string
   about?: string
+  email?: string
 }
 
 const Profile: FC<ProfileProps> = ({
@@ -13,6 +14,7 @@ const Profile: FC<ProfileProps> = ({
   displayName,
   website,
   about,
+  email,
 }) => {
   return (
     <div className="mb-2 flex h-fit flex-col gap-2 md:mx-0 md:px-2">
@@ -47,7 +49,7 @@ const Profile: FC<ProfileProps> = ({
           <span className="mr-2 text-xl font-semibold">
             <span>{displayName}</span>
           </span>
-          <div className="flex space-x-3 text-sm"></div>
+          <div className="flex space-x-3 text-sm">{email}</div>
         </div>
         <div className="py-2">
           <p className="text-sm">{about}</p>

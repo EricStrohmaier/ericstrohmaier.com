@@ -13,9 +13,10 @@ export default function page() {
       </div>
 
       <Profile
+        email="eric.strohmaier00@gmail.com"
         displayName="Eric Strohmaier"
         picture="/eric-head.jpeg"
-        about="sdlfjsdlf"
+        about="Adventure guy programing"
       />
     </div>
   )
