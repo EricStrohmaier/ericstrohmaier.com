@@ -1,8 +1,6 @@
 ---
-title: Completed
+title: Projects I Completed
 ---
-
-# Projects I Completed
 
 Slacktivity (link)[https://slacktivity.app]
 build for my fiends an
@@ -19,7 +17,6 @@ A converting landingpage to validate my ideas
 Public Landingpage Boilerplate (link)
 open sor
 ce code for easy to edit landingpages to validate ideas
-
 
 Social Media manager telegram bot (link)
 creates linkedin post over telegram schleudes post and reminds you to post

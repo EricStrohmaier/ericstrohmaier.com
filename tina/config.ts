@@ -94,6 +94,55 @@ export default defineConfig({
           },
         },
       },
+      {
+        label: "Projects",
+        name: "project",
+        path: "content/projects",
+        fields: [
+          {
+            type: "string",
+            label: "Title",
+            name: "title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            label: "Description",
+            name: "description",
+          },
+          {
+            type: "rich-text",
+            label: "Content",
+            name: "content",
+            isBody: true,
+          },
+          {
+            type: "datetime",
+            label: "Date",
+            name: "date",
+          },
+          {
+            type: "string",
+            label: "Tags",
+            name: "tags",
+            list: true,
+          },
+        ],
+        ui: {
+          router: ({ document }) => {
+            return `/projects/${document._sys.filename}`
+          },
+          filename: {
+            slugify: (values) => {
+              return `${(values.title || "").replace(/ /g, "-").toLowerCase()}`.replace(
+                /[^\w-]+/g,
+                "",
+              )
+            },
+          },
+        },
+      },
     ],
   },
 })
