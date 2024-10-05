@@ -4,9 +4,8 @@ export default function Error({
   error: Error & { digest?: string }
 }) {
   return (
-    // TODO :make center
-    <main className="flex h-full w-full flex-col">
-      <div className="flex h-full flex-col items-center justify-center px-4 text-center">
+    <main className="flex h-full min-h-[80vh] w-full flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center px-4 text-center">
         <h1 className="text-text text-6xl font-bold">
           {error ? error.digest : 404}
         </h1>

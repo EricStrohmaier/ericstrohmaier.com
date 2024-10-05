@@ -1,10 +1,11 @@
-import fs from "fs/promises"
-import path from "path"
-import matter from "gray-matter"
 import { notFound } from "next/navigation"
 import Header from "@/components/app/Header"
-import ProjectPostComponent from "@/components/app/ProjectPostComponent"
 import MDPreviewComponent from "@/components/app/MDPreviewComponent"
+import {
+  fetchProjectBySlug,
+  fetchPageBlocks,
+  getProjectMetaData,
+} from "@/lib/notion"
 
 export default async function Page({
   params,
@@ -13,33 +14,42 @@ export default async function Page({
     slug: string
   }
 }) {
-  const projectPath = path.join(
-    process.cwd(),
-    "content",
-    "projects",
-    `${params.slug}.md`,
-  )
-
   try {
-    const fileContents = await fs.readFile(projectPath, "utf8")
-    const { data, content } = matter(fileContents)
-    // console.log(data, "content", content)
-    const project = {
-      ...data,
-      title: data.title,
-      description: data.description,
-      content,
-      id: `content/projects/${params.slug}.md`,
+    const project = await fetchProjectBySlug(params.slug)
+
+    if (!project) {
+      return notFound()
     }
+
+    const meta = getProjectMetaData(project)
+
+    const blocks = await fetchPageBlocks(project.id)
+    // Convert Notion blocks to Markdown
+    const content = blocks
+      .map((block) => {
+        if (block.type === "paragraph") {
+          return block.paragraph.rich_text
+            .map((text) => text.plain_text)
+            .join("")
+        }
+        // Add more block types as needed
+        return ""
+      })
+      .join("\n\n")
 
     return (
       <>
         <Header />
-        <div>
-          <h1 className="text-4xl font-bold">Projects</h1>
-          <div className="flex flex-col items-center justify-center">
-            <MDPreviewComponent project={project} />
-          </div>
+        <div className="container mx-auto px-4 py-8">
+          <MDPreviewComponent
+            project={{
+              slug: params.slug,
+              title: meta.title,
+              id: meta.id,
+              content: content,
+              tags: meta.tags,
+            }}
+          />
         </div>
       </>
     )

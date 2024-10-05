@@ -3,7 +3,6 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/ThemeProvider"
 import LayoutPage from "@/components/app/LayoutPage"
 import TimeProvider from "@/lib/time"
-import Header from "@/components/app/Header"
 
 export const metadata: Metadata = {
   title: "let's be aware",
