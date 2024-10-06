@@ -7,11 +7,10 @@ import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 export default async function ProjectsPage() {
   try {
     const projectsResponse = await fetchProjects()
-    console.log(projectsResponse)
+
     const projects = projectsResponse.results.map((project) =>
       getProjectMetaData(project as PageObjectResponse),
     )
-
     return (
       <>
         <Header />

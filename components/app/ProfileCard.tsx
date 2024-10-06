@@ -1,5 +1,6 @@
 import { FC } from "react"
 import Link from "next/link"
+import MDPreviewComponent from "@/components/app/MDPreviewComponent"
 
 interface ProfileProps {
   picture: string
@@ -7,6 +8,7 @@ interface ProfileProps {
   website?: string
   about?: string
   email?: string
+  content?: string
 }
 
 const Profile: FC<ProfileProps> = ({
@@ -15,6 +17,7 @@ const Profile: FC<ProfileProps> = ({
   website,
   about,
   email,
+  content,
 }) => {
   return (
     <div className="mb-2 flex h-fit flex-col gap-2 md:mx-0 md:px-2">
@@ -54,6 +57,19 @@ const Profile: FC<ProfileProps> = ({
         <div className="py-2">
           <p className="text-sm">{about}</p>
         </div>
+        {content && (
+          <div className="mt-4">
+            <MDPreviewComponent
+              project={{
+                slug: "profile",
+                title: "Profile",
+                id: "profile",
+                content: content,
+                tags: [],
+              }}
+            />
+          </div>
+        )}
       </>
     </div>
   )

@@ -2,8 +2,8 @@ import { notFound } from "next/navigation"
 import Header from "@/components/app/Header"
 import MDPreviewComponent from "@/components/app/MDPreviewComponent"
 import {
+  fetchPageContent,
   fetchProjectBySlug,
-  fetchPageBlocks,
   getProjectMetaData,
 } from "@/lib/notion"
 
@@ -23,19 +23,7 @@ export default async function Page({
 
     const meta = getProjectMetaData(project)
 
-    const blocks = await fetchPageBlocks(project.id)
-    // Convert Notion blocks to Markdown
-    const content = blocks
-      .map((block) => {
-        if (block.type === "paragraph") {
-          return block.paragraph.rich_text
-            .map((text) => text.plain_text)
-            .join("")
-        }
-        // Add more block types as needed
-        return ""
-      })
-      .join("\n\n")
+    const content = await fetchPageContent(project.id)
 
     return (
       <>

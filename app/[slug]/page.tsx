@@ -1,6 +1,10 @@
 import { notFound } from "next/navigation"
 import Header from "@/components/app/Header"
-import { fetchPageBySlug, fetchPageBlocks, getPageMetaData } from "@/lib/notion"
+import {
+  fetchPageBySlug,
+  getPageMetaData,
+  fetchPageContent,
+} from "@/lib/notion"
 import MDPreviewComponent from "@/components/app/MDPreviewComponent"
 
 export default async function Page({
@@ -17,27 +21,12 @@ export default async function Page({
       return notFound()
     }
     const meta = getPageMetaData(page)
-    console.log(meta)
 
-    const blocks = await fetchPageBlocks(page.id)
+    const content = await fetchPageContent(page.id)
 
     // Extract title from the Notion page
     // @ts-ignore
     const title = page.properties.name.title[0].plain_text || "Untitled"
-
-    // Convert Notion blocks to Markdown
-    console.log(blocks)
-    const content = blocks
-      .map((block) => {
-        if (block.type === "paragraph") {
-          return block.paragraph.rich_text
-            .map((text) => text.plain_text)
-            .join("")
-        }
-        // Add more block types as needed
-        return ""
-      })
-      .join("\n\n")
 
     return (
       <>

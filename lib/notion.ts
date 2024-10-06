@@ -42,9 +42,54 @@ export async function fetchPageBySlug(slug: string) {
   return response.results[0] as PageObjectResponse | undefined
 }
 
-export async function fetchPageBlocks(pageId: string) {
+export async function fetchPageContent(pageId: string) {
   const response = await notion.blocks.children.list({ block_id: pageId })
-  return response.results as BlockObjectResponse[]
+  const content = response.results
+    .map((block) => {
+      if ("type" in block) {
+        switch (block.type) {
+          case "paragraph":
+            return block.paragraph.rich_text
+              .map((text) => {
+                if (text.type === "text" && text.text.link) {
+                  return `[${text.plain_text}](${text.text.link.url})`
+                }
+                return text.plain_text
+              })
+              .join("")
+          case "heading_1":
+            return `# ${block.heading_1.rich_text.map((text) => text.plain_text).join("")}`
+          case "heading_2":
+            return `## ${block.heading_2.rich_text.map((text) => text.plain_text).join("")}`
+          case "heading_3":
+            return `### ${block.heading_3.rich_text.map((text) => text.plain_text).join("")}`
+          case "bulleted_list_item":
+            return `- ${block.bulleted_list_item.rich_text.map((text) => text.plain_text).join("")}`
+          case "numbered_list_item":
+            return `1. ${block.numbered_list_item.rich_text.map((text) => text.plain_text).join("")}`
+          case "to_do":
+            const checked = block.to_do.checked ? "x" : " "
+            return `- [${checked}] ${block.to_do.rich_text.map((text) => text.plain_text).join("")}`
+          case "image":
+            return `![${block.image.caption ? block.image.caption[0]?.plain_text : ""}](${
+              block.image.type === "file"
+                ? block.image.file.url
+                : block.image.type === "external"
+                  ? block.image.external.url
+                  : ""
+            })`
+          case "divider":
+            return "---"
+          default:
+            return ""
+        }
+      }
+      return ""
+    })
+    .filter(Boolean)
+    .join("\n\n")
+
+  return content
 }
 
 export const getPageMetaData = (post: PageObjectResponse) => {

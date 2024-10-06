@@ -224,3 +224,40 @@ pre::after {
   bottom: 1.5rem;
   color: #bcbcbc;
 }
+
+/* Add this at the end of the file */
+.markdown-content {
+  @apply text-base leading-relaxed;
+}
+
+.markdown-content h1 {
+  @apply text-3xl font-bold mt-6 mb-4;
+}
+
+.markdown-content h2 {
+  @apply text-2xl font-semibold mt-5 mb-3;
+}
+
+.markdown-content h3 {
+  @apply text-xl font-medium mt-4 mb-2;
+}
+
+.markdown-content p {
+  @apply mb-4;
+}
+
+.markdown-content ul, .markdown-content ol {
+  @apply mb-4 ml-8;
+}
+
+.markdown-content ul {
+  @apply list-disc;
+}
+
+.markdown-content ol {
+  @apply list-decimal;
+}
+
+.markdown-content li {
+  @apply mb-2;
+}
