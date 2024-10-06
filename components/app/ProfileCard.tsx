@@ -8,6 +8,7 @@ interface ProfileProps {
   about?: string
   email?: string
   content?: string
+  title: string
 }
 
 const Profile: FC<ProfileProps> = ({
@@ -17,6 +18,7 @@ const Profile: FC<ProfileProps> = ({
   about,
   email,
   content,
+  title,
 }) => {
   return (
     <div className="mb-2 flex h-fit flex-col gap-2 md:mx-0 md:px-2">
@@ -47,21 +49,12 @@ const Profile: FC<ProfileProps> = ({
         </div>
       </div>
       <>
-        <div className="flex-1">
-          <span className="mr-2 text-xl font-semibold">
-            <span>{displayName}</span>
-          </span>
-          <div className="flex space-x-3 text-sm">{email}</div>
-        </div>
-        <div className="py-2">
-          <p className="text-sm">{about}</p>
-        </div>
         {content && (
-          <div className="mt-4">
+          <div>
             <MDPreviewComponent
               project={{
                 slug: "profile",
-                title: "Profile",
+                title: title,
                 id: "profile",
                 content: content,
                 tags: [],

@@ -9,9 +9,11 @@ import {
 export default async function Page() {
   const page = await fetchPageBySlug("profile")
   let content = ""
+  let title = ""
 
   if (page) {
-    const meta = getPageMetaData(page)
+    let meta = getPageMetaData(page)
+    title = meta.title
     content = await fetchPageContent(page.id)
   }
 
@@ -26,10 +28,9 @@ export default async function Page() {
       </div>
 
       <Profile
+        title={title}
         email="eric.strohmaier00@gmail.com"
-        displayName="Eric Strohmaier"
         picture="/eric-head.jpeg"
-        about="Adventure guy programing"
         content={content}
       />
     </div>

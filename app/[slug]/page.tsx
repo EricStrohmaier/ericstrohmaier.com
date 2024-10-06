@@ -2,17 +2,18 @@ import { notFound } from "next/navigation"
 import Header from "@/components/app/Header"
 import {
   fetchPageBySlug,
-  getPageMetaData,
   fetchPageContent,
+  getPageMetaData,
 } from "@/lib/notion"
+import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
+import ReactMarkdown from "react-markdown"
+import Resume from "@/components/Resume"
 import MDPreviewComponent from "@/components/app/MDPreviewComponent"
 
-export default async function Page({
+export default async function SlugPage({
   params,
 }: {
-  params: {
-    slug: string
-  }
+  params: { slug: string }
 }) {
   try {
     const page = await fetchPageBySlug(params.slug)
@@ -20,24 +21,28 @@ export default async function Page({
     if (!page) {
       return notFound()
     }
-    const meta = getPageMetaData(page)
 
-    const content = await fetchPageContent(page.id)
+    const pageContent = await fetchPageContent(page.id)
+    const meta = getPageMetaData(page as PageObjectResponse)
 
     return (
       <>
         <Header />
-        <div className="container mx-auto px-4 py-8">
-          <MDPreviewComponent
-            project={{
-              slug: params.slug,
-              title: meta.title,
-              id: meta.id,
-              content: content,
-              tags: meta.tags,
-            }}
-          />
-        </div>{" "}
+        {params.slug === "resume" ? (
+          <Resume content={pageContent} title={meta.title} pageId={page.id} />
+        ) : (
+          <div className="container mx-auto px-4 py-8">
+            <MDPreviewComponent
+              project={{
+                slug: params.slug,
+                title: meta.title,
+                id: meta.id,
+                content: pageContent,
+                tags: meta.tags,
+              }}
+            />
+          </div>
+        )}
       </>
     )
   } catch (error) {

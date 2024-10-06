@@ -15,7 +15,7 @@ interface MDPreviewProps {
   project: ProjectData
 }
 
-const CustomLink = ({
+export const CustomLink = ({
   href,
   children,
 }: {
@@ -49,7 +49,7 @@ export default function MDPreviewComponent({ project }: MDPreviewProps) {
           </span>
         ))}
       </div>
-      <div className="markdown-content mt-2">
+      <div className="markdown-content text-text mt-2">
         <ReactMarkdown
           components={{
             a: ({ href, children }) => (

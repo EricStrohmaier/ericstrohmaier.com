@@ -61,7 +61,7 @@ export default async function ProjectsPage() {
                   )}
                 </div>
                 <div className="bg-background p-2">
-                  <h2 className="mb-2 text-xl font-semibold text-white">
+                  <h2 className="text-text mb-2 text-xl font-semibold">
                     {project.title || "Untitled Project"}
                   </h2>
                   <div>
