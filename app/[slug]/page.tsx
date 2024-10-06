@@ -24,10 +24,6 @@ export default async function Page({
 
     const content = await fetchPageContent(page.id)
 
-    // Extract title from the Notion page
-    // @ts-ignore
-    const title = page.properties.name.title[0].plain_text || "Untitled"
-
     return (
       <>
         <Header />
