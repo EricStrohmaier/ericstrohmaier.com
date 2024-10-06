@@ -31,7 +31,9 @@ export const ListNavItem: FC<ListNavItemProps> = ({
 
   return (
     <Link href={href} target={targetBlank ? "_blank" : ""}>
-      <div className={`${activeStyle} flex justify-between rounded-[10px]`}>
+      <div
+        className={`${activeStyle} my-2 flex justify-between rounded-[10px]`}
+      >
         <div className="flex items-center">
           <Icon className={iconStyle} />
           <span className="ml-2 hidden sm:block">{title}</span>

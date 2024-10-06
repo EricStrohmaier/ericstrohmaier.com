@@ -16,9 +16,9 @@ import { BsLinkedin } from "react-icons/bs"
 const NavList: FC = () => {
   return (
     <div className="my-10 flex min-h-[50vh] w-full flex-col justify-between">
-      <div className="flex flex-col space-y-5 md:items-center">
+      <div className="flex flex-col items-center space-y-5 md:items-center">
         {/* Adjust this grid to be 1 column on small screens and 2 columns on medium screens and up */}
-        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:w-[90%]">
+        <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-2 md:w-[90%]">
           <NavItem
             href="/today"
             title="Today"
@@ -48,9 +48,11 @@ const NavList: FC = () => {
             number="4"
           />
         </div>
-        <div className="mx-1 md:w-[90%]">
-          <h3 className="text-sm font-semibold">Lists</h3>
-          <nav className="mt-4 flex w-full flex-col items-start justify-center space-y-3 md:block">
+        <div className="w-full md:w-[90%]">
+          <h3 className="text-center text-sm font-semibold md:text-left md:text-lg">
+            Lists
+          </h3>
+          <nav className="mt-2 flex w-full flex-col items-center justify-center space-y-3 md:block md:items-start">
             <ListNavItem
               href="/reminders"
               title="Reminders"
@@ -67,9 +69,11 @@ const NavList: FC = () => {
             />
           </nav>
         </div>
-        <div className="mx-1 md:w-[90%]">
-          <h3 className="text-sm font-semibold">Links</h3>
-          <nav className="mt-4 flex w-full flex-col items-start justify-center space-y-1 md:block">
+        <div className="w-full md:w-[90%]">
+          <h3 className="text-center text-sm font-semibold md:text-left md:text-lg">
+            Links
+          </h3>
+          <nav className="mt-4 flex w-full flex-col items-center justify-center space-y-1 md:block md:items-start">
             <ListNavItem
               href="https://github.com/EricStrohmaier"
               targetBlank
