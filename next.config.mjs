@@ -13,6 +13,8 @@ const nextConfig = {
       { hostname: "avatar.vercel.sh" },
       { hostname: "avatars.githubusercontent.com" },
       { hostname: "www.google.com" },
+      { hostname: "images.unsplash.com" },
+      { hostname: "www.notion.so" },
     ],
   },
 }

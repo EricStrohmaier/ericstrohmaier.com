@@ -169,6 +169,15 @@ export const getProjectMetaData = (project: PageObjectResponse) => {
     return allTags
   }
 
+  const getCoverImage = (cover: any) => {
+    if (cover && cover.type === "external") {
+      return cover.external.url
+    } else if (cover && cover.type === "file") {
+      return cover.file.url
+    }
+    return null
+  }
+
   return {
     id: project.id,
     // @ts-ignore
@@ -177,6 +186,7 @@ export const getProjectMetaData = (project: PageObjectResponse) => {
     tags: getTags(project.properties.tags?.multi_select),
     // @ts-ignore
     slug: project.properties.slug.rich_text[0]?.plain_text || "",
+    coverImage: getCoverImage(project.cover),
   }
 }
 
