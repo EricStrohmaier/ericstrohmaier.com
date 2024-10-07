@@ -60,13 +60,6 @@ const NavList: FC = () => {
               number={5}
               iconBgColor="blue-600"
             />
-            <ListNavItem
-              href="/resume"
-              title="Resume"
-              Icon={ListIcon}
-              number={10}
-              iconBgColor="yellow-500"
-            />
           </nav>
         </div>
         <div className="w-full md:w-[90%]">

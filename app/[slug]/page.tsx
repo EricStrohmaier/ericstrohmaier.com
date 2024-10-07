@@ -28,21 +28,21 @@ export default async function SlugPage({
     return (
       <>
         <Header />
-        {params.slug === "resume" ? (
+        {/* {params.slug === "resume" ? (
           <Resume content={pageContent} title={meta.title} pageId={page.id} />
-        ) : (
-          <div className="container mx-auto px-4 py-8">
-            <MDPreviewComponent
-              project={{
-                slug: params.slug,
-                title: meta.title,
-                id: meta.id,
-                content: pageContent,
-                tags: meta.tags,
-              }}
-            />
-          </div>
-        )}
+        ) : ( */}
+        <div className="container mx-auto px-4 py-8">
+          <MDPreviewComponent
+            project={{
+              slug: params.slug,
+              title: meta.title,
+              id: meta.id,
+              content: pageContent,
+              tags: meta.tags,
+            }}
+          />
+        </div>
+        {/* )} */}
       </>
     )
   } catch (error) {
