@@ -3,7 +3,6 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/ThemeProvider"
 import LayoutPage from "@/components/app/LayoutPage"
 import TimeProvider from "@/lib/time"
-import Head from "next/head"
 
 export const metadata: Metadata = {
   title: "let's be aware",
@@ -17,13 +16,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <Head>
+      <head>
         <script
           defer
-          data-website-id="c5878337-6be0-492a-8387-b8be577fbb65"
           src="https://cloud.umami.is/script.js"
-        />
-      </Head>
+          data-website-id="c5878337-6be0-492a-8387-b8be577fbb65"
+        ></script>
+      </head>
       <body>
         <ThemeProvider attribute="class">
           <TimeProvider>

@@ -6,8 +6,6 @@ import {
   getPageMetaData,
 } from "@/lib/notion"
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
-import ReactMarkdown from "react-markdown"
-import Resume from "@/components/Resume"
 import MDPreviewComponent from "@/components/app/MDPreviewComponent"
 
 export default async function SlugPage({
