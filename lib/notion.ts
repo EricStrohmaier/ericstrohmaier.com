@@ -1,17 +1,14 @@
 "use server"
 
 import { Client } from "@notionhq/client"
-import {
-  BlockObjectResponse,
-  PageObjectResponse,
-} from "@notionhq/client/build/src/api-endpoints"
+import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 
 const notion = new Client({
   auth: process.env.NOTION_TOKEN,
   fetch: (url, init) => {
     return fetch(url, {
       ...init,
-      cache: "no-store",
+      cache: process.env.NODE_ENV === "development" ? "no-store" : "default",
     })
   },
 })
