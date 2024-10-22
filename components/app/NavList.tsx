@@ -15,7 +15,7 @@ import { BsLinkedin } from "react-icons/bs"
 
 const NavList: FC = () => {
   return (
-    <div className="my-10 flex min-h-[50vh] w-full flex-col justify-between">
+    <div className="my-10 flex w-full flex-col justify-between">
       <div className="flex flex-col items-center space-y-5 md:items-center">
         {/* Adjust this grid to be 1 column on small screens and 2 columns on medium screens and up */}
         <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-2 md:w-[90%]">

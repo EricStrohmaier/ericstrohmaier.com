@@ -26,14 +26,10 @@ export default function RootLayout({
       <body>
         <ThemeProvider attribute="class">
           <TimeProvider>
-            <LayoutPage
-              params={{
-                slug: "",
-              }}
-            >
-              <div className="prose-xl m-4 mx-auto mt-8 w-full max-w-4xl px-4 dark:prose-invert md:px-0">
-                <main>{children}</main>
-              </div>
+            <LayoutPage>
+              <main className="prose-xl m-4 mx-auto mt-8 w-full max-w-4xl px-4 dark:prose-invert md:px-0">
+                {children}
+              </main>
             </LayoutPage>
           </TimeProvider>
         </ThemeProvider>

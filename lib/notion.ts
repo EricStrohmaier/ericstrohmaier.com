@@ -8,7 +8,7 @@ const notion = new Client({
   fetch: (url, init) => {
     return fetch(url, {
       ...init,
-      cache: process.env.NODE_ENV === "development" ? "no-store" : "default",
+      cache: "no-store",
     })
   },
 })
