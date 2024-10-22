@@ -42,9 +42,9 @@ export const NavItem: FC<NavItemProps> = ({
         <div className="absolute right-0 top-0 p-1 text-xs font-bold">
           {number}
         </div>
-        <Icon className="mr-2 h-[44px] w-[34px]" />
-        <div className="flex flex-col items-start justify-center">
-          <span className="hidden text-sm font-bold lg:block">{title}</span>
+        <div className="flex items-center justify-start space-x-1">
+          <Icon className="mr-2 h-[30px] w-[30px]" />
+          <span className="hidden text-sm font-semibold lg:block">{title}</span>
         </div>
       </div>
     </Link>

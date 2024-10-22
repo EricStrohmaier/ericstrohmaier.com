@@ -4,10 +4,15 @@ import { FC } from "react"
 import {
   CalendarIcon,
   CheckIcon,
+  FileIcon,
   FlagIcon,
   GitBranchIcon,
   InboxIcon,
   ListIcon,
+  LucideProjector,
+  Projector,
+  ProjectorIcon,
+  User,
 } from "lucide-react"
 import { ListNavItem } from "./ListNavItem"
 import { NavItem } from "./NavItem"
@@ -24,28 +29,24 @@ const NavList: FC = () => {
             title="Today"
             Icon={CalendarIcon}
             style="bg-blue-600"
-            number="2"
-          />
-          <NavItem
-            href="/all"
-            title="All"
-            Icon={InboxIcon}
-            style="bg-gray-600"
-            number="65"
-          />
-          <NavItem
-            href="/todo"
-            title="Todo"
-            Icon={FlagIcon}
-            style="bg-yellow-500"
-            number="1"
           />
           <NavItem
             href="/projects"
             title="Projects"
-            Icon={CheckIcon}
+            Icon={Projector}
+            style="bg-red-600"
+          />
+          <NavItem
+            href="/contact"
+            title="Contact"
+            Icon={FlagIcon}
             style="bg-yellow-500"
-            number="4"
+          />
+          <NavItem
+            href="/profile"
+            title="About Me"
+            Icon={User}
+            style="bg-salmon"
           />
         </div>
         <div className="w-full md:w-[90%]">
@@ -57,8 +58,7 @@ const NavList: FC = () => {
               href="/reminders"
               title="Reminders"
               Icon={ListIcon}
-              number={5}
-              iconBgColor="blue-600"
+              iconClassName="bg-blue-600 rounded-full"
             />
           </nav>
         </div>
@@ -72,14 +72,18 @@ const NavList: FC = () => {
               targetBlank
               title="Github"
               Icon={GitBranchIcon}
-              iconBgColor=""
             />
             <ListNavItem
               href="https://www.linkedin.com/in/eric-strohmaier-3a0767267/"
               targetBlank
               title="LinkedIn"
               Icon={BsLinkedin}
-              iconBgColor=""
+            />
+            <ListNavItem
+              href="https://docs.google.com/document/d/1H-QrgIzORvaLmw6OnFKiL0ef5MYoLAIIq9WH5lZZpkU/edit?usp=sharing"
+              targetBlank
+              title="Resume/CV"
+              Icon={FileIcon}
             />
           </nav>
         </div>

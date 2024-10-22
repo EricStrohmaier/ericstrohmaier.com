@@ -47,6 +47,7 @@ const config = {
         },
         pink: "var(--pink)",
         teal: "var(--teal)",
+        salmon: "var(--salmon)",
         white: "var(--white)",
       },
       container: {

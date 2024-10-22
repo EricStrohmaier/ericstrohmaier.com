@@ -8,7 +8,7 @@ interface ListNavItemProps {
   title: string
   Icon: any
   number?: string | number
-  iconBgColor?: string
+  iconClassName?: string
   targetBlank?: boolean
 }
 
@@ -17,7 +17,7 @@ export const ListNavItem: FC<ListNavItemProps> = ({
   title,
   Icon,
   number,
-  iconBgColor,
+  iconClassName,
   targetBlank,
 }) => {
   // Style for the icon with dynamic background color, hidden on small screens
@@ -27,12 +27,12 @@ export const ListNavItem: FC<ListNavItemProps> = ({
   const isActive = `/${path}` === href
 
   const activeStyle = `${isActive ? `bg-[var(--secondary)]` : ""}`
-  const iconStyle = `w-8 h-8 p-1 rounded-full bg-${iconBgColor}`
+  const iconStyle = `w-8 h-8 p-1 ${iconClassName}`
 
   return (
     <Link href={href} target={targetBlank ? "_blank" : ""}>
       <div
-        className={`${activeStyle} my-2 flex justify-between rounded-[10px]`}
+        className={`${activeStyle} my-2 flex justify-between rounded-[15px]`}
       >
         <div className="flex items-center">
           <Icon className={iconStyle} />
