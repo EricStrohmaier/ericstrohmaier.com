@@ -26,9 +26,15 @@ export default async function Page({
     const content = await fetchPageContent(project.id)
 
     return (
-      <>
-        <Header />
-        <div className="container mx-auto px-4 py-8">
+      <div className="h-full w-full">
+        <div className="-m-8 -mt-12">
+          <img
+            className="mb-4 h-52 w-full object-cover"
+            src={meta.coverImage || "/default-project-banner.jpg"} // Use project image or default
+            alt={`Project banner for ${meta.title}`}
+          />
+        </div>
+        <div className="mt-10">
           <MDPreviewComponent
             project={{
               slug: params.slug,
@@ -39,7 +45,7 @@ export default async function Page({
             }}
           />
         </div>
-      </>
+      </div>
     )
   } catch (error) {
     console.error(error)
