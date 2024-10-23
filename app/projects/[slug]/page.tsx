@@ -30,7 +30,7 @@ export default async function Page({
         <div className="-m-8 -mt-12">
           <img
             className="mb-4 h-52 w-full object-cover"
-            src={meta.coverImage || "/default-project-banner.jpg"} // Use project image or default
+            src={meta.coverImage || "/nost-desk.jpg"} // Use project image or default
             alt={`Project banner for ${meta.title}`}
           />
         </div>
