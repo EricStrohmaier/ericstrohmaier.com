@@ -23,7 +23,11 @@ export const CustomLink = ({
   children: React.ReactNode
 }) => {
   return (
-    <Link href={href} className="text-blue-400 hover:underline ">
+    <Link
+      target="_blank"
+      href={href}
+      className="text-blue-400 hover:underline "
+    >
       {children}
     </Link>
   )

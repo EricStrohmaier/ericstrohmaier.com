@@ -183,6 +183,8 @@ export const getProjectMetaData = (project: PageObjectResponse) => {
     tags: getTags(project.properties.tags?.multi_select),
     // @ts-ignore
     slug: project.properties.slug.rich_text[0]?.plain_text || "",
+    // @ts-ignore
+    description: project.properties.description.rich_text[0]?.plain_text || "",
     coverImage: getCoverImage(project.cover),
   }
 }
