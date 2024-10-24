@@ -74,13 +74,13 @@ export default async function ProjectsPage() {
                       </span>
                     ))}
                   </div>
-                  <p className="text-sm text-gray-500">
-                    {project.description
-                      ? project.description.length > 25
+                  {project.description && (
+                    <p className="text-sm text-gray-500">
+                      {project.description.length > 25
                         ? `${project.description.slice(0, 25)}...`
-                        : project.description
-                      : ""}
-                  </p>
+                        : project.description}
+                    </p>
+                  )}
                 </div>
               </Link>
             ))}

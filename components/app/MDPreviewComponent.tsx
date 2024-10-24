@@ -43,16 +43,6 @@ export default function MDPreviewComponent({ project }: MDPreviewProps) {
   return (
     <>
       <h1 className={`mb-2 text-4xl font-bold ${titleColor}`}>{title}</h1>
-      <div className="mb-4">
-        {tags.map((tag, index) => (
-          <span
-            key={index}
-            className="mr-2 rounded-xl bg-gray-200 px-2 py-1 text-sm text-gray-700"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
       <div className="markdown-content text-text mt-2">
         <ReactMarkdown
           components={{
