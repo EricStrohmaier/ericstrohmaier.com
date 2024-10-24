@@ -76,8 +76,8 @@ export default async function ProjectsPage() {
                   </div>
                   {project.description && (
                     <p className="text-sm text-gray-500">
-                      {project.description.length > 25
-                        ? `${project.description.slice(0, 25)}...`
+                      {project.description.length > 35
+                        ? `${project.description.slice(0, 35)}...`
                         : project.description}
                     </p>
                   )}

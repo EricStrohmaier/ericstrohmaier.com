@@ -79,12 +79,12 @@ const NavList: FC = () => {
               title="LinkedIn"
               Icon={BsLinkedin}
             />
-            <ListNavItem
+            {/* <ListNavItem
               href="https://docs.google.com/document/d/1H-QrgIzORvaLmw6OnFKiL0ef5MYoLAIIq9WH5lZZpkU/edit?usp=sharing"
               targetBlank
               title="Resume/CV"
               Icon={FileIcon}
-            />
+            /> */}
           </nav>
         </div>
       </div>
