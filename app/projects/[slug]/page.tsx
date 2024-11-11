@@ -6,6 +6,9 @@ import {
   fetchProjectBySlug,
   getProjectMetaData,
 } from "@/lib/notion"
+import { Button } from "@/components/ui/button"
+import { ArrowLeftCircleIcon } from "lucide-react"
+import Link from "next/link"
 
 export default async function Page({
   params,
@@ -30,11 +33,20 @@ export default async function Page({
         <div className="-m-8 -mt-12">
           <img
             className="mb-4 h-52 w-full object-cover"
-            src={meta.coverImage || "/nost-desk.jpg"} // Use project image or default
+            src={meta.coverImage || "/nost-desk.jpg"}
             alt={`Project banner for ${meta.title}`}
           />
         </div>
         <div className="mt-10">
+          <Link href="/projects">
+            <Button
+              variant="ghost"
+              className="mb-2 transition-colors duration-200 "
+            >
+              <ArrowLeftCircleIcon className="mr-2 h-5 w-5" />
+              Back to Projects
+            </Button>
+          </Link>
           <MDPreviewComponent
             project={{
               slug: params.slug,
