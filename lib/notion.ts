@@ -145,7 +145,21 @@ function getToday(datestring: string) {
 
 export async function fetchProjectBySlug(slug: string) {
   const response = await notion.databases.query({
-    database_id: process.env.NOTION_PROJECTS_DATABASE_ID!, // Make sure to add this to your .env file
+    database_id: process.env.NOTION_PROJECTS_DATABASE_ID!,
+    filter: {
+      property: "slug",
+      rich_text: {
+        equals: slug,
+      },
+    },
+  })
+
+  return response.results[0] as PageObjectResponse | undefined
+}
+
+export async function fetchProductBySlug(slug: string) {
+  const response = await notion.databases.query({
+    database_id: process.env.NOTION_PRODUCTS_DATABASE_ID!,
     filter: {
       property: "slug",
       rich_text: {
@@ -207,4 +221,20 @@ export async function fetchProjects() {
   })
 }
 
-// ... (keep existing functions)
+export async function fetchProducts() {
+  return notion.databases.query({
+    database_id: process.env.NOTION_PRODUCTS_DATABASE_ID!,
+    // filter: {
+    //   property: "Status",
+    //   select: {
+    //     equals: "Published",
+    //   },
+    // },
+    sorts: [
+      {
+        property: "name",
+        direction: "ascending",
+      },
+    ],
+  })
+}

@@ -2,7 +2,7 @@ import { notFound } from "next/navigation"
 import MDPreviewComponent from "@/components/app/MDPreviewComponent"
 import {
   fetchPageContent,
-  fetchProjectBySlug,
+  fetchProductBySlug,
   getProjectMetaData,
 } from "@/lib/notion"
 import { Button } from "@/components/ui/button"
@@ -17,11 +17,12 @@ export const generateMetadata = async ({
   }
 }) => {
   try {
-    const project = await fetchProjectBySlug(params.slug)
-    if (!project) {
+    const product = await fetchProductBySlug(params.slug)
+
+    if (!product) {
       return notFound()
     }
-    const meta = getProjectMetaData(project)
+    const meta = getProjectMetaData(product)
 
     return {
       title: meta.title,
@@ -52,15 +53,15 @@ export default async function Page({
   }
 }) {
   try {
-    const project = await fetchProjectBySlug(params.slug)
+    const product = await fetchProductBySlug(params.slug)
 
-    if (!project) {
+    if (!product) {
       return notFound()
     }
 
-    const meta = getProjectMetaData(project)
+    const meta = getProjectMetaData(product)
 
-    const content = await fetchPageContent(project.id)
+    const content = await fetchPageContent(product.id)
 
     return (
       <div className="size-full">
@@ -68,14 +69,14 @@ export default async function Page({
           <img
             className="mb-4 h-52 w-full object-cover"
             src={meta.coverImage || "/nost-desk.jpg"}
-            alt={`Project banner for ${meta.title}`}
+            alt={`Product banner for ${meta.title}`}
           />
         </div>
         <div className="mt-10">
-          <Link href="/projects">
+          <Link href="/products">
             <Button
               variant="ghost"
-              className="mb-2 transition-colors duration-200 lg:-m-8 "
+              className="mb-2 transition-colors duration-200 lg:-m-8"
             >
               <ArrowLeftCircleIcon className="mr-2 size-5" />
               Back
