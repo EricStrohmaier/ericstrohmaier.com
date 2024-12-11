@@ -1,10 +1,14 @@
 import Profile from "@/components/app/ProfileCard"
-import React from "react"
 import {
   fetchPageBySlug,
   getPageMetaData,
   fetchPageContent,
 } from "@/lib/notion"
+
+export const metadata = {
+  title: "Profile",
+  description: "Get in touch with me",
+}
 
 export default async function Page() {
   const page = await fetchPageBySlug("profile")
@@ -18,7 +22,7 @@ export default async function Page() {
   }
 
   return (
-    <div className="h-full w-full">
+    <div className="size-full">
       <div className="-m-8 -mt-12">
         <img
           className="mb-4 h-52 w-full object-cover"

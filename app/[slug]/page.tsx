@@ -7,6 +7,42 @@ import {
 } from "@/lib/notion"
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 import MDPreviewComponent from "@/components/app/MDPreviewComponent"
+import { siteConfig } from "@/site-config"
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: {
+    slug: string
+  }
+}) => {
+  try {
+    const page = await fetchPageBySlug(params.slug)
+    if (!page) {
+      return notFound()
+    }
+    const meta = getPageMetaData(page as PageObjectResponse)
+    return {
+      title: meta.title,
+      description: siteConfig.description,
+      openGraph: {
+        title: meta.title,
+        description: siteConfig.description,
+        images: [
+          {
+            url: siteConfig.ogImage || "/nost-desk.jpg",
+            width: 800,
+            height: 600,
+            alt: meta.title,
+          },
+        ],
+      },
+    }
+  } catch (error) {
+    console.error(error)
+    return notFound()
+  }
+}
 
 export default async function SlugPage({
   params,

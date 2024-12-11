@@ -12,6 +12,11 @@ import Link from "next/link"
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 import ReactMarkdown from "react-markdown"
 
+export const metadata = {
+  title: "Projects",
+  description: "My projects",
+}
+
 export default async function ProjectsPage() {
   try {
     // Fetch the content for the "projects" slug
@@ -57,7 +62,7 @@ export default async function ProjectsPage() {
                       className="-my-0 object-cover"
                     />
                   ) : (
-                    <div className="via-pink-500 h-full w-full bg-gradient-to-br from-purple-500 to-red-500"></div>
+                    <div className="via-pink-500 size-full bg-gradient-to-br from-purple-500 to-red-500"></div>
                   )}
                 </div>
                 <div className="bg-background p-2">

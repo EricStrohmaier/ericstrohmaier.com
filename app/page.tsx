@@ -7,6 +7,11 @@ import {
 } from "@/lib/notion"
 import MDPreviewComponent from "@/components/app/MDPreviewComponent"
 
+export const metadata = {
+  title: "Creative Home Studio",
+  description: "Welcome to My Site",
+}
+
 export default async function Home() {
   try {
     const page = await fetchPageBySlug("home")

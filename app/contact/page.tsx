@@ -10,7 +10,7 @@ import { siteConfig } from "@/site-config"
 import Header from "@/components/app/Header"
 
 export const metadata = {
-  title: "Contact Eric Strohmaier",
+  title: "Contact Me",
   description: "Get in touch with me",
 }
 
