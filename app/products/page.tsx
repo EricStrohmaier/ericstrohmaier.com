@@ -60,16 +60,12 @@ export default async function Page() {
                 className="overflow-hidden rounded-xl shadow-lg"
               >
                 <div className="relative h-40 w-full">
-                  {product.coverImage ? (
-                    <Image
-                      src={product.coverImage}
-                      alt={product.title || "Product cover"}
-                      fill
-                      className="-my-0 object-cover"
-                    />
-                  ) : (
-                    <div className="via-pink-500 size-full bg-gradient-to-br from-purple-500 to-red-500"></div>
-                  )}
+                  <Image
+                    src={product.coverImage || "/nost-desk.jpg"}
+                    alt={product.title || "Product cover"}
+                    fill
+                    className="-my-0 object-cover"
+                  />
                 </div>
                 <div className="bg-background p-2">
                   <h2 className="text-text mb-2 text-xl font-semibold">

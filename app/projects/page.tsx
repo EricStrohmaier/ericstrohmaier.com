@@ -57,16 +57,12 @@ export default async function ProjectsPage() {
                 className="overflow-hidden rounded-xl shadow-lg"
               >
                 <div className="relative h-40 w-full">
-                  {project.coverImage ? (
-                    <Image
-                      src={project.coverImage}
-                      alt={project.title || "Project cover"}
-                      fill
-                      className="-my-0 object-cover"
-                    />
-                  ) : (
-                    <div className="via-pink-500 size-full bg-gradient-to-br from-purple-500 to-red-500"></div>
-                  )}
+                  <Image
+                    src={project.coverImage || "/nost-desk.jpg"}
+                    alt={project.title || "Project cover"}
+                    fill
+                    className="-my-0 object-cover"
+                  />
                 </div>
                 <div className="bg-background p-2">
                   <h2 className="text-text mb-2 text-xl font-semibold">
