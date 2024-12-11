@@ -20,8 +20,8 @@ const NavList: FC = () => {
         {/* Adjust this grid to be 1 column on small screens and 2 columns on medium screens and up */}
         <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-2 md:w-[90%]">
           <NavItem
-            href="/today"
-            title="Today"
+            href="/blog"
+            title="Blog"
             Icon={CalendarIcon}
             style="bg-blue-600"
           />

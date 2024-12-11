@@ -171,6 +171,19 @@ export async function fetchProductBySlug(slug: string) {
   return response.results[0] as PageObjectResponse | undefined
 }
 
+export async function fetchBlogBySlug(slug: string) {
+  const response = await notion.databases.query({
+    database_id: process.env.NOTION_BLOG_DATABASE_ID!,
+    filter: {
+      property: "slug",
+      rich_text: {
+        equals: slug,
+      },
+    },
+  })
+  return response.results[0] as PageObjectResponse | undefined
+}
+
 export const getProjectMetaData = (project: PageObjectResponse) => {
   const getTags = (tags: any) => {
     const allTags = tags.map((tag: any) => {
@@ -224,6 +237,24 @@ export async function fetchProjects() {
 export async function fetchProducts() {
   return notion.databases.query({
     database_id: process.env.NOTION_PRODUCTS_DATABASE_ID!,
+    // filter: {
+    //   property: "Status",
+    //   select: {
+    //     equals: "Published",
+    //   },
+    // },
+    sorts: [
+      {
+        property: "name",
+        direction: "ascending",
+      },
+    ],
+  })
+}
+
+export async function fetchBlog() {
+  return notion.databases.query({
+    database_id: process.env.NOTION_BLOG_DATABASE_ID!,
     // filter: {
     //   property: "Status",
     //   select: {
