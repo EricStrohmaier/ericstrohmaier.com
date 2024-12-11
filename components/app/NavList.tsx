@@ -55,6 +55,12 @@ const NavList: FC = () => {
               Icon={ListIcon}
               iconClassName="bg-blue-600 rounded-full"
             />
+            <ListNavItem
+              href="/bucketlist"
+              title="Bucket List"
+              Icon={ListIcon}
+              iconClassName="bg-yellow-600 rounded-full"
+            />
           </nav>
         </div>
         <div className="w-full md:w-[90%]">
