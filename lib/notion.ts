@@ -66,7 +66,7 @@ export async function fetchPageContent(pageId: string) {
             return `1. ${block.numbered_list_item.rich_text.map((text) => text.plain_text).join("")}`
           case "to_do":
             const checked = block.to_do.checked ? "x" : " "
-            return `- [${checked}] ${block.to_do.rich_text.map((text) => text.plain_text).join("")}`
+            return `[${checked}] ${block.to_do.rich_text.map((text) => text.plain_text).join("")}`
           case "image":
             return `![${block.image.caption ? block.image.caption[0]?.plain_text : ""}](${
               block.image.type === "file"
