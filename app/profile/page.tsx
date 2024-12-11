@@ -1,9 +1,6 @@
 import Profile from "@/components/app/ProfileCard"
-import {
-  fetchPageBySlug,
-  getPageMetaData,
-  fetchPageContent,
-} from "@/lib/notion"
+import { fetchPageBySlug, getPageMetaData } from "@/lib/notion"
+import { fetchNotionPageAsMarkdown } from "@/lib/notion-md"
 
 export const metadata = {
   title: "Profile",
@@ -12,13 +9,13 @@ export const metadata = {
 
 export default async function Page() {
   const page = await fetchPageBySlug("profile")
-  let content = ""
+  let content
   let title = ""
 
   if (page) {
     let meta = getPageMetaData(page)
     title = meta.title
-    content = await fetchPageContent(page.id)
+    content = await fetchNotionPageAsMarkdown(page.id)
   }
 
   return (

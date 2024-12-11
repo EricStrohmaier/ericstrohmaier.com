@@ -1,5 +1,6 @@
 import { FC } from "react"
 import MDPreviewComponent from "@/components/app/MDPreviewComponent"
+import { MdStringObject } from "notion-to-md/build/types"
 
 interface ProfileProps {
   picture: string
@@ -7,7 +8,7 @@ interface ProfileProps {
   website?: string
   about?: string
   email?: string
-  content?: string
+  content?: MdStringObject
   title: string
 }
 
@@ -33,7 +34,7 @@ const Profile: FC<ProfileProps> = ({
               src={picture}
               width="128"
               height="128"
-              className="h-full w-full rounded-full border-2 object-cover"
+              className="size-full rounded-full border-2 object-cover"
             />
           )}
         </div>

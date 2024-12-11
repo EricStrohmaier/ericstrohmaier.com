@@ -1,13 +1,10 @@
 import { notFound } from "next/navigation"
 import MDPreviewComponent from "@/components/app/MDPreviewComponent"
-import {
-  fetchBlogBySlug,
-  fetchPageContent,
-  getProjectMetaData,
-} from "@/lib/notion"
+import { fetchBlogBySlug, getProjectMetaData } from "@/lib/notion"
 import { Button } from "@/components/ui/button"
 import { ArrowLeftCircleIcon } from "lucide-react"
 import Link from "next/link"
+import { fetchNotionPageAsMarkdown } from "@/lib/notion-md"
 
 export const generateMetadata = async ({
   params,
@@ -61,7 +58,7 @@ export default async function Page({
 
     const meta = getProjectMetaData(blog)
 
-    const content = await fetchPageContent(blog.id)
+    const content = await fetchNotionPageAsMarkdown(blog.id)
 
     return (
       <div className="size-full">

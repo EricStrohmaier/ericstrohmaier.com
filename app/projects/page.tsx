@@ -5,12 +5,13 @@ import {
   fetchProjects,
   getProjectMetaData,
   fetchPageBySlug,
-  fetchPageContent,
   getPageMetaData,
 } from "@/lib/notion"
 import Link from "next/link"
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 import ReactMarkdown from "react-markdown"
+import { fetchNotionPageAsMarkdown } from "@/lib/notion-md"
+import { customMDComponent } from "@/components/app/MDPreviewComponent"
 
 export const metadata = {
   title: "Projects",
@@ -21,10 +22,10 @@ export default async function ProjectsPage() {
   try {
     // Fetch the content for the "projects" slug
     const projectsPage = await fetchPageBySlug("projects")
-    let projectsContent = ""
+    let projectsContent
     let projectsTitle = "My Projects" // Default title
     if (projectsPage) {
-      projectsContent = await fetchPageContent(projectsPage.id)
+      projectsContent = await fetchNotionPageAsMarkdown(projectsPage.id)
       const projectsMetaData = getPageMetaData(
         projectsPage as PageObjectResponse,
       )
@@ -43,7 +44,9 @@ export default async function ProjectsPage() {
           <h1 className="mb-8 text-4xl font-bold">{projectsTitle}</h1>
 
           <div className="mb-8">
-            <ReactMarkdown>{projectsContent}</ReactMarkdown>
+            <ReactMarkdown components={customMDComponent as any}>
+              {projectsContent?.parent}
+            </ReactMarkdown>
           </div>
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

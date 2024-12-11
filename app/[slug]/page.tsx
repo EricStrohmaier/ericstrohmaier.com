@@ -1,13 +1,10 @@
 import { notFound } from "next/navigation"
 import Header from "@/components/app/Header"
-import {
-  fetchPageBySlug,
-  fetchPageContent,
-  getPageMetaData,
-} from "@/lib/notion"
+import { fetchPageBySlug, getPageMetaData } from "@/lib/notion"
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 import MDPreviewComponent from "@/components/app/MDPreviewComponent"
 import { siteConfig } from "@/site-config"
+import { fetchNotionPageAsMarkdown } from "@/lib/notion-md"
 
 export const generateMetadata = async ({
   params,
@@ -56,7 +53,7 @@ export default async function SlugPage({
       return notFound()
     }
 
-    const pageContent = await fetchPageContent(page.id)
+    const pageContent = await fetchNotionPageAsMarkdown(page.id)
     const meta = getPageMetaData(page as PageObjectResponse)
 
     return (

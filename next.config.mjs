@@ -15,6 +15,7 @@ const nextConfig = {
       { hostname: "www.google.com" },
       { hostname: "images.unsplash.com" },
       { hostname: "www.notion.so" },
+      { hostname: "prod-files-secure.s3.us-west-2.amazonaws.com" },
     ],
   },
   webpack: (config) => {
@@ -22,9 +23,9 @@ const nextConfig = {
       test: /\.pdf$/,
       use: [
         {
-          loader: 'file-loader',
+          loader: "file-loader",
           options: {
-            name: '[name].[ext]',
+            name: "[name].[ext]",
           },
         },
       ],
@@ -32,10 +33,10 @@ const nextConfig = {
     config.module.rules.push({
       test: /\.(ttf|woff|woff2|eot)$/,
       use: {
-        loader: 'file-loader',
+        loader: "file-loader",
         options: {
-          name: '[name].[ext]',
-          outputPath: 'static/fonts/',
+          name: "[name].[ext]",
+          outputPath: "static/fonts/",
         },
       },
     })

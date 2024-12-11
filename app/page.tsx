@@ -1,11 +1,8 @@
 import { notFound } from "next/navigation"
 import Header from "@/components/app/Header"
-import {
-  fetchPageBySlug,
-  getPageMetaData,
-  fetchPageContent,
-} from "@/lib/notion"
+import { fetchPageBySlug, getPageMetaData } from "@/lib/notion"
 import MDPreviewComponent from "@/components/app/MDPreviewComponent"
+import { fetchNotionPageAsMarkdown } from "@/lib/notion-md"
 
 export const metadata = {
   title: "Creative Home Studio",
@@ -26,8 +23,10 @@ export default async function Home() {
               slug: "home",
               title: "Welcome to My Site",
               id: "home",
-              content:
-                "The home page content is currently not available. Please check back later.",
+              content: {
+                parent:
+                  "The home page content is currently not available. Please check back later.",
+              },
               tags: ["home"],
             }}
           />
@@ -36,7 +35,7 @@ export default async function Home() {
     }
 
     const meta = getPageMetaData(page)
-    const content = await fetchPageContent(page.id)
+    const content = await fetchNotionPageAsMarkdown(page.id)
 
     return (
       <>

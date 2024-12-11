@@ -4,13 +4,14 @@ import Image from "next/image"
 import {
   getProjectMetaData,
   fetchPageBySlug,
-  fetchPageContent,
   getPageMetaData,
   fetchProducts,
 } from "@/lib/notion"
 import Link from "next/link"
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 import ReactMarkdown from "react-markdown"
+import { fetchNotionPageAsMarkdown } from "@/lib/notion-md"
+import { customMDComponent } from "@/components/app/MDPreviewComponent"
 
 export const metadata = {
   title: "Products",
@@ -21,12 +22,17 @@ export default async function Page() {
   try {
     // Fetch the content for the "products" slug
     const page = await fetchPageBySlug("products")
-    let content = ""
+    let content
     let title = "My Products" // Default title
     if (page) {
-      content = await fetchPageContent(page.id)
+      content = await fetchNotionPageAsMarkdown(page.id)
+
       const metaData = getPageMetaData(page as PageObjectResponse)
       title = metaData.title || title
+    }
+    const sanitizedContent = {
+      ...content,
+      parent: content?.parent.replace(/child_database\s+/g, ""), // Remove the "child_database" text
     }
 
     const response = await fetchProducts()
@@ -41,7 +47,9 @@ export default async function Page() {
           <h1 className="mb-8 text-4xl font-bold">{title}</h1>
 
           <div className="mb-8">
-            <ReactMarkdown>{content}</ReactMarkdown>
+            <ReactMarkdown components={customMDComponent as any}>
+              {sanitizedContent?.parent}
+            </ReactMarkdown>
           </div>
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

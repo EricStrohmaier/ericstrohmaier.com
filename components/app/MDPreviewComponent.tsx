@@ -1,12 +1,13 @@
 import ReactMarkdown from "react-markdown"
 import { pathColorMapping } from "@/constans"
 import Link from "next/link"
+import { MdStringObject } from "notion-to-md/build/types"
 
 interface ProjectData {
   title: string
   description?: string
   id: string
-  content: string
+  content: MdStringObject
   tags: string[]
   slug: string
 }
@@ -33,6 +34,18 @@ export const CustomLink = ({
   )
 }
 
+export const customMDComponent = {
+  a: ({ href, children }: { href: string; children: React.ReactNode }) => (
+    <CustomLink href={href || "#"}>{children}</CustomLink>
+  ),
+  ul: ({ children }: { children: React.ReactNode }) => (
+    <ul className="list-disc pl-6">{children}</ul>
+  ),
+  li: ({ children }: { children: React.ReactNode }) => (
+    <li className="mb-2">{children}</li>
+  ),
+}
+
 export default function MDPreviewComponent({ project }: MDPreviewProps) {
   const { title, description, id, content, tags, slug } = project
 
@@ -44,14 +57,8 @@ export default function MDPreviewComponent({ project }: MDPreviewProps) {
     <>
       <h1 className={`mb-2 text-4xl font-bold ${titleColor}`}>{title}</h1>
       <div className="markdown-content text-text mt-2">
-        <ReactMarkdown
-          components={{
-            a: ({ href, children }) => (
-              <CustomLink href={href || ""}>{children}</CustomLink>
-            ),
-          }}
-        >
-          {content}
+        <ReactMarkdown components={customMDComponent as any}>
+          {content.parent}
         </ReactMarkdown>
       </div>
     </>

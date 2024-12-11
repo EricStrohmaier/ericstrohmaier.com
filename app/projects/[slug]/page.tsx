@@ -1,13 +1,10 @@
 import { notFound } from "next/navigation"
 import MDPreviewComponent from "@/components/app/MDPreviewComponent"
-import {
-  fetchPageContent,
-  fetchProjectBySlug,
-  getProjectMetaData,
-} from "@/lib/notion"
+import { fetchProjectBySlug, getProjectMetaData } from "@/lib/notion"
 import { Button } from "@/components/ui/button"
 import { ArrowLeftCircleIcon } from "lucide-react"
 import Link from "next/link"
+import { fetchNotionPageAsMarkdown } from "@/lib/notion-md"
 
 export const generateMetadata = async ({
   params,
@@ -60,8 +57,11 @@ export default async function Page({
 
     const meta = getProjectMetaData(project)
 
-    const content = await fetchPageContent(project.id)
-
+    const content = await fetchNotionPageAsMarkdown(project.id)
+    const sanitizedContent = {
+      ...content,
+      parent: content?.parent.replace(/child_database\s+/g, ""), // Remove the "child_database" text
+    }
     return (
       <div className="size-full">
         <div className="-m-8 -mt-12">
@@ -86,7 +86,7 @@ export default async function Page({
               slug: params.slug,
               title: meta.title,
               id: meta.id,
-              content: content,
+              content: sanitizedContent,
               tags: meta.tags,
             }}
           />

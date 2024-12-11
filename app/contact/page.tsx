@@ -14,7 +14,13 @@ export const metadata = {
   description: "Get in touch with me",
 }
 
-export default function ContactPage() {
+interface PageProps {
+  searchParams: {
+    message?: string
+    [key: string]: string | string[] | undefined
+  }
+}
+export default function ContactPage({ searchParams }: PageProps) {
   return (
     <>
       <Header />
@@ -33,7 +39,7 @@ export default function ContactPage() {
               or use the form below.
             </CardDescription>
           </CardHeader>
-          <FeedbackForm />
+          <FeedbackForm message={searchParams.message} />
         </Card>
       </div>
     </>

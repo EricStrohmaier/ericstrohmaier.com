@@ -6,9 +6,9 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 
-const FeedbackForm: React.FC = () => {
+const FeedbackForm: React.FC<{ message?: string }> = ({ message }) => {
   const [email, setEmail] = useState("")
-  const [message, setMessage] = useState("")
+  const [messageInput, setMessageInput] = useState(message || "")
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -28,7 +28,7 @@ const FeedbackForm: React.FC = () => {
       const response = await fetch("/api/send-feedback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, message }),
+        body: JSON.stringify({ email, message: messageInput }),
       })
 
       if (response.ok) {
@@ -38,7 +38,7 @@ const FeedbackForm: React.FC = () => {
             description: "Thank you for your feedback!",
           })
           setEmail("")
-          setMessage("")
+          setMessageInput("")
         } else {
           throw new Error(data.error || "Failed to send feedback")
         }
@@ -87,8 +87,8 @@ const FeedbackForm: React.FC = () => {
         </label>
         <Textarea
           id="message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
+          value={messageInput}
+          onChange={(e) => setMessageInput(e.target.value)}
           required
           rows={4}
           className="w-full rounded-[8px] bg-[var(--background)] text-[var(--text)]"
