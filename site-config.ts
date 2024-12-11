@@ -1,0 +1,37 @@
+export const siteConfig = {
+  supportEmail: "contact@ericstrohmaier.com",
+  name: "Eric Strohmaier",
+  domain: "ericstrohmaier.com",
+  url: "https://ericstrohmaier.com",
+  //  Keep Slack Status Always Online
+  description: "My personal website, where I share my thoughts and projects.",
+  keywords: [
+    "Eric Strohmaier",
+    "Software Engineer",
+    "productivity tool",
+    "workspace management",
+    "Slack integration",
+    "automatic status updates",
+    "remote work",
+    "Local Boards",
+    "Surf Board Rental",
+    "Slackactivity.com",
+    "bitvocation.com",
+    "bitvocation",
+    "boringlandingpage.com",
+    "boringlandingpage",
+    "boringtemplates.com",
+    "boringtemplates",
+  ],
+  ogImage: "https://ericstrohmaier.com/og-image.png",
+  links: {
+    twitter: "https://twitter.com/EricStrohmaier",
+    github: "https://github.com/EricStrohmaier",
+    linkedin: "https://www.linkedin.com/in/ericstrohmaier/",
+    email: "mailto:contact@ericstrohmaier.com",
+  },
+  auth: {
+    loginUrl: "/signin",
+    callbackUrl: "/dashboard",
+  },
+}

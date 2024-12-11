@@ -3,20 +3,15 @@ import { FC } from "react"
 
 import {
   CalendarIcon,
-  CheckIcon,
-  FileIcon,
   FlagIcon,
   GitBranchIcon,
-  InboxIcon,
   ListIcon,
-  LucideProjector,
   Projector,
-  ProjectorIcon,
-  User,
 } from "lucide-react"
 import { ListNavItem } from "./ListNavItem"
 import { NavItem } from "./NavItem"
 import { BsLinkedin } from "react-icons/bs"
+import { RiToolsLine } from "react-icons/ri"
 
 const NavList: FC = () => {
   return (
@@ -43,9 +38,9 @@ const NavList: FC = () => {
             style="bg-yellow-500"
           />
           <NavItem
-            href="/profile"
-            title="About Me"
-            Icon={User}
+            href="/products"
+            title="Products"
+            Icon={RiToolsLine}
             style="bg-salmon"
           />
         </div>
