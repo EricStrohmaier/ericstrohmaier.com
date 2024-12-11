@@ -67,7 +67,7 @@ export default async function Page({
       <div className="size-full">
         <div className="-m-8 -mt-12">
           <img
-            className="mb-4 h-52 w-full object-cover"
+            className="mb-4 h-52 w-full object-cover "
             src={meta.coverImage || "/nost-desk.jpg"}
             alt={`Product banner for ${meta.title}`}
           />
