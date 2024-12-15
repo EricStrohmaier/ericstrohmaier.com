@@ -23,7 +23,7 @@ export const siteConfig = {
     "boringtemplates.com",
     "boringtemplates",
   ],
-  ogImage: "https://ericstrohmaier.com/og-image.png",
+  ogImage: "https://ericstrohmaier.com/og-image.jpeg",
   links: {
     twitter: "https://twitter.com/EricStrohmaier",
     github: "https://github.com/EricStrohmaier",
