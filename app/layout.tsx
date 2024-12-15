@@ -46,7 +46,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class">
           <TimeProvider>
             <LayoutPage>
-              <main className="prose-xl m-4 mx-auto mt-8 w-full max-w-4xl px-4 dark:prose-invert md:px-0">
+              <main className="prose-xl m-2 mx-auto mt-8 w-full max-w-4xl px-4 dark:prose-invert md:m-4 md:px-0">
                 {children}
               </main>
             </LayoutPage>

@@ -55,7 +55,9 @@ export default function MDPreviewComponent({ project }: MDPreviewProps) {
 
   return (
     <>
-      <h1 className={`mb-2 text-4xl font-bold ${titleColor}`}>{title}</h1>
+      <h1 className={`mb-2 text-4xl font-bold md:text-6xl ${titleColor}`}>
+        {title}
+      </h1>
       <div className="markdown-content text-text mt-2">
         <ReactMarkdown components={customMDComponent as any}>
           {content.parent}
