@@ -66,7 +66,18 @@ export default async function Home() {
                 profits. No restrictions on what you can build.
               </p>
             </div>
-
+            {/* Primary CTA */}
+            <div className="text-text text-center">
+              <Button
+                asChild
+                className="text-text mx-auto flex h-12 w-fit items-center justify-center space-x-2 rounded-xl bg-background px-6 py-3 text-lg font-semibold transition-colors hover:bg-background hover:bg-opacity-85 md:px-8 md:py-4 md:text-xl"
+              >
+                <Link href="/contact/?message=Hey%20Eric%2C%0AI%27m%20interested%20in%20getting%20a%20landing%20page%20built.%0AWhat%20I%27m%20looking%20for%3A%0A-%20%28example%29%20A%20professional%20landing%20page%0A-%20%0ACould%20you%20provide%20me%20with%20more%20details%20about%20your%20packages%20and%20timeline%3F%0ALooking%20forward%20to%20hearing%20from%20you%2C%0A%5BName%5D">
+                  <span>Get Your Landing Page</span>
+                  <ArrowRight className="size-4 md:size-5" />
+                </Link>
+              </Button>
+            </div>
             <div className="rounded-xl bg-secondary p-4 md:px-8 md:py-2">
               <h3 className="text-text mb-2 text-xl font-semibold md:text-2xl">
                 Built for Founders Who:
@@ -92,19 +103,6 @@ export default async function Home() {
 
             {/* CTA Buttons Section */}
             <div className="w-full space-y-4 md:space-y-8">
-              {/* Primary CTA */}
-              <div className="text-text text-center">
-                <Button
-                  asChild
-                  className="text-text mx-auto flex h-12 w-fit items-center justify-center space-x-2 rounded-xl bg-background px-6 py-3 text-lg font-semibold transition-colors hover:bg-background hover:bg-opacity-85 md:px-8 md:py-4 md:text-xl"
-                >
-                  <Link href="/contact/?message=Hey%20Eric%2C%0AI%27m%20interested%20in%20getting%20a%20landing%20page%20built.%0AWhat%20I%27m%20looking%20for%3A%0A-%20%28example%29%20A%20professional%20landing%20page%0A-%20%0ACould%20you%20provide%20me%20with%20more%20details%20about%20your%20packages%20and%20timeline%3F%0ALooking%20forward%20to%20hearing%20from%20you%2C%0A%5BName%5D">
-                    <span>Get Your Landing Page</span>
-                    <ArrowRight className="size-4 md:size-5" />
-                  </Link>
-                </Button>
-              </div>
-
               {/* Secondary CTAs */}
               <div className="flex w-full flex-col justify-center gap-2 md:flex-row md:gap-4">
                 <Button
@@ -124,7 +122,7 @@ export default async function Home() {
                   className="text-text flex h-12 items-center justify-center rounded-xl border-2 border-border px-4 py-2 text-base transition-colors md:h-14 md:px-6 md:py-3 md:text-lg"
                 >
                   <Link href="/products">
-                    See Our Launch Products
+                    See Our Products
                     <ArrowRight className="ml-2 size-4 md:size-5" />
                   </Link>
                 </Button>
