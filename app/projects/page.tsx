@@ -32,6 +32,10 @@ export default async function ProjectsPage() {
       projectsTitle = projectsMetaData.title || projectsTitle
     }
 
+    const sanitizedContent = {
+      ...projectsContent,
+      parent: projectsContent?.parent.replace(/child_database\s+/g, ""), // Remove the "child_database" text
+    }
     const projectsResponse = await fetchProjects()
 
     const projects = projectsResponse.results.map((project) =>
@@ -47,7 +51,7 @@ export default async function ProjectsPage() {
 
           <div className="mb-8">
             <ReactMarkdown components={customMDComponent as any}>
-              {projectsContent?.parent}
+              {sanitizedContent?.parent}
             </ReactMarkdown>
           </div>
 
