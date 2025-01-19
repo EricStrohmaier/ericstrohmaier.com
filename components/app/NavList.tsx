@@ -53,13 +53,13 @@ const NavList: FC = () => {
               href="/reminders"
               title="Reminders"
               Icon={ListIcon}
-              iconClassName="bg-blue-600 rounded-full"
+              iconClassName="bg-blue-600 text-white rounded-full"
             />
             <ListNavItem
               href="/bucketlist"
               title="Bucket List"
               Icon={ListIcon}
-              iconClassName="bg-yellow-600 rounded-full"
+              iconClassName="bg-yellow-600 text-white rounded-full"
             />
           </nav>
         </div>

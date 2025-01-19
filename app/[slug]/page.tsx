@@ -19,7 +19,6 @@ export const generateMetadata = async ({
       return notFound()
     }
     const meta = getPageMetaData(page as PageObjectResponse)
-    console.log(page, meta)
 
     return {
       title: meta.title,

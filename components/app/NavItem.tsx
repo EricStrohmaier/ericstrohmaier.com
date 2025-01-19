@@ -25,7 +25,9 @@ export const NavItem: FC<NavItemProps> = ({
     if (
       style?.includes("bg-gray-600") ||
       style?.includes("bg-blue-600") ||
-      style?.includes("bg-yellow-500")
+      style?.includes("bg-yellow-500") ||
+      style?.includes("bg-red-600") ||
+      style?.includes("bg-salmon")
     ) {
       return "text-gray-100"
     }
@@ -43,7 +45,7 @@ export const NavItem: FC<NavItemProps> = ({
           {number}
         </div>
         <div className="flex items-center justify-start space-x-1">
-          <Icon className="mr-2 h-[30px] w-[30px]" />
+          <Icon className="mr-2 size-[30px]" />
           <span className="hidden text-sm font-semibold lg:block">{title}</span>
         </div>
       </div>
