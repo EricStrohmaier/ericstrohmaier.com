@@ -293,7 +293,7 @@ export const graveyardProjects: GraveyardProject[] = [
     name: "whisper.cards",
     description: "Personalised affirmation cards - created with AI",
     date: "May 15, 2025",
-    status: "live",
+    status: "in-progress",
     originalStatus: "live",
     users: "~10",
     tags: ["Affirmation", "Cards", "AI", "Personalization"],
