@@ -3,14 +3,13 @@
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import React from "react"
 
 export default function ProfileButton() {
   const pathname = usePathname()
   const isActive = pathname === "/profile"
 
   return (
-    <div className="relative w-full border-t-[0.5px] p-2">
+    <div className="relative w-full border-t border-border p-2">
       <div className="flex w-full items-center justify-between">
         <Link
           href="/profile"

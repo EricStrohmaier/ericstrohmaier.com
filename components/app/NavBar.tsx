@@ -23,7 +23,7 @@ const Navbar: FC<NavbarProps> = ({ children }) => {
     >
       <div className="flex w-full items-center justify-between">
         <div
-          className={`flex items-center justify-center rounded-[70px]  border-[1.5px] px-2 `}
+          className={`flex items-center justify-center rounded-[70px] border-[1.5px] border-border px-2 `}
         >
           <FaClock className="mr-2 size-[24px]" />
           <p className={`ml-[5px] text-sm `}> {currentTime}</p>

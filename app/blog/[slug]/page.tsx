@@ -70,7 +70,7 @@ export default async function Page({
           />
         </div>
         <div className="mt-10">
-          <Link href="/blog">
+          <Link href="/blog" className="mx-2">
             <Button
               variant="ghost"
               className="mb-2 transition-colors duration-200 lg:-m-8"

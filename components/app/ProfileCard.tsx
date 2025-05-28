@@ -34,7 +34,7 @@ const Profile: FC<ProfileProps> = ({
               src={picture}
               width="128"
               height="128"
-              className="size-full rounded-full border-2 object-cover"
+              className="size-full rounded-full border-2 border-border object-cover"
             />
           )}
         </div>

@@ -25,7 +25,7 @@ export default function ContactPage({ searchParams }: PageProps) {
     <>
       <Header />
       <div className="container mx-auto min-h-[700px] max-w-2xl px-4 py-8">
-        <Card className="rounded-[40px] border-[var(--text)] bg-[var(--primary)] text-[var(--text)]">
+        <Card className="rounded-[40px] border-border bg-[var(--primary)] text-[var(--text)]">
           <CardHeader>
             <CardTitle className="text-2xl font-bold">Contact Me</CardTitle>
             <CardDescription className="text-[var(--text)]">

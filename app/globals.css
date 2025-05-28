@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
   :root {
     --pink: hsl(338, 70%, 55%);
@@ -9,24 +9,24 @@
     --teal: hsl(183, 70%, 62%);
     --white: hsl(334, 7%, 95%);
 
-    --background: #F8F8F8; /* Light theme background color */
+    --background: #f8f8f8; /* Light theme background color */
     --text: #333333; /* Light theme text color */
-    --primary: #ECECEC; /* Light theme primary color */
-    --secondary: #E4E4E4; /* Light theme secondary color */
-  }
-  
-  .dark {
-    --background: #1E1E1E;
-    --text: #E5E5E5;
-    --primary: #575758;
-    --secondary: #4E4E4E;
+    --primary: #ececec; /* Light theme primary color */
+    --secondary: #e4e4e4; /* Light theme secondary color */
+    --border: #bbbbbb; /* Light theme border color - darker than before */
   }
 
+  .dark {
+    --background: #1e1e1e;
+    --text: #e5e5e5;
+    --primary: #575758;
+    --secondary: #4e4e4e;
+    --border: #cccccc;
+  }
 }
 body::-webkit-scrollbar {
-  width: 0; 
+  width: 0;
 }
-
 
 body {
   scrollbar-width: none;
@@ -232,22 +232,23 @@ pre::after {
 }
 
 .markdown-content h1 {
-  @apply text-3xl font-bold mt-6 mb-4;
+  @apply mb-4 mt-6 text-3xl font-bold;
 }
 
 .markdown-content h2 {
-  @apply text-2xl font-semibold mt-5 mb-3;
+  @apply mb-3 mt-5 text-2xl font-semibold;
 }
 
 .markdown-content h3 {
-  @apply text-xl font-medium mt-4 mb-2;
+  @apply mb-2 mt-4 text-xl font-medium;
 }
 
 .markdown-content p {
   @apply mb-4;
 }
 
-.markdown-content ul, .markdown-content ol {
+.markdown-content ul,
+.markdown-content ol {
   @apply mb-4 ml-8;
 }
 

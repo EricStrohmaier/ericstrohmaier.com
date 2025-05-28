@@ -1,13 +1,7 @@
 "use client"
 import { FC } from "react"
 
-import {
-  CalendarIcon,
-  FlagIcon,
-  GitBranchIcon,
-  ListIcon,
-  Projector,
-} from "lucide-react"
+import { CalendarIcon, FlagIcon, GitBranchIcon, Projector } from "lucide-react"
 import { ListNavItem } from "./ListNavItem"
 import { NavItem } from "./NavItem"
 import { BsLinkedin } from "react-icons/bs"
@@ -44,7 +38,7 @@ const NavList: FC = () => {
             style="bg-salmon"
           />
         </div>
-        <div className="w-full md:w-[90%]">
+        {/* <div className="w-full md:w-[90%]">
           <h3 className="text-center text-sm font-semibold md:text-left md:text-lg">
             Lists
           </h3>
@@ -62,7 +56,7 @@ const NavList: FC = () => {
               iconClassName="bg-yellow-600 text-white rounded-full"
             />
           </nav>
-        </div>
+        </div> */}
         <div className="w-full md:w-[90%]">
           <h3 className="text-center text-sm font-semibold md:text-left md:text-lg">
             Links

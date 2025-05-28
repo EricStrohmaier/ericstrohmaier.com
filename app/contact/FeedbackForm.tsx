@@ -97,7 +97,7 @@ const FeedbackForm: React.FC<{ message?: string }> = ({ message }) => {
       <Button
         type="submit"
         disabled={isSubmitting}
-        className="w-fit rounded-[8px] border border-[var(--text)] bg-[var(--background)] text-[var(--text)]"
+        className="w-fit rounded-[8px] border border-border bg-[var(--background)] text-[var(--text)]"
       >
         {isSubmitting ? "Sending..." : "Send Feedback"}
       </Button>
