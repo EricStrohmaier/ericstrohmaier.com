@@ -38,6 +38,17 @@ export const graveyardProjects: GraveyardProject[] = [
     users: "0",
     tags: ["AI", "Menu", "Restaurant", "Photos"],
   },
+  {
+    name: "Promptsloth.com",
+    description:
+      "AI prompts generator in any text box | Chrome Extension helping you to improve your prompts ",
+    date: "August 2, 2025",
+    status: "live",
+    url: "https://promptsloth.com/",
+    originalStatus: "live",
+    users: "12",
+    tags: ["AI", "Prompts", "Generator", "Tool"],
+  },
   // {
   //   name: "Coverletter GPT",
   //   description:
