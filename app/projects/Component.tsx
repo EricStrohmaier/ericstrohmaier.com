@@ -133,7 +133,13 @@ export function ClientSideProjectList() {
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center justify-between gap-2">
                 <span className="truncate text-base" title={project.name}>
-                  {project.name}
+                  {project.url ? (
+                    <Link href={project.url} target="_blank">
+                      {project.name}
+                    </Link>
+                  ) : (
+                    project.name
+                  )}
                 </span>
                 <Badge
                   variant={getStatusVariant(project.status)}
