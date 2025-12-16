@@ -35,18 +35,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <head>
-        <script
-          defer
-          src="https://cloud.umami.is/script.js"
-          data-website-id="c5878337-6be0-492a-8387-b8be577fbb65"
-        />
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2706727138311810"
-          crossOrigin="anonymous"
-        />
-      </head>
       <body>
         <ThemeProvider attribute="class">
           <TimeProvider>
