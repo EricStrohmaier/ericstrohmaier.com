@@ -10,6 +10,10 @@ const notes: Note[] = [
     done: false,
   },
   {
+    text: "promptsloth.com - growth & marketing, the never-ending story",
+    done: false,
+  },
+  {
     text: "mydigitalcalendar - shipped it, planned my whole year with it",
     done: true,
     image: "/calendar-2026.png",
@@ -23,10 +27,7 @@ const notes: Note[] = [
     text: "bitvocation telegram bot rewrite - finally done, mass off my chest",
     done: true,
   },
-  {
-    text: "promptsloth.com - growth & marketing, the never-ending story",
-    done: false,
-  },
+
   {
     text: "slackactivity.com oauth flow - shipped, never touching oauth again",
     done: true,
@@ -79,13 +80,13 @@ export default function Home() {
               </span>
             </div>
             {note.image && (
-              <div className="ml-8 mt-2">
+              <div className="ml-8 mt-2 max-w-[600px] rounded-lg">
                 <Image
                   src={note.image}
                   alt="my 2025 plan"
                   width={600}
                   height={400}
-                  className="border-foreground/10 rounded-lg border"
+                  className="g roundnded-lg rounded-lg border object-cover"
                 />
               </div>
             )}
