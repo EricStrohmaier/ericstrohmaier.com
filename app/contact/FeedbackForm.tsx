@@ -2,13 +2,10 @@
 
 import React, { useState } from "react"
 import { toast } from "sonner"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { Textarea } from "@/components/ui/textarea"
 
-const FeedbackForm: React.FC<{ message?: string }> = ({ message }) => {
+export default function FeedbackForm() {
   const [email, setEmail] = useState("")
-  const [messageInput, setMessageInput] = useState(message || "")
+  const [message, setMessage] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -28,25 +25,25 @@ const FeedbackForm: React.FC<{ message?: string }> = ({ message }) => {
       const response = await fetch("/api/send-feedback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, message: messageInput }),
+        body: JSON.stringify({ email, message }),
       })
 
       if (response.ok) {
         const data = await response.json()
         if (data.success) {
-          toast.success("Feedback Sent", {
-            description: "Thank you for your feedback!",
+          toast.success("Message sent", {
+            description: "Thanks, I'll get back to you.",
           })
           setEmail("")
-          setMessageInput("")
+          setMessage("")
         } else {
-          throw new Error(data.error || "Failed to send feedback")
+          throw new Error(data.error || "Failed to send")
         }
       } else {
-        throw new Error("Failed to send feedback")
+        throw new Error("Failed to send")
       }
     } catch (error) {
-      toast.error("Failed to send feedback", {
+      toast.error("Failed to send", {
         description:
           error instanceof Error ? error.message : "Please try again.",
       })
@@ -56,53 +53,42 @@ const FeedbackForm: React.FC<{ message?: string }> = ({ message }) => {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="mx-auto max-w-2xl space-y-6 px-6 pb-6"
-    >
-      <div className="space-y-2">
-        <label
-          htmlFor="email"
-          className="text-sm font-medium text-[var(--text)]"
-        >
-          Email
-          <span className="text-red-400"> *</span>
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div>
+        <label htmlFor="email" className="mb-1.5 block text-sm text-foreground/50">
+          email
         </label>
-        <Input
+        <input
           type="email"
           id="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="w-full rounded-[8px] bg-[var(--background)] text-[var(--text)]"
+          placeholder="you@example.com"
+          className="w-full rounded-xl border border-border bg-transparent px-4 py-2.5 text-foreground/80 placeholder:text-foreground/25 outline-none focus:border-foreground/40"
         />
       </div>
-      <div className="space-y-2">
-        <label
-          htmlFor="message"
-          className="text-sm font-medium text-[var(--text)]"
-        >
-          Message
-          <span className="text-red-400"> *</span>
+      <div>
+        <label htmlFor="message" className="mb-1.5 block text-sm text-foreground/50">
+          message
         </label>
-        <Textarea
+        <textarea
           id="message"
-          value={messageInput}
-          onChange={(e) => setMessageInput(e.target.value)}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
           required
-          rows={4}
-          className="w-full rounded-[8px] bg-[var(--background)] text-[var(--text)]"
+          rows={5}
+          placeholder="what's on your mind?"
+          className="w-full resize-none rounded-xl border border-border bg-transparent px-4 py-2.5 text-foreground/80 placeholder:text-foreground/25 outline-none focus:border-foreground/40"
         />
       </div>
-      <Button
+      <button
         type="submit"
         disabled={isSubmitting}
-        className="w-fit rounded-[8px] border border-border bg-[var(--background)] text-[var(--text)]"
+        className="rounded-xl border border-border px-5 py-2 text-sm text-foreground/60 transition-colors hover:border-foreground/40 hover:text-foreground/80 disabled:opacity-40"
       >
-        {isSubmitting ? "Sending..." : "Send Feedback"}
-      </Button>
+        {isSubmitting ? "sending..." : "send message"}
+      </button>
     </form>
   )
 }
-
-export default FeedbackForm

@@ -1,6 +1,9 @@
 import { FC } from "react"
 import MDPreviewComponent from "@/components/app/MDPreviewComponent"
-import { MdStringObject } from "notion-to-md/build/types"
+
+interface MdContent {
+  parent: string
+}
 
 interface ProfileProps {
   picture: string
@@ -8,7 +11,7 @@ interface ProfileProps {
   website?: string
   about?: string
   email?: string
-  content?: MdStringObject
+  content?: MdContent
   title: string
 }
 

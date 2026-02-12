@@ -21,22 +21,7 @@ export const NavItem: FC<NavItemProps> = ({
   const path = router?.split("/")[1]
   const isActive = `/${path}` === href
 
-  const determineTextColor = (style: string | undefined) => {
-    if (
-      style?.includes("bg-gray-600") ||
-      style?.includes("bg-blue-600") ||
-      style?.includes("bg-yellow-500") ||
-      style?.includes("bg-red-600") ||
-      style?.includes("bg-salmon")
-    ) {
-      return "text-gray-100"
-    }
-
-    return ""
-  }
-  const textColor = determineTextColor(style)
-
-  const navItemStyle = `relative flex items-center justify-start rounded-[10px] p-4 ${isActive ? `${style} ${textColor}` : "bg-[var(--secondary)]"} `
+  const navItemStyle = `relative flex items-center justify-start rounded-[10px] p-4 ${isActive ? `${style} text-white` : "bg-[var(--secondary)]"} `
 
   return (
     <Link href={href || ""}>

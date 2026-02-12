@@ -1,13 +1,16 @@
 import ReactMarkdown from "react-markdown"
 import { pathColorMapping } from "@/constans"
 import Link from "next/link"
-import { MdStringObject } from "notion-to-md/build/types"
+
+interface MdContent {
+  parent: string
+}
 
 interface ProjectData {
   title: string
   description?: string
   id: string
-  content: MdStringObject
+  content: MdContent
   tags: string[]
   slug: string
 }

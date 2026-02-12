@@ -1,0 +1,1 @@
+Over the years, I’ve built several projects, each one teaching me something new. Here are a few that I’m most proud of. These projects range from solving personal pain points to creating tools that help communities. Each project reflects my passion for problem-solving and building efficient, scalable solutions.

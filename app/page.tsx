@@ -1,60 +1,56 @@
-import { notFound } from "next/navigation"
-import Header from "@/components/app/Header"
-import { fetchPageBySlug, getPageMetaData } from "@/lib/notion"
-import MDPreviewComponent from "@/components/app/MDPreviewComponent"
-import { fetchNotionPageAsMarkdown } from "@/lib/notion-md"
+const notes = [
+  { text: "ship personal site v2", done: true },
+  { text: "finish bitvocation telegram bot rewrite", done: true },
+  { text: "promptsloth.com - growth & marketing", done: false },
+  { text: "slackactivity.com oauth flow", done: true },
+  { text: "clean up github repos", done: false },
+]
 
-export const metadata = {
-  title: "Home Studio | Eric Strohmaier",
-  description: "Welcome to My Site",
-}
-
-export default async function Home() {
-  try {
-    const page = await fetchPageBySlug("home")
-
-    if (!page) {
-      // Render a default home page if no "home" slug is found
-      return (
-        <>
-          <Header />
-          <MDPreviewComponent
-            project={{
-              slug: "home",
-              title: "Welcome to My Site",
-              id: "home",
-              content: {
-                parent:
-                  "The home page content is currently not available. Please check back later.",
-              },
-              tags: ["home"],
-            }}
-          />
-        </>
-      )
-    }
-
-    const meta = getPageMetaData(page)
-    const content = await fetchNotionPageAsMarkdown(page.id)
-
-    return (
-      <>
-        <Header />
-        <div className="container mx-auto px-1 py-2  md:px-4 md:py-8">
-          <MDPreviewComponent
-            project={{
-              slug: "home",
-              title: meta.title,
-              id: meta.id,
-              content: content,
-              tags: meta.tags,
-            }}
-          />
-        </div>{" "}
-      </>
-    )
-  } catch (error) {
-    console.error(error)
-    return notFound()
-  }
+export default function Home() {
+  return (
+    <div>
+      <h1 className="mb-1 text-xl font-medium">todos</h1>
+      <p className="text-foreground/50 mb-8">things on my mind</p>
+      <ul className="space-y-3">
+        {notes.map((note, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span
+              className={`mt-1 flex size-5 shrink-0 items-center justify-center rounded border ${
+                note.done
+                  ? "border-foreground/20 bg-foreground/10 text-foreground/60"
+                  : "border-foreground/15"
+              }`}
+            >
+              {note.done && (
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 10 10"
+                  fill="none"
+                  className="text-current"
+                >
+                  <path
+                    d="M2 5.5L4 7.5L8 3"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              )}
+            </span>
+            <span
+              className={
+                note.done
+                  ? "text-foreground/40 line-through"
+                  : "text-foreground/80"
+              }
+            >
+              {note.text}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
 }

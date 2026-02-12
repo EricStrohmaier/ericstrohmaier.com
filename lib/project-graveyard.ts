@@ -7,341 +7,212 @@ export type ProjectStatus =
 
 export interface GraveyardProject {
   name: string
+  slug: string
   description: string
+  longDescription?: string
   date: string
   status: ProjectStatus
   users: string | number
   url?: string
+  github?: string
   tags?: string[]
-  originalStatus?: string // Keep the original status for reference
+  image?: string
+  featured?: boolean
 }
 
 export const graveyardProjects: GraveyardProject[] = [
   {
-    name: "recipe-api",
+    name: "Bitvocation",
+    slug: "bitvocation",
     description:
-      "Scraped one recipe blog with 1000+ veggie recipes made a beautiful website to query it",
-    date: "January 2, 2024",
-    status: "offline",
-    originalStatus: "offline",
-    users: "0",
-    tags: ["API", "Web Scraping", "Food"],
-  },
-  {
-    name: "menusnap",
-    description:
-      "Turn text-only menus into visual menus with AI-generated photos in seconds",
-    date: "August 2, 2025",
+      "The talent stack for hyperbitcoinization - Bitcoin job aggregation platform",
+    longDescription:
+      "A comprehensive career platform for the Bitcoin ecosystem. Automatically scrapes job listings from multiple sources and distributes them across Telegram channels and Nostr relays. Features include a curated job feed, talent exchange program (BTX), and POW Lab educational community. Partnered with major Bitcoin companies and serving 1500+ subscribers looking for Bitcoin-related careers.",
+    date: "December 2023 - Present",
     status: "live",
-    url: "https://menusnap.ericstrohmaier.com/",
-    originalStatus: "live",
-    users: "0",
-    tags: ["AI", "Menu", "Restaurant", "Photos"],
+    url: "https://bitvocation.com",
+    users: "1500+",
+    tags: ["Bitcoin", "Jobs", "Telegram", "Nostr", "Career Platform"],
+    featured: true,
   },
   {
-    name: "Promptsloth.com",
+    name: "PromptSloth",
+    slug: "promptsloth",
     description:
-      "AI prompts generator in any text box | Chrome Extension helping you to improve your prompts ",
-    date: "August 2, 2025",
+      "Chrome extension for better AI prompts - one-click improvements and 2000+ templates",
+    longDescription:
+      "A Chrome extension that helps craft better AI prompts. Features one-click prompt improvements, 2000+ expert templates across categories like copywriting, coding, marketing, and research. Works with ChatGPT, Claude, Gemini, and any AI tool. Includes quick actions, //shortcuts for instant template insertion, and custom saved prompts. 5-star rating on Chrome Web Store.",
+    date: "2024",
     status: "live",
     url: "https://promptsloth.com/",
-    originalStatus: "live",
-    users: "12",
-    tags: ["AI", "Prompts", "Generator", "Tool"],
-  },
-  // {
-  //   name: "Coverletter GPT",
-  //   description:
-  //     "Taking Linkedin urls and writing personalised job applications coverletters",
-  //   date: "November 6, 2023",
-  //   status: "archived",
-  //   originalStatus: "archived",
-  //   users: "0",
-  //   tags: ["AI", "Career", "Automation"],
-  // },
-  // {
-  //   name: "Nostr Websites",
-  //   description:
-  //     "Playing with nostr technology, created a documentation website",
-  //   date: "2023",
-  //   status: "live",
-  //   originalStatus: "archived/live",
-  //   users: "0",
-  //   tags: ["Nostr", "Documentation", "Web Development"],
-  // },
-  // {
-  //   name: "linkedin api wrapper",
-  //   description: "Posting to LinkedIn with AI via telegram",
-  //   date: "January 4, 2024",
-  //   status: "offline",
-  //   originalStatus: "localhost/deprecated",
-  //   users: "0",
-  //   tags: ["API", "LinkedIn", "Automation", "AI"],
-  // },
-  // {
-  //   name: "Insta-Telegram bot",
-  //   description: "Instagram posts via telegram",
-  //   date: "December 9, 2023",
-  //   status: "offline",
-  //   originalStatus: "localhost",
-  //   users: "",
-  //   tags: ["Bot", "Instagram", "Telegram", "Automation"],
-  // },
-  // {
-  //   name: "e-commerce store template",
-  //   description: "Just a template learning coding",
-  //   date: "July 2, 2024",
-  //   status: "live",
-  //   originalStatus: "live",
-  //   users: "0",
-  //   tags: ["E-commerce", "Template", "Learning"],
-  // },
-  {
-    name: "alinalicht.com",
-    description: "Artist personal website",
-    date: "August 2, 2024",
-    status: "live",
-    originalStatus: "live",
-    users: "?",
-    tags: ["Portfolio", "Artist", "Personal Website"],
+    users: "12+",
+    tags: ["AI", "Chrome Extension", "Productivity", "ChatGPT", "Claude"],
+    featured: true,
   },
   {
     name: "Slackactivity",
-    description: "Always online in slack",
-    date: "August 4, 2024",
-    status: "live",
-    originalStatus: "live",
-    url: "https://slackactivity.com/",
-    users: "1",
-    tags: ["Slack", "Productivity", "Tool"],
-  },
-  // {
-  //   name: "Localboards",
-  //   description: "Surfboard rental marketplace",
-  //   date: "July 18, 2024",
-  //   status: "live",
-  //   originalStatus: "frozen/live",
-  //   url: "https://local-boards.com/",
-  //   users: "0",
-  //   tags: ["Marketplace", "Surfing", "Rental"],
-  // },
-  // {
-  //   name: "Oddpillow",
-  //   description: "Curated list of odd amazon pillows",
-  //   date: "January 15, 2025",
-  //   status: "live",
-  //   originalStatus: "live",
-  //   url: "https://oddpillow.com/",
-  //   users: "0",
-  //   tags: ["Curation", "E-commerce", "Niche"],
-  // },
-  {
-    name: "ericstrohmaier.com",
-    description: "Personal website with random information",
-    date: "January 30, 2024",
-    status: "live",
-    originalStatus: "live",
-    url: "https://ericstrohmaier.com/",
-    users: "0+",
-    tags: ["Personal Website", "Portfolio"],
-  },
-  // {
-  //   name: "Online-Birthday Card wisher",
-  //   description: "Sending digital birthday wishes",
-  //   date: "September 14, 2024",
-  //   status: "offline",
-  //   originalStatus: "frozen/localhost",
-  //   users: "1",
-  //   tags: ["Birthday", "Digital Cards", "Social"],
-  // },
-  {
-    name: "Motivations buddy Telegram bot",
-    description: "Motivation during your day",
-    date: "December 12, 2024",
-    status: "live",
-    originalStatus: "live",
-    users: "2",
-    tags: ["Motivation", "Telegram", "Bot"],
-  },
-  {
-    name: "Bitvocation- Scraper + Website",
+    slug: "slackactivity",
     description:
-      "Scraping Bitcoin jobs and posting them on Telegram, Nostr + website coming soon",
-    date: "December 9, 2023 - December 2024",
+      "Keep your Slack status active - automatic status management every 5 minutes",
+    longDescription:
+      "Solves the problem of Slack setting you to 'away' after 30 minutes of inactivity. Slackactivity keeps your status active every 5 minutes, even during meetings or video calls. Secure OAuth integration - only requests status update permission, never accesses messages or files. Set custom working hours and manage multiple workspaces. Free forever.",
+    date: "August 2024",
     status: "live",
-    originalStatus: "live",
-    users: "1500+",
-    tags: ["Bitcoin", "Jobs", "Scraper", "Telegram", "Nostr"],
-  },
-  // {
-  //   name: "red-flag-guy Mobile app",
-  //   description: 'Copy facebook community group "Are we dating the same guy?"',
-  //   date: "December 21, 2024",
-  //   status: "offline",
-  //   originalStatus: "localhost-frozen",
-  //   users: "0",
-  //   tags: ["Mobile App", "Social", "Dating"],
-  // },
-  // {
-  //   name: "Friends in Flats",
-  //   description: "Startup - Student monthly rentals easy",
-  //   date: "February 1, 2024",
-  //   status: "live",
-  //   originalStatus: "live",
-  //   url: "https://www.friends-in-flats.com/",
-  //   users: "1200+",
-  //   tags: ["Rental", "Students", "Housing"],
-  // },
-  // {
-  //   name: "kinderversicherer.at",
-  //   description:
-  //     "Freelance: Versicherungs website - calculating offers + online checkout",
-  //   date: "February 7, 2024",
-  //   status: "live",
-  //   originalStatus: "live",
-  //   url: "https://www.kinderversicherer.at/",
-  //   users: "500+",
-  //   tags: ["Insurance", "Calculator", "Checkout", "Freelance"],
-  // },
-  // {
-  //   name: "imperal backoffice",
-  //   description:
-  //     "Freelance fullstack: Developing a backoffice app for internal use",
-  //   date: "November 12, 2024",
-  //   status: "live",
-  //   originalStatus: "live",
-  //   url: "https://wiener-altbau-brief.beehiiv.com/",
-  //   users: "50+",
-  //   tags: ["Backoffice", "Internal Tool", "Fullstack", "Freelance"],
-  // },
-  // {
-  //   name: "Wiener altbau brief",
-  //   description: "Scraping willhaben - and creating a data newsletter off it",
-  //   date: "January 1, 2025",
-  //   status: "on-hold",
-  //   originalStatus: "frozen…data is off",
-  //   users: "0",
-  //   tags: ["Newsletter", "Scraper", "Real Estate", "Data"],
-  // },
-  {
-    name: "boringlandingpage.com",
-    description: "Boilerplate template for future projects",
-    date: "August 2024 - Jan 2025",
-    status: "live",
-    originalStatus: "live",
-    url: "https://public-boilerplate.vercel.app/",
-    users: "1",
-    tags: ["Template", "Boilerplate", "Landing Page"],
+    url: "https://slackactivity.com/",
+    github: "https://github.com/EricStrohmaier/slackactivity.com",
+    users: "Active users",
+    tags: ["Slack", "Productivity", "Remote Work", "Automation"],
+    featured: true,
   },
   {
-    name: "invoice generator",
-    description: "Creating beautiful invoices",
-    date: "January 30, 2025",
+    name: "Friends in Flats",
+    slug: "friends-in-flats",
+    description:
+      "AI-powered student housing platform - connecting students with roommates in Vienna",
+    longDescription:
+      "An accommodation platform partnered with WU Vienna and TU Wien that connects international students with like-minded roommates. Features AI-powered matching, fully furnished rooms, online booking, and a dedicated quality team that inspects and certifies each room. Students get hassle-free housing without in-person viewings.",
+    date: "2024",
     status: "live",
-    originalStatus: "live",
-    url: "https://boringinvoice.ericstrohmaier.com/",
-    users: "1",
-    tags: ["Invoice", "Generator", "Tool", "Business"],
+    url: "https://www.friends-in-flats.com/",
+    users: "1200+",
+    tags: ["PropTech", "Student Housing", "Vienna", "AI Matching"],
   },
-  // {
-  //   name: "lazy.surf",
-  //   description: "A digital surf tracker history",
-  //   date: "March 1, 2025",
-  //   status: "on-hold",
-  //   originalStatus: "on hold",
-  //   url: "http://lazy.surf",
-  //   users: "",
-  //   tags: ["Surf", "Tracker", "Mobile App"],
-  // },
-  // {
-  //   name: "kochcopilot.com",
-  //   description: "Mobile app cooking ai",
-  //   date: "March 10, 2025",
-  //   status: "on-hold",
-  //   originalStatus: "development",
-  //   users: "Waiting list 5",
-  //   tags: ["Cooking", "AI", "Mobile App"],
-  // },
   {
-    name: "time tracker tool",
-    description: "Personal tools for my freelance",
+    name: "MenuSnap",
+    slug: "menusnap",
+    description:
+      "Turn text menus into visual menus with AI-generated food photos",
+    longDescription:
+      "Transform boring text-only menus into beautiful visual experiences. Upload a menu and AI generates appetizing photos for each dish, making it easier for customers to decide what to order. Built for restaurants and cafes looking to improve their menu presentation.",
+    date: "2024",
+    status: "live",
+    url: "https://menusnap.ericstrohmaier.com/",
+    users: "Beta",
+    tags: ["AI", "Restaurant", "Food Photography"],
+  },
+  {
+    name: "Tools Collection",
+    slug: "tools",
+    description: "Simple tools for simple tasks - time tracking and freelance utilities",
+    longDescription:
+      "A collection of productivity tools built for managing freelance work. Includes time tracking, project management features, and various utilities. Built to scratch my own itch as a freelancer.",
     date: "April 2025",
     status: "live",
-    originalStatus: "live",
     url: "https://tools.ericstrohmaier.com/",
-    users: "?",
-    tags: ["Time Tracking", "Freelance", "Tool"],
+    github: "https://github.com/EricStrohmaier/tools.ericstrohmaier.com",
+    users: "Personal use",
+    tags: ["Time Tracking", "Freelance", "Productivity", "Tools"],
   },
-  // {
-  //   name: "The 7-Day Unfollow Challenge",
-  //   description: "Email challenge for detox?",
-  //   date: "Mid April 2025",
-  //   status: "live",
-  //   originalStatus: "live",
-  //   url: "https://challenge.unfollowthedefault.com/",
-  //   users: "0",
-  //   tags: ["Challenge", "Email", "Digital Detox"],
-  // },
-  // {
-  //   name: "Roast Me GPT",
-  //   description: "AI wrapper around roasting you or friends fun app",
-  //   date: "April 2025",
-  //   status: "offline",
-  //   originalStatus: "research/localhost",
-  //   users: "0",
-  //   tags: ["AI", "Fun", "Social"],
-  // },
-  // {
-  //   name: "FastFix - Security agency",
-  //   description:
-  //     "Agency with security focus or finish your AI vibe coding apps",
-  //   date: "April 27, 2025",
-  //   status: "live",
-  //   originalStatus: "live",
-  //   url: "https://fastfix.ericstrohmaier.com/",
-  //   users: "0",
-  //   tags: ["Security", "Agency", "AI", "Coding"],
-  // },
-  // {
-  //   name: "finishmycode.dev",
-  //   description: "Marketplace for unfinished projects - what an irony",
-  //   date: "May 05, 2025",
-  //   status: "live",
-  //   originalStatus: "live",
-  //   users: "0",
-  //   tags: ["Marketplace", "Code", "Unfinished Projects"],
-  // },
-  // {
-  //   name: "whisper.cards",
-  //   description: "Personalised affirmation cards - created with AI",
-  //   date: "May 15, 2025",
-  //   status: "in-progress",
-  //   originalStatus: "live",
-  //   users: "~10",
-  //   tags: ["Affirmation", "Cards", "AI", "Personalization"],
-  // },
+  {
+    name: "Invoice Generator",
+    slug: "invoice-generator",
+    description: "Create beautiful, professional invoices instantly - no signup required",
+    longDescription:
+      "A clean, simple invoice generator for freelancers and small businesses. Fill in the details and download your PDF. No account needed, just get your invoice and go.",
+    date: "January 2025",
+    status: "live",
+    url: "https://boringinvoice.ericstrohmaier.com/",
+    users: "Free tool",
+    tags: ["Invoice", "Business", "Freelance", "PDF"],
+  },
+  {
+    name: "Boring Landing Page",
+    slug: "boring-landing-page",
+    description: "Next.js boilerplate template for launching projects fast",
+    longDescription:
+      "A clean, minimal boilerplate for quickly spinning up landing pages. Built with Next.js, Tailwind, and all the essentials pre-configured. Used as the foundation for multiple projects.",
+    date: "August 2024 - January 2025",
+    status: "live",
+    url: "https://public-boilerplate.vercel.app/",
+    users: "Template",
+    tags: ["Template", "Boilerplate", "Next.js", "Tailwind"],
+  },
+  {
+    name: "Bitvocation Telegram Bot",
+    slug: "bitvocation-bot",
+    description: "Automated Bitcoin job posting bot for Telegram",
+    longDescription:
+      "The engine behind Bitvocation's job feed. Automatically scrapes, processes, and posts Bitcoin job opportunities to Telegram channels. Running since 2023, delivering fresh job postings to the Bitcoin community.",
+    date: "2023",
+    status: "live",
+    github: "https://github.com/EricStrohmaier/bitvocation_bot",
+    users: "1500+ subscribers",
+    tags: ["Telegram Bot", "Bitcoin", "Automation", "TypeScript"],
+  },
+  {
+    name: "Motivation Buddy",
+    slug: "motivation-buddy",
+    description: "Telegram bot for daily motivational messages",
+    longDescription:
+      "A simple Telegram bot that sends motivational messages throughout the day. Customizable timing and message categories to keep you going.",
+    date: "December 2024",
+    status: "live",
+    users: "2",
+    tags: ["Telegram Bot", "Motivation", "Automation"],
+  },
+  {
+    name: "Alina Licht Portfolio",
+    slug: "alina-licht",
+    description: "Artist portfolio website - clean, minimal design",
+    longDescription:
+      "A portfolio website designed for an artist to showcase their work. Focused on clean, minimal design that lets the art speak for itself.",
+    date: "August 2024",
+    status: "live",
+    users: "Client project",
+    tags: ["Portfolio", "Artist", "Design", "Freelance"],
+  },
+  {
+    name: "Recipe API",
+    slug: "recipe-api",
+    description: "Scraped 1000+ veggie recipes with a searchable interface",
+    longDescription:
+      "A web scraping project that collected over 1000 vegetarian recipes from a popular food blog and built a searchable database with a clean UI for browsing and filtering recipes.",
+    date: "January 2024",
+    status: "offline",
+    users: "Personal project",
+    tags: ["API", "Web Scraping", "Food", "Python"],
+  },
+  {
+    name: "ericstrohmaier.com",
+    slug: "personal-site",
+    description: "This website - my personal corner of the internet",
+    longDescription:
+      "The site you're on right now. Built with Next.js and constantly evolving as I experiment with new ideas and showcase my work.",
+    date: "January 2024",
+    status: "live",
+    url: "https://ericstrohmaier.com/",
+    github: "https://github.com/EricStrohmaier/ericstrohmaier.com",
+    users: "You're here!",
+    tags: ["Portfolio", "Next.js", "Personal"],
+  },
 ]
 
-// Helper function to get all unique tags
+export function getProjectBySlug(slug: string): GraveyardProject | undefined {
+  return graveyardProjects.find((p) => p.slug === slug)
+}
+
+export function getFeaturedProjects(): GraveyardProject[] {
+  return graveyardProjects.filter((p) => p.featured)
+}
+
+export function getLiveProjects(): GraveyardProject[] {
+  return graveyardProjects.filter((p) => p.status === "live")
+}
+
 export function getAllTags(): string[] {
   const tagsSet = new Set<string>()
-
   graveyardProjects.forEach((project) => {
     if (project.tags) {
       project.tags.forEach((tag) => tagsSet.add(tag))
     }
   })
-
   return Array.from(tagsSet).sort()
 }
 
-// Helper function to get all unique statuses
 export function getAllStatuses(): ProjectStatus[] {
-  // Return the fixed set of statuses we want to use
   return ["live", "in-progress", "on-hold", "offline", "archived"]
 }
 
-// Helper function to get status display name
 export function getStatusDisplayName(status: ProjectStatus): string {
   switch (status) {
     case "live":
@@ -357,4 +228,13 @@ export function getStatusDisplayName(status: ProjectStatus): string {
     default:
       return status
   }
+}
+
+// Stats
+export const stats = {
+  totalProjects: graveyardProjects.length,
+  liveProjects: graveyardProjects.filter((p) => p.status === "live").length,
+  totalUsers: "2700+", // Bitvocation 1500 + Friends in Flats 1200 + others
+  githubRepos: 49,
+  githubStars: 100,
 }
