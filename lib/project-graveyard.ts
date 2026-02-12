@@ -22,6 +22,21 @@ export interface GraveyardProject {
 
 export const graveyardProjects: GraveyardProject[] = [
   {
+    name: "AgentTodo",
+    slug: "agenttodo",
+    description:
+      "A shared todo list for you and your AI agents - one task queue, full control",
+    longDescription:
+      "A task management platform that bridges humans and AI agents. One centralized task queue where autonomous agents grab tasks, do the work, and report back — while you stay in control. Features a unified dashboard for monitoring, a single REST API for seamless integration, board and list views, and quick access via keyboard shortcuts. Built for anyone delegating work to AI agents who wants visibility and oversight over the execution process.",
+    date: "2025",
+    status: "live",
+    url: "https://agenttodo.vercel.app/",
+    github: "https://github.com/EricStrohmaier/agenttodo",
+    users: "Beta",
+    tags: ["AI", "Agents", "Task Management", "API", "Productivity"],
+    featured: true,
+  },
+  {
     name: "PromptSloth",
     slug: "promptsloth",
     description:
@@ -33,6 +48,34 @@ export const graveyardProjects: GraveyardProject[] = [
     url: "https://promptsloth.com/",
     users: "2000+",
     tags: ["AI", "Chrome Extension", "Productivity", "ChatGPT", "Claude"],
+    featured: true,
+  },
+  {
+    name: "My Digital Calendar",
+    slug: "mydigitalcalender",
+    description:
+      "Free digital year planner - see all 12 months and 365 days on one screen",
+    longDescription:
+      "A free web-based year planning tool inspired by Jesse Itzler's Big Ass Calendar methodology. Plan your entire year on a single screen with a drag-and-drop interface, custom color-coding by category, and export to PDF, PNG, or phone wallpaper. Built around three planning concepts: Misogi (one epic annual challenge), Big Rocks (3-5 top priorities), and Mini-adventures (quarterly experiences). Public sharing for accountability, unlimited exports, and no signup required.",
+    date: "2025",
+    status: "live",
+    url: "https://mydigitalcalender.com",
+    users: "Free tool",
+    tags: ["Productivity", "Planning", "Calendar", "Free Tool"],
+    featured: true,
+  },
+  {
+    name: "alpen.digital",
+    slug: "alpen-digital",
+    description:
+      "AI automation agency for SMEs in the DACH region - turning manual processes into smart workflows",
+    longDescription:
+      "An AI automation agency I'm building with friends, focused on helping small and medium businesses in Austria, Germany, and Switzerland automate their workflows. We connect existing business systems (CRM, ERP, e-commerce), deploy AI for document analysis and knowledge systems, and build end-to-end automated workflows with human-in-the-loop oversight. DSGVO-compliant, integration-first approach — we work with your existing tools instead of replacing them. Made in Austria by a small team of engineers and ML specialists.",
+    date: "2025",
+    status: "live",
+    url: "https://alpen.digital",
+    users: "Agency",
+    tags: ["AI", "Automation", "Agency", "DACH", "B2B"],
     featured: true,
   },
   {
