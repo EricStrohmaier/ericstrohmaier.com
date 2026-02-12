@@ -22,20 +22,6 @@ export interface GraveyardProject {
 
 export const graveyardProjects: GraveyardProject[] = [
   {
-    name: "Bitvocation",
-    slug: "bitvocation",
-    description:
-      "The talent stack for hyperbitcoinization - Bitcoin job aggregation platform",
-    longDescription:
-      "A comprehensive career platform for the Bitcoin ecosystem. Automatically scrapes job listings from multiple sources and distributes them across Telegram channels and Nostr relays. Features include a curated job feed, talent exchange program (BTX), and POW Lab educational community. Partnered with major Bitcoin companies and serving 1500+ subscribers looking for Bitcoin-related careers.",
-    date: "December 2023 - Present",
-    status: "live",
-    url: "https://bitvocation.com",
-    users: "1500+",
-    tags: ["Bitcoin", "Jobs", "Telegram", "Nostr", "Career Platform"],
-    featured: true,
-  },
-  {
     name: "PromptSloth",
     slug: "promptsloth",
     description:
@@ -45,10 +31,25 @@ export const graveyardProjects: GraveyardProject[] = [
     date: "2024",
     status: "live",
     url: "https://promptsloth.com/",
-    users: "12+",
+    users: "2000+",
     tags: ["AI", "Chrome Extension", "Productivity", "ChatGPT", "Claude"],
     featured: true,
   },
+  {
+    name: "Bitvocation",
+    slug: "bitvocation",
+    description:
+      "The talent stack for hyperbitcoinization - Bitcoin job aggregation platform",
+    longDescription:
+      "A comprehensive career platform for the Bitcoin ecosystem. Automatically scrapes job listings from multiple sources and distributes them across Telegram channels and Nostr relays. Features include a curated job feed, talent exchange program (BTX), and POW Lab educational community. Partnered with major Bitcoin companies and serving 1500+ subscribers looking for Bitcoin-related careers.",
+    date: "December 2023 - Present",
+    status: "live",
+    url: "https://bitvocation.com",
+    users: "2500+",
+    tags: ["Bitcoin", "Jobs", "Telegram", "Nostr", "Career Platform"],
+    featured: true,
+  },
+
   {
     name: "Slackactivity",
     slug: "slackactivity",
@@ -60,7 +61,7 @@ export const graveyardProjects: GraveyardProject[] = [
     status: "live",
     url: "https://slackactivity.com/",
     github: "https://github.com/EricStrohmaier/slackactivity.com",
-    users: "Active users",
+    users: "5 Active users",
     tags: ["Slack", "Productivity", "Remote Work", "Automation"],
     featured: true,
   },
@@ -93,7 +94,8 @@ export const graveyardProjects: GraveyardProject[] = [
   {
     name: "Tools Collection",
     slug: "tools",
-    description: "Simple tools for simple tasks - time tracking and freelance utilities",
+    description:
+      "Simple tools for simple tasks - time tracking and freelance utilities",
     longDescription:
       "A collection of productivity tools built for managing freelance work. Includes time tracking, project management features, and various utilities. Built to scratch my own itch as a freelancer.",
     date: "April 2025",
@@ -106,7 +108,8 @@ export const graveyardProjects: GraveyardProject[] = [
   {
     name: "Invoice Generator",
     slug: "invoice-generator",
-    description: "Create beautiful, professional invoices instantly - no signup required",
+    description:
+      "Create beautiful, professional invoices instantly - no signup required",
     longDescription:
       "A clean, simple invoice generator for freelancers and small businesses. Fill in the details and download your PDF. No account needed, just get your invoice and go.",
     date: "January 2025",
@@ -146,7 +149,7 @@ export const graveyardProjects: GraveyardProject[] = [
     longDescription:
       "A simple Telegram bot that sends motivational messages throughout the day. Customizable timing and message categories to keep you going.",
     date: "December 2024",
-    status: "live",
+    status: "offline",
     users: "2",
     tags: ["Telegram Bot", "Motivation", "Automation"],
   },
@@ -156,7 +159,7 @@ export const graveyardProjects: GraveyardProject[] = [
     description: "Artist portfolio website - clean, minimal design",
     longDescription:
       "A portfolio website designed for an artist to showcase their work. Focused on clean, minimal design that lets the art speak for itself.",
-    date: "August 2024",
+    date: "August 2024, updated October 2025",
     status: "live",
     users: "Client project",
     tags: ["Portfolio", "Artist", "Design", "Freelance"],

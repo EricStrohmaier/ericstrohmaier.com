@@ -5,6 +5,7 @@ import {
   graveyardProjects,
   getStatusDisplayName,
 } from "@/lib/project-graveyard"
+import { OgImage } from "./OgImage"
 
 export async function generateStaticParams() {
   return graveyardProjects.map((project) => ({
@@ -61,6 +62,8 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       >
         &larr; back to projects
       </Link>
+
+      {project.url && <OgImage url={project.url} />}
 
       <div className="mb-1 flex items-center gap-2">
         <span
