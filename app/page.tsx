@@ -4,7 +4,7 @@ export default function Home() {
       name: "PromptSloth",
       href: "https://promptsloth.com",
       description: "AI prompt Chrome extension",
-      metric: ["2,000+ users", "26 paying subscribers"],
+      metric: ["2,000+ active users", "26 paying subscribers"],
       accent: "emerald",
     },
     {
@@ -24,7 +24,10 @@ export default function Home() {
     {
       name: "slackactivity.com",
       href: "https://slackactivity.com",
-      metric: ["my wife uses this for her job for 3+ years", "99.5% uptime"],
+      metric: [
+        "my wife has relied on this at work for 3+ years",
+        "99.5% uptime",
+      ],
       description: "Slack status keeper",
       accent: "blue",
     },
@@ -35,20 +38,20 @@ export default function Home() {
       {/* Hero */}
       <section className="mb-6">
         <h1 className="to-foreground/50 mb-2 bg-gradient-to-r from-foreground via-foreground bg-clip-text text-4xl font-semibold tracking-tight text-transparent">
-          I build personal software.
+          Building personal software.
         </h1>
         <p className="text-foreground/40 text-lg tracking-wide">
-          Fast shipping. Long partnerships.
+          AI-first development. Long partnerships.
         </p>
       </section>
 
       {/* Bio */}
       <section className="mb-6">
-        <p className="text-foreground/60 text-[15px] leading-relaxed">
-          I&apos;m Eric - a full-stack developer who ships fast and sticks
-          around. I build SaaS products, AI tools, Chrome extensions, and
-          automations. Always working with the latest tech. Two of my clients
-          have been with me for over two years.
+        <p className="text-foreground/60 text-lg leading-relaxed">
+          I&apos;m Eric - a full-stack developer who builds fast and sticks
+          around. I build SaaS products, AI tools and automations. Always
+          working with the latest tech. Two of my clients have been with me for
+          over two years.
         </p>
       </section>
 
@@ -65,7 +68,7 @@ export default function Home() {
           <span className="text-sm font-semibold normal-case text-blue-500">
             15+
           </span>{" "}
-          projects shipped
+          projects built
         </span>
       </section>
 
