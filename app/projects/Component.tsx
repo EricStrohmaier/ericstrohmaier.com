@@ -51,9 +51,14 @@ function ProjectRow({ project }: { project: GraveyardProject }) {
           </p>
         </div>
       </div>
-      <span className="shrink-0 text-sm text-foreground/30">
-        {getStatusDisplayName(project.status)}
-      </span>
+      <div className="shrink-0 text-right">
+        <p className="text-xs text-foreground/35">
+          {project.date}
+        </p>
+        <p className="text-sm text-foreground/30">
+          {getStatusDisplayName(project.status)}
+        </p>
+      </div>
     </Link>
   )
 }

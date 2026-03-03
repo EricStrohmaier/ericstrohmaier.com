@@ -47,6 +47,18 @@ function statusDot(status: string) {
   }
 }
 
+function formatUsers(value: string | number) {
+  if (typeof value === "number") {
+    return `${value} users`
+  }
+
+  if (/^\d[\d,.+]*$/.test(value.trim())) {
+    return `${value} users`
+  }
+
+  return value
+}
+
 export default function ProjectPage({ params }: { params: { slug: string } }) {
   const project = getProjectBySlug(params.slug)
 
@@ -136,6 +148,34 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         </p>
       )}
 
+      {(project.experienceType || project.role || project.location || project.workMode) && (
+        <div className="mb-6 grid gap-2 rounded-xl border border-border bg-[var(--secondary)] p-4 text-sm">
+          {project.experienceType && (
+            <p className="text-foreground/55">
+              <span className="text-foreground/35">type:</span>{" "}
+              {project.experienceType}
+            </p>
+          )}
+          {project.role && (
+            <p className="text-foreground/55">
+              <span className="text-foreground/35">role:</span> {project.role}
+            </p>
+          )}
+          {project.workMode && (
+            <p className="text-foreground/55">
+              <span className="text-foreground/35">work mode:</span>{" "}
+              {project.workMode}
+            </p>
+          )}
+          {project.location && (
+            <p className="text-foreground/55">
+              <span className="text-foreground/35">location:</span>{" "}
+              {project.location}
+            </p>
+          )}
+        </div>
+      )}
+
       <div className="text-foreground/40 mb-6 flex flex-wrap items-center gap-3 text-sm">
         {project.date && (
           <span className="bg-foreground/5 rounded-lg px-3 py-1">
@@ -144,7 +184,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         )}
         {project.users && project.users !== "0" && (
           <span className="bg-foreground/5 rounded-lg px-3 py-1">
-            {project.users} users
+            {formatUsers(project.users)}
           </span>
         )}
       </div>

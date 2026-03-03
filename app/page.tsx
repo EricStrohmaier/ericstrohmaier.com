@@ -38,20 +38,28 @@ export default function Home() {
       {/* Hero */}
       <section className="mb-6">
         <h1 className="to-foreground/50 mb-2 bg-gradient-to-r from-foreground via-foreground bg-clip-text text-4xl font-semibold tracking-tight text-transparent">
-          Building personal software.
+          Building products people actually use.
         </h1>
         <p className="text-foreground/40 text-lg tracking-wide">
-          AI-first development. Long partnerships.
+          Product engineering for SaaS, automation, and growth.
         </p>
       </section>
 
       {/* Bio */}
       <section className="mb-6">
         <p className="text-foreground/60 text-lg leading-relaxed">
-          I&apos;m Eric - a full-stack developer who builds fast and sticks
-          around. I build SaaS products, AI tools and automations. Always
-          working with the latest tech. Two of my clients have been with me for
-          over two years.
+          I&apos;m Eric - a Product Engineer who ships fast and stays
+          long-term. I build SaaS products, AI tools and automations with
+          measurable outcomes, from internal workflows to customer-facing
+          platforms. Two client partnerships have lasted over two years.
+        </p>
+      </section>
+
+      {/* Trust Line */}
+      <section className="mb-6">
+        <p className="border-foreground/[0.06] text-foreground/45 bg-foreground/[0.02] rounded-xl border px-4 py-3 text-sm">
+          Shipped products used by 20,000+ users across SaaS, marketplaces, and
+          productivity tools.
         </p>
       </section>
 
@@ -136,6 +144,16 @@ export default function Home() {
             </a>
           ))}
         </div>
+      </section>
+
+      {/* Client Work */}
+      <section className="mb-6">
+        <h2 className="text-foreground/30 mb-2 text-xs font-medium uppercase tracking-[0.2em]">
+          Client work
+        </h2>
+        <p className="border-foreground/[0.06] text-foreground/45 bg-foreground/[0.02] rounded-xl border px-4 py-3 text-sm">
+          Freelancing since 2025 - web apps, automations, growth systems.
+        </p>
       </section>
 
       {/* CTA */}

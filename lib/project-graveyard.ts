@@ -10,6 +10,10 @@ export interface GraveyardProject {
   slug: string
   description: string
   longDescription?: string
+  role?: string
+  experienceType?: string
+  location?: string
+  workMode?: string
   date: string
   status: ProjectStatus
   users: string | number
@@ -40,14 +44,20 @@ export const graveyardProjects: GraveyardProject[] = [
     name: "PromptSloth",
     slug: "promptsloth",
     description:
-      "Chrome extension for better AI prompts - one-click improvements and 2000+ templates",
+      "Chrome extension that helps people write better prompts and build stronger AI habits",
     longDescription:
-      "A Chrome extension that helps craft better AI prompts. Features one-click prompt improvements, 2000+ expert templates across categories like copywriting, coding, marketing, and research. Works with ChatGPT, Claude, Gemini, and any AI tool. Includes quick actions, //shortcuts for instant template insertion, and custom saved prompts. 5-star rating on Chrome Web Store.",
-    date: "2024",
+      "Built PromptSloth to fix my own lazy prompting habits. The extension grew organically to 2,000+ active users. It helps users quickly improve prompts and build a consistent prompting workflow directly in the browser.",
+    date: "2025",
     status: "live",
     url: "https://promptsloth.com/",
-    users: "2000+",
-    tags: ["AI", "Chrome Extension", "Productivity", "ChatGPT", "Claude"],
+    users: "2,000+",
+    tags: [
+      "AI",
+      "Chrome Extension",
+      "Productivity",
+      "Prompt Engineering",
+      "2,000+ Active Users",
+    ],
     featured: true,
   },
   {
@@ -82,14 +92,21 @@ export const graveyardProjects: GraveyardProject[] = [
     name: "Bitvocation",
     slug: "bitvocation",
     description:
-      "The talent stack for hyperbitcoinization - Bitcoin job aggregation platform",
+      "Bitcoin job aggregation platform with automated sourcing and Telegram distribution",
     longDescription:
-      "A comprehensive career platform for the Bitcoin ecosystem. Automatically scrapes job listings from multiple sources and distributes them across Telegram channels and Nostr relays. Features include a curated job feed, talent exchange program (BTX), and POW Lab educational community. Partnered with major Bitcoin companies and serving 1500+ subscribers looking for Bitcoin-related careers.",
-    date: "December 2023 - Present",
+      "Full-stack Engineer (part-time), remote from Vienna. Built an automated job aggregation system that scraped 20+ Bitcoin job sites and processed around 40 jobs weekly. Built custom alerts and filtering for Telegram distribution, and the platform has now reached 2,500+ active users.",
+    date: "Jan 2023 - Feb 2024",
     status: "live",
     url: "https://bitvocation.com",
-    users: "2500+",
-    tags: ["Bitcoin", "Jobs", "Telegram", "Nostr", "Career Platform"],
+    users: "2,500+",
+    tags: [
+      "Bitcoin",
+      "Jobs",
+      "Telegram",
+      "Automation",
+      "PostgreSQL",
+      "Docker",
+    ],
     featured: true,
   },
 
@@ -97,14 +114,14 @@ export const graveyardProjects: GraveyardProject[] = [
     name: "Slackactivity",
     slug: "slackactivity",
     description:
-      "Keep your Slack status active - automatic status management every 5 minutes",
+      "Tool that keeps your Slack status active during work hours automatically",
     longDescription:
-      "Solves the problem of Slack setting you to 'away' after 30 minutes of inactivity. Slackactivity keeps your status active every 5 minutes, even during meetings or video calls. Secure OAuth integration - only requests status update permission, never accesses messages or files. Set custom working hours and manage multiple workspaces. Free forever.",
-    date: "August 2024",
+      "A utility I built to remove manual Slack status updates. It automatically keeps Slack active during configured work hours so you stay visible without constant interaction.",
+    date: "2024",
     status: "live",
     url: "https://slackactivity.com/",
     github: "https://github.com/EricStrohmaier/slackactivity.com",
-    users: "5 Active users",
+    users: "Personal project",
     tags: ["Slack", "Productivity", "Remote Work", "Automation"],
     featured: true,
   },
@@ -112,14 +129,26 @@ export const graveyardProjects: GraveyardProject[] = [
     name: "Friends in Flats",
     slug: "friends-in-flats",
     description:
-      "AI-powered student housing platform - connecting students with roommates in Vienna",
+      "Shared flat booking platform for students in Vienna, from listings to move-in",
     longDescription:
-      "An accommodation platform partnered with WU Vienna and TU Wien that connects international students with like-minded roommates. Features AI-powered matching, fully furnished rooms, online booking, and a dedicated quality team that inspects and certifies each room. Students get hassle-free housing without in-person viewings.",
-    date: "2024",
+      "Full-stack Engineer (hybrid in Vienna). Joined as the first technical hire when operations were still manual and built the platform from scratch to 20,000+ users. Automated the workflow from listings to tenant applications, booking, digital contracts, and move-in coordination. Optimized for SEO and mobile, then led a team of 4 developers.",
+    date: "Feb 2024 - Apr 2025",
+    role: "Full-stack Engineer",
+    experienceType: "Job",
+    location: "Vienna, Austria",
+    workMode: "Hybrid",
     status: "live",
     url: "https://www.friends-in-flats.com/",
-    users: "1200+",
-    tags: ["PropTech", "Student Housing", "Vienna", "AI Matching"],
+    users: "20,000+",
+    tags: [
+      "Next.js",
+      "PostgreSQL",
+      "Stripe",
+      "Docker",
+      "PandaDoc",
+      "n8n",
+      "Make.com",
+    ],
   },
   {
     name: "MenuSnap",
