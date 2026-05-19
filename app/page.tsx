@@ -91,7 +91,7 @@ export default function Home() {
               key={project.name}
               href={project.href}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
               className="border-foreground/[0.06] bg-foreground/[0.02] hover:border-foreground/10 hover:bg-foreground/[0.05] group flex items-start justify-between gap-4 rounded-xl border px-4 py-2.5 transition-all duration-300 hover:translate-x-1"
             >
               <div className="min-w-0">

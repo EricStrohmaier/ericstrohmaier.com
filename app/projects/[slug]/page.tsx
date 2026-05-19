@@ -95,7 +95,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             <a
               href={project.url}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
               className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-85"
             >
               <svg
@@ -119,7 +119,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             <a
               href={project.github}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
               className="text-foreground/70 inline-flex items-center gap-2 rounded-xl border border-border bg-[var(--secondary)] px-5 py-2.5 text-sm font-medium transition-colors hover:text-foreground"
             >
               <svg

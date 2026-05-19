@@ -191,6 +191,28 @@ export const graveyardProjects: GraveyardProject[] = [
     tags: ["Invoice", "Business", "Freelance", "PDF"],
   },
   {
+    name: "AdChat",
+    slug: "adchat",
+    description:
+      "AI-powered chat interface for managing and optimizing ad campaigns",
+    date: "2026",
+    status: "live",
+    url: "https://adchat.app",
+    users: "Beta",
+    tags: ["SaaS", "AI", "Advertising"],
+  },
+  {
+    name: "GetAutoReview",
+    slug: "getautoreview",
+    description:
+      "Automated review collection and management for businesses",
+    date: "2026",
+    status: "live",
+    url: "https://getautoreview.com",
+    users: "Beta",
+    tags: ["SaaS", "Reviews", "Automation"],
+  },
+  {
     name: "Boring Landing Page",
     slug: "boring-landing-page",
     description: "Next.js boilerplate template for launching projects fast",
