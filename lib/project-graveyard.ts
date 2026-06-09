@@ -46,17 +46,17 @@ export const graveyardProjects: GraveyardProject[] = [
     description:
       "Chrome extension that helps people write better prompts and build stronger AI habits",
     longDescription:
-      "Built PromptSloth to fix my own lazy prompting habits. The extension grew organically to 2,000+ active users. It helps users quickly improve prompts and build a consistent prompting workflow directly in the browser.",
+      "Built PromptSloth to fix my own lazy prompting habits. The extension grew organically to 7,000+ Chrome Store installs. It helps users quickly improve prompts and build a consistent prompting workflow directly in the browser.",
     date: "2025",
     status: "live",
     url: "https://promptsloth.com/",
-    users: "2,000+",
+    users: "7,000+",
     tags: [
       "AI",
       "Chrome Extension",
       "Productivity",
       "Prompt Engineering",
-      "2,000+ Active Users",
+      "7,000+ Installs",
     ],
     featured: true,
   },
@@ -205,12 +205,21 @@ export const graveyardProjects: GraveyardProject[] = [
     name: "GetAutoReview",
     slug: "getautoreview",
     description:
-      "Automated review collection and management for businesses",
+      "Automating review collection for local small businesses",
+    longDescription:
+      "GetAutoReview helps local service businesses (roofers, plumbers, contractors) win more Google reviews without chasing customers by hand. Connect a customer list - via BCC on invoices, a CRM/POS integration (QuickBooks, Zapier), CSV upload, or manual entry - and it automatically emails each new customer a one-tap review request, with smart follow-ups on day 3 and 7. Unhappy customers get routed to a private feedback form before they post publicly. The collected reviews can be embedded back on the business's site through drop-in widgets (Wall of Love, carousel, badges) with a single script tag, plus automatic schema markup so star ratings show up in Google search. Rounded out with moderation, AI sentiment analysis, auto-replies, and social sharing.",
     date: "2026",
     status: "live",
     url: "https://getautoreview.com",
-    users: "Beta",
-    tags: ["SaaS", "Reviews", "Automation"],
+    users: "Live",
+    tags: [
+      "SaaS",
+      "Reviews",
+      "Automation",
+      "Local Business",
+      "Google Reviews",
+      "Email Campaigns",
+    ],
   },
   {
     name: "Boring Landing Page",

@@ -1,10 +1,16 @@
 export default function Home() {
   const projects = [
     {
+      name: "GetAutoReview",
+      href: "https://getautoreview.com",
+      description: "Automating review collection for local small businesses",
+      accent: "blue",
+    },
+    {
       name: "PromptSloth",
       href: "https://promptsloth.com",
       description: "AI prompt Chrome extension",
-      metric: ["2,000+ active users", "26 paying subscribers"],
+      metric: ["7,000+ Chrome Store installs", "50 paying subscribers"],
       accent: "emerald",
     },
     {
@@ -51,7 +57,7 @@ export default function Home() {
           I&apos;m Eric - a Product Engineer who ships fast and stays
           long-term. I build SaaS products, AI tools and automations with
           measurable outcomes, from internal workflows to customer-facing
-          platforms. Two client partnerships have lasted over two years.
+          platforms. Two client partnerships have lasted over four years.
         </p>
       </section>
 
@@ -67,14 +73,14 @@ export default function Home() {
       <section className="text-foreground/30 mb-6 flex items-center gap-4 text-xs font-medium uppercase tracking-wider">
         <span>
           <span className="text-sm font-semibold normal-case text-emerald-500">
-            2+
+            4+
           </span>{" "}
           year client partnerships
         </span>
         <span className="text-foreground/10">|</span>
         <span>
           <span className="text-sm font-semibold normal-case text-blue-500">
-            15+
+            17+
           </span>{" "}
           projects built
         </span>
@@ -152,7 +158,7 @@ export default function Home() {
           Client work
         </h2>
         <p className="border-foreground/[0.06] text-foreground/45 bg-foreground/[0.02] rounded-xl border px-4 py-3 text-sm">
-          Freelancing since 2025 - web apps, automations, growth systems.
+          Freelancing since 2024 - web apps, automations, growth systems.
         </p>
       </section>
 
