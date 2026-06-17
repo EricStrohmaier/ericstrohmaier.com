@@ -5,7 +5,7 @@ import { siteConfig } from "@/site-config"
 
 export async function POST(request: Request) {
   try {
-    const { email, message } = await request.json()
+    const { name, email, topic, message } = await request.json()
 
     if (!email || !message) {
       return NextResponse.json(
@@ -14,8 +14,11 @@ export async function POST(request: Request) {
       )
     }
 
+    const from = name ? `${name} <${email}>` : email
     await sendSlackNotification(
-      `Platform: ${siteConfig.domain}\nFrom: ${email}\n\nMessage: ${message}`,
+      `Platform: ${siteConfig.domain}\nFrom: ${from}${
+        topic ? `\nTopic: ${topic}` : ""
+      }\n\nMessage: ${message}`,
     )
 
     return NextResponse.json({ success: true })

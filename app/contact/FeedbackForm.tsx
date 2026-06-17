@@ -3,8 +3,21 @@
 import React, { useState } from "react"
 import { toast } from "sonner"
 
+const TOPICS = [
+  "New project / custom software",
+  "Website & lead generation",
+  "Internal tools & automation",
+  "Ongoing software partnership",
+  "Something else",
+]
+
+const inputClasses =
+  "w-full rounded-xl border border-border bg-foreground/[0.02] px-4 py-3 text-sm text-foreground/80 placeholder:text-foreground/30 outline-none transition-colors focus:border-foreground/40"
+
 export default function FeedbackForm() {
+  const [name, setName] = useState("")
   const [email, setEmail] = useState("")
+  const [topic, setTopic] = useState("")
   const [message, setMessage] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
 
@@ -25,7 +38,7 @@ export default function FeedbackForm() {
       const response = await fetch("/api/send-feedback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, message }),
+        body: JSON.stringify({ name, email, topic, message }),
       })
 
       if (response.ok) {
@@ -34,7 +47,9 @@ export default function FeedbackForm() {
           toast.success("Message sent", {
             description: "Thanks, I'll get back to you.",
           })
+          setName("")
           setEmail("")
+          setTopic("")
           setMessage("")
         } else {
           throw new Error(data.error || "Failed to send")
@@ -53,11 +68,18 @@ export default function FeedbackForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div>
-        <label htmlFor="email" className="mb-1.5 block text-sm text-foreground/50">
-          email
-        </label>
+    <form onSubmit={handleSubmit} className="space-y-3">
+      <div className="grid gap-3 sm:grid-cols-2">
+        <input
+          type="text"
+          id="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+          placeholder="Your name"
+          aria-label="Your name"
+          className={inputClasses}
+        />
         <input
           type="email"
           id="email"
@@ -65,29 +87,40 @@ export default function FeedbackForm() {
           onChange={(e) => setEmail(e.target.value)}
           required
           placeholder="you@example.com"
-          className="w-full rounded-xl border border-border bg-transparent px-4 py-2.5 text-foreground/80 placeholder:text-foreground/25 outline-none focus:border-foreground/40"
+          aria-label="Your email"
+          className={inputClasses}
         />
       </div>
-      <div>
-        <label htmlFor="message" className="mb-1.5 block text-sm text-foreground/50">
-          message
-        </label>
-        <textarea
-          id="message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          required
-          rows={5}
-          placeholder="what's on your mind?"
-          className="w-full resize-none rounded-xl border border-border bg-transparent px-4 py-2.5 text-foreground/80 placeholder:text-foreground/25 outline-none focus:border-foreground/40"
-        />
-      </div>
+      <select
+        id="topic"
+        value={topic}
+        onChange={(e) => setTopic(e.target.value)}
+        aria-label="Select a topic"
+        className={`${inputClasses} ${topic ? "" : "text-foreground/30"}`}
+      >
+        <option value="">Select a topic</option>
+        {TOPICS.map((t) => (
+          <option key={t} value={t} className="text-foreground">
+            {t}
+          </option>
+        ))}
+      </select>
+      <textarea
+        id="message"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        required
+        rows={6}
+        placeholder="How can I help you?"
+        aria-label="Your message"
+        className={`${inputClasses} resize-none`}
+      />
       <button
         type="submit"
         disabled={isSubmitting}
-        className="rounded-xl border border-border px-5 py-2 text-sm text-foreground/60 transition-colors hover:border-foreground/40 hover:text-foreground/80 disabled:opacity-40"
+        className="w-full rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm shadow-blue-600/20 transition-colors hover:bg-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] disabled:opacity-50"
       >
-        {isSubmitting ? "sending..." : "send message"}
+        {isSubmitting ? "Sending..." : "Send Message"}
       </button>
     </form>
   )

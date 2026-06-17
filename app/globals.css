@@ -9,11 +9,13 @@
     --teal: hsl(183, 70%, 62%);
     --white: hsl(334, 7%, 95%);
 
-    --background: #f5f5f4; /* Light theme background color */
+    --background: #f1f2f4; /* Light theme canvas — cool & bright so white cards pop */
     --text: #1c1917; /* Light theme text color */
     --primary: #e7e5e4; /* Light theme primary color */
-    --secondary: #d6d3d1; /* Light theme secondary color */
-    --border: #a8a29e; /* Light theme border color */
+    --secondary: #e6e7ea; /* Light theme secondary surface */
+    --border: #d7d9de; /* Light theme border color */
+    --card: #ffffff; /* Card surface — pure white in light mode */
+    --card-border: #e7e8ec; /* Soft hairline around cards */
   }
 
   .dark {
@@ -22,6 +24,8 @@
     --primary: #575758;
     --secondary: #4e4e4e;
     --border: #cccccc;
+    --card: #262626; /* Card surface — lifted above the canvas in dark mode */
+    --card-border: #353535; /* Soft hairline around cards */
   }
 }
 body::-webkit-scrollbar {
@@ -30,10 +34,7 @@ body::-webkit-scrollbar {
 
 body {
   scrollbar-width: none;
-  background-blend-mode: multiply;
   min-block-size: 100dvh;
-  display: grid;
-  place-items: center;
 }
 
 pre {

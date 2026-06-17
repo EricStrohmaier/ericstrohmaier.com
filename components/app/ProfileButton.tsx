@@ -6,21 +6,21 @@ import { usePathname } from "next/navigation"
 
 export default function ProfileButton() {
   const pathname = usePathname()
-  const isActive = pathname === "/profile"
+  const isActive = pathname === "/about"
 
   return (
     <div className="relative w-full border-t border-border p-2">
       <div className="flex w-full items-center justify-between">
         <Link
-          href="/profile"
+          href="/about"
           className={`${isActive && "bg-stone-300 dark:bg-stone-700"} flex w-full flex-1 items-center space-x-3 rounded-[20px] transition-all duration-150 ease-in-out hover:bg-stone-200 dark:text-white dark:hover:bg-stone-700 md:px-2 md:py-1.5`}
         >
           <Image
-            src={`/eric-head.jpeg`}
+            src={`/eric-avatar.png`}
             width={50}
             height={50}
             alt={"User avatar"}
-            className="w-15 h-15 rounded-full"
+            className="size-12 rounded-full object-cover"
           />
           <span className="hidden truncate text-base font-medium md:flex">
             Eric Strohmaier
