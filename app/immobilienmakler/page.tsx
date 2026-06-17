@@ -205,7 +205,7 @@ function Hero() {
   return (
     <section className="relative overflow-hidden py-16 md:py-24">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_15%_15%,_rgb(59,130,246),_transparent_45%)] opacity-[0.07]" />
-      <p className="text-blue-500 mb-4 text-sm font-semibold uppercase tracking-[0.2em]">
+      <p className="ont-semibold uppercase tracking-[0.2em] text-blue-500 text-blue-500">
         {config.productName} · für Immobilienmakler in AT & DE
       </p>
       <h1 className="mb-5 max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-foreground md:text-6xl">
@@ -340,7 +340,7 @@ function Solution() {
     {
       icon: Zap,
       title: "Sofortige automatische Antwort",
-      copy: "Jeder neue Lead bekommt in Sekunden eine Reaktion per E-Mail und SMS — auch nachts, am Wochenende und wenn Sie im Termin sind.",
+      copy: "Jeder neue Lead bekommt in Sekunden eine Reaktion per E-Mail - auch nachts, am Wochenende und wenn Sie im Termin sind.",
     },
     {
       icon: Repeat,
@@ -459,7 +459,7 @@ function HowItWorks() {
 function MidCta() {
   return (
     <section className="py-6 md:py-10">
-      <div className="flex flex-col items-start gap-4 rounded-2xl border border-blue-500/30 bg-blue-500/[0.05] px-6 py-6 sm:flex-row sm:items-center sm:justify-between md:px-8">
+      <div className="flex flex-col items-start gap-4 rounded-2xl border border-blue-500/30 bg-blue-500/[0.05] p-6 sm:flex-row sm:items-center sm:justify-between md:px-8">
         <div>
           <h2 className="text-xl font-semibold tracking-tight">
             Bereit, keinen Lead mehr zu verlieren?
@@ -839,18 +839,18 @@ function LandingFooter() {
       <div className="mx-auto flex max-w-5xl flex-col items-start justify-between gap-4 px-5 py-8 text-sm sm:flex-row sm:items-center md:px-8">
         <p className="text-foreground/45">© {year} Eric Strohmaier</p>
         <div className="text-foreground/55 flex items-center gap-5">
-          <atransition-colors 
+          <a
             href={config.impressumUrl}
             className="transition-colors hover:text-foreground"
           >
             Impressum
-          </atransition-colors>
-          <atransition-colors 
+          </a>
+          <a
             href={`mailto:${config.contactEmail}`}
             className="transition-colors hover:text-foreground"
           >
             {config.contactEmail}
-          </atransition-colors>
+          </a>
         </div>
       </div>
     </footer>
