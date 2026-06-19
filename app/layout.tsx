@@ -5,7 +5,7 @@ import LayoutPage from "@/components/app/LayoutPage"
 import TimeProvider from "@/lib/time"
 import { siteConfig } from "@/site-config"
 
-const homeTitle = "Eric Strohmaier — Custom Software for Small Businesses"
+const homeTitle = "Eric Strohmaier - Custom Software for Small Businesses"
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || siteConfig.url),
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
         url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: "Eric Strohmaier — Your software partner",
+        alt: "Eric Strohmaier - Your software partner",
       },
     ],
   },
@@ -78,7 +78,7 @@ const jsonLd = {
     {
       "@type": "ProfessionalService",
       "@id": `${siteConfig.url}/#business`,
-      name: "Eric Strohmaier — Software Partner",
+      name: "Eric Strohmaier - Software Partner",
       url: siteConfig.url,
       image: siteConfig.ogImage,
       description: siteConfig.description,

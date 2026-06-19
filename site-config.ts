@@ -10,7 +10,7 @@ export const siteConfig = {
     "https://calendar.app.google/hAPJNZHrEtykHPMg9",
   tagline: "Your software partner.",
   description:
-    "I build custom software, internal tools, automations, and high-converting websites for small and mid-sized businesses — software that pays for itself.",
+    "I build custom software, internal tools, automations, and high-converting websites for small and mid-sized businesses - software that pays for itself.",
   keywords: [
     "Eric Strohmaier",
     "custom software development",

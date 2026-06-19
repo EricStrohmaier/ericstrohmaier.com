@@ -26,7 +26,7 @@ import { Reveal } from "@/components/app/Reveal"
 import { siteConfig } from "@/site-config"
 
 /* ======================================================================= */
-/*  KONFIGURATION — alle pro Kunde editierbaren Texte & Preise hier.         */
+/*  KONFIGURATION - alle pro Kunde editierbaren Texte & Preise hier.         */
 /*  Suchen Sie nach [PLATZHALTER] für alles, was noch ausgefüllt werden muss.*/
 /* ======================================================================= */
 const config = {
@@ -47,7 +47,7 @@ const config = {
   // [PLATZHALTER] Aufbauzeit.
   buildTime: "10 Werktagen", // [PLATZHALTER]
 
-  // Preise [PLATZHALTER] — anpassen, sobald kalkuliert.
+  // Preise [PLATZHALTER] - anpassen, sobald kalkuliert.
   setupPrice: "3.500 €", // [PLATZHALTER]
   carePrice: "299 €", // [PLATZHALTER]
   growthPrice: "1.500 €", // [PLATZHALTER]
@@ -56,7 +56,7 @@ const config = {
   contactEmail: "contact@ericstrohmaier.com",
   impressumUrl: "#", // [PLATZHALTER] Link zum Impressum
 
-  // Referenzen [PLATZHALTER] — durch echte ersetzen.
+  // Referenzen [PLATZHALTER] - durch echte ersetzen.
   testimonials: [
     {
       stat: "+14", // [PLATZHALTER]
@@ -79,21 +79,21 @@ const config = {
 
 export const metadata: Metadata = {
   title:
-    "MaklerOS — Das Betriebssystem für Ihr Maklerbüro | Leads, Objekte, Team & Termine an einem Ort",
+    "MaklerOS - Das Betriebssystem für Ihr Maklerbüro | Leads, Objekte, Team & Termine an einem Ort",
   description:
-    "MaklerOS erfasst Ihre Leads automatisch und fasst nach, verwaltet Ihre Objekte, lässt Termine direkt buchen und verbindet Ihr Team — damit Sie keinen Abschluss mehr verlieren. Für Makler in Österreich & Deutschland.",
+    "MaklerOS erfasst Ihre Leads automatisch und fasst nach, verwaltet Ihre Objekte, lässt Termine direkt buchen und verbindet Ihr Team - damit Sie keinen Abschluss mehr verlieren. Für Makler in Österreich & Deutschland.",
   openGraph: {
-    title: "MaklerOS — Das Betriebssystem für Ihr Maklerbüro",
+    title: "MaklerOS - Das Betriebssystem für Ihr Maklerbüro",
     description:
-      "Leads, Objekte, Team & Termine an einem Ort. Erfasst jede Anfrage, antwortet in Sekunden und fasst automatisch nach — bis zum Termin. Für Immobilienmakler in AT & DE.",
+      "Leads, Objekte, Team & Termine an einem Ort. Erfasst jede Anfrage, antwortet in Sekunden und fasst automatisch nach - bis zum Termin. Für Immobilienmakler in AT & DE.",
     type: "website",
     locale: "de_DE",
   },
   twitter: {
     card: "summary_large_image",
-    title: "MaklerOS — Das Betriebssystem für Ihr Maklerbüro",
+    title: "MaklerOS - Das Betriebssystem für Ihr Maklerbüro",
     description:
-      "Leads, Objekte, Team & Termine an einem Ort — automatisch erfasst, beantwortet und nachgefasst.",
+      "Leads, Objekte, Team & Termine an einem Ort - automatisch erfasst, beantwortet und nachgefasst.",
   },
 }
 
@@ -169,7 +169,7 @@ function PrimaryCta({
 }
 
 /* ======================================================================= */
-/*  HEADER (focused — logo + single CTA)                                     */
+/*  HEADER (focused - logo + single CTA)                                     */
 /* ======================================================================= */
 function LandingHeader() {
   return (
@@ -205,16 +205,16 @@ function Hero() {
   return (
     <section className="relative overflow-hidden py-16 md:py-24">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_15%_15%,_rgb(59,130,246),_transparent_45%)] opacity-[0.07]" />
-      <p className="ont-semibold uppercase tracking-[0.2em] text-blue-500 text-blue-500">
+      <p className="ont-semibold uppercase tracking-[0.2em] text-blue-500">
         {config.productName} · für Immobilienmakler in AT & DE
       </p>
       <h1 className="mb-5 max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-foreground md:text-6xl">
-        {config.productTagline} Leads, Objekte, Team und Termine — an einem Ort.
+        {config.productTagline} Leads, Objekte, Team und Termine - an einem Ort.
       </h1>
       <p className="text-foreground/55 mb-8 max-w-2xl text-lg leading-relaxed md:text-xl">
         {config.productName} erfasst jede Anfrage, antwortet in Sekunden und
         fasst automatisch nach, verwaltet Ihre Objekte, lässt Termine direkt
-        buchen und verbindet Ihr Team — statt verstreut über WhatsApp, Mail und
+        buchen und verbindet Ihr Team - statt verstreut über WhatsApp, Mail und
         Excel.
       </p>
 
@@ -247,11 +247,11 @@ function Problem() {
   const pains = [
     {
       title: "Antwort dauert Stunden",
-      copy: "Ein Lead kommt rein, Sie sind im Termin — und melden sich erst Stunden später. Da hat der Interessent längst drei andere Makler angeschrieben.",
+      copy: "Ein Lead kommt rein, Sie sind im Termin - und melden sich erst Stunden später. Da hat der Interessent längst drei andere Makler angeschrieben.",
     },
     {
       title: "Die meisten sind noch nicht so weit",
-      copy: "Die wenigsten Verkäufer entscheiden sich beim ersten Kontakt. Wer nicht sofort kaufbereit ist, wird nie wieder kontaktiert — und ist für immer weg.",
+      copy: "Die wenigsten Verkäufer entscheiden sich beim ersten Kontakt. Wer nicht sofort kaufbereit ist, wird nie wieder kontaktiert - und ist für immer weg.",
     },
     {
       title: "Anfragen gehen unter",
@@ -268,7 +268,7 @@ function Problem() {
       </h2>
       <p className="text-foreground/55 mb-8 max-w-2xl text-lg leading-relaxed">
         Jeder Lead, der zu spät oder gar nicht beantwortet wird, landet beim
-        Mitbewerber. Und das passiert jede Woche — leise, ohne dass Sie es
+        Mitbewerber. Und das passiert jede Woche - leise, ohne dass Sie es
         merken.
       </p>
       <div className="grid gap-3 md:grid-cols-3">
@@ -318,7 +318,7 @@ function MoneyMath() {
                 ein einziger zusätzlicher Abschluss pro Jahr
               </span>{" "}
               bezahlt das System um ein Vielfaches. Alles darüber ist reiner
-              Gewinn — Monat für Monat.
+              Gewinn - Monat für Monat.
             </p>
           </div>
         </div>
@@ -335,7 +335,7 @@ function Solution() {
     {
       icon: Home,
       title: "Bewertungs-Landingpage",
-      copy: '„Was ist meine Immobilie wert?" — der bewährte Lead-Magnet, der Verkäufer von selbst zu Ihnen bringt und ihre Kontaktdaten erfasst.',
+      copy: '„Was ist meine Immobilie wert?" - der bewährte Lead-Magnet, der Verkäufer von selbst zu Ihnen bringt und ihre Kontaktdaten erfasst.',
     },
     {
       icon: Zap,
@@ -345,22 +345,22 @@ function Solution() {
     {
       icon: Repeat,
       title: "Automatische Nachfass-Sequenz",
-      copy: "MaklerOS bleibt über Wochen und Monate dran und pflegt jeden Lead mit den richtigen Nachrichten — bis ein Termin gebucht ist.",
+      copy: "MaklerOS bleibt über Wochen und Monate dran und pflegt jeden Lead mit den richtigen Nachrichten - bis ein Termin gebucht ist.",
     },
     {
       icon: Building2,
       title: "Listing-CRM & Objekt-Landingpages",
-      copy: "Verwalten Sie alle Objekte an einem Ort — mit Status, Interessenten je Listing und einer fertigen Landingpage pro Immobilie zum Teilen.",
+      copy: "Verwalten Sie alle Objekte an einem Ort - mit Status, Interessenten je Listing und einer fertigen Landingpage pro Immobilie zum Teilen.",
     },
     {
       icon: CalendarCheck,
       title: "Integriertes Buchungssystem",
-      copy: "Interessenten buchen Besichtigungen und Erstgespräche direkt in Ihren Kalender — keine Telefon-Pingpong, kein doppeltes Eintragen.",
+      copy: "Interessenten buchen Besichtigungen und Erstgespräche direkt in Ihren Kalender - keine Telefon-Pingpong, kein doppeltes Eintragen.",
     },
     {
       icon: Users,
       title: "Team-Zugänge & Dashboard",
-      copy: "Laden Sie Mitarbeiter ein, verteilen Sie Leads und Objekte und behalten Sie im gemeinsamen Dashboard alles im Blick — jederzeit.",
+      copy: "Laden Sie Mitarbeiter ein, verteilen Sie Leads und Objekte und behalten Sie im gemeinsamen Dashboard alles im Blick - jederzeit.",
     },
   ]
 
@@ -368,10 +368,10 @@ function Solution() {
     <Section id="loesung">
       <SectionLabel>Die Lösung</SectionLabel>
       <h2 className="mb-4 max-w-2xl text-3xl font-semibold tracking-tight md:text-4xl">
-        Alles in MaklerOS — was Sie bekommen.
+        Alles in MaklerOS - was Sie bekommen.
       </h2>
       <p className="text-foreground/55 mb-8 max-w-2xl text-lg leading-relaxed">
-        Alles, was Ihr Büro braucht, in einem System — von der ersten Anfrage
+        Alles, was Ihr Büro braucht, in einem System - von der ersten Anfrage
         bis zum unterschriebenen Vertrag.
       </p>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -412,12 +412,12 @@ function HowItWorks() {
     {
       icon: Rocket,
       title: `Aufbau & Launch`,
-      copy: `Ich baue Ihr komplettes MaklerOS auf und bringe es in ${config.buildTime} live — ohne Aufwand für Sie.`,
+      copy: `Ich baue Ihr komplettes MaklerOS auf und bringe es in ${config.buildTime} live - ohne Aufwand für Sie.`,
     },
     {
       icon: TrendingUp,
       title: "Läuft & wird optimiert",
-      copy: "Sie bekommen Termine, ich kümmere mich um die Technik — und verbessere das System laufend weiter.",
+      copy: "Sie bekommen Termine, ich kümmere mich um die Technik - und verbessere das System laufend weiter.",
     },
   ]
 
@@ -465,7 +465,7 @@ function MidCta() {
             Bereit, keinen Lead mehr zu verlieren?
           </h2>
           <p className="text-foreground/55 mt-1 text-sm leading-relaxed">
-            Im kostenlosen Erstgespräch finden wir Ihren größten Hebel — ganz
+            Im kostenlosen Erstgespräch finden wir Ihren größten Hebel - ganz
             ohne Verkaufsdruck.
           </p>
         </div>
@@ -483,12 +483,12 @@ function WhyItWorks() {
     {
       icon: Gauge,
       title: "Speed-to-Lead: Wer in Minuten reagiert, gewinnt.",
-      copy: "Interessenten entscheiden sich fast immer für den, der zuerst antwortet. Ihr System reagiert nicht in Minuten — sondern in Sekunden, rund um die Uhr.",
+      copy: "Interessenten entscheiden sich fast immer für den, der zuerst antwortet. Ihr System reagiert nicht in Minuten - sondern in Sekunden, rund um die Uhr.",
     },
     {
       icon: Clock,
       title: "Dranbleiben: Die meisten Abschlüsse kommen erst beim Nachfassen.",
-      copy: "Selten klappt es beim ersten Kontakt. Das System fasst automatisch nach — wieder und wieder, freundlich und konsequent — und hört nie auf.",
+      copy: "Selten klappt es beim ersten Kontakt. Das System fasst automatisch nach - wieder und wieder, freundlich und konsequent - und hört nie auf.",
     },
   ]
 
@@ -496,7 +496,7 @@ function WhyItWorks() {
     <Section id="warum">
       <SectionLabel>Warum es funktioniert</SectionLabel>
       <h2 className="mb-8 max-w-2xl text-3xl font-semibold tracking-tight md:text-4xl">
-        Zwei einfache Wahrheiten — konsequent automatisiert.
+        Zwei einfache Wahrheiten - konsequent automatisiert.
       </h2>
       <div className="grid gap-3 md:grid-cols-2">
         {facts.map((f) => {
@@ -535,12 +535,12 @@ function Ownership() {
     {
       icon: Database,
       title: "Code & Daten gehören Ihnen",
-      copy: "Voller Export — das komplette System, alle Kontakte und alle Objektdaten sind und bleiben Ihr Eigentum.",
+      copy: "Voller Export - das komplette System, alle Kontakte und alle Objektdaten sind und bleiben Ihr Eigentum.",
     },
     {
       icon: ShieldCheck,
       title: "DSGVO-konform, EU-Hosting",
-      copy: "Ihre Daten liegen in der EU und werden datenschutzkonform verarbeitet — sicher für AT & DE.",
+      copy: "Ihre Daten liegen in der EU und werden datenschutzkonform verarbeitet - sicher für AT & DE.",
     },
   ]
 
@@ -551,7 +551,7 @@ function Ownership() {
         Ihr System. Ihre Daten. Keine Abhängigkeit.
       </h2>
       <p className="text-foreground/55 mb-8 max-w-2xl text-lg leading-relaxed">
-        Sie bleiben, weil das System sich rechnet — nicht, weil ein Vertrag Sie
+        Sie bleiben, weil das System sich rechnet - nicht, weil ein Vertrag Sie
         festhält.
       </p>
       <div className="grid gap-3 md:grid-cols-3">
@@ -663,7 +663,7 @@ function Pricing() {
     <Section id="preise">
       <SectionLabel>Preise</SectionLabel>
       <h2 className="mb-4 max-w-2xl text-3xl font-semibold tracking-tight md:text-4xl">
-        Transparent & fair — zwei Teile, ein Ergebnis.
+        Transparent & fair - zwei Teile, ein Ergebnis.
       </h2>
       <p className="text-foreground/55 mb-8 max-w-2xl text-lg leading-relaxed">
         Eine einmalige Einrichtung baut Ihr MaklerOS auf. Danach wählen Sie den
@@ -762,23 +762,23 @@ function Faq() {
   const faqs = [
     {
       q: "Wie lange dauert der Aufbau?",
-      a: `In der Regel ist Ihr MaklerOS in ${config.buildTime} live. Den Großteil der Arbeit übernehme ich — Ihr Aufwand bleibt minimal.`,
+      a: `In der Regel ist Ihr MaklerOS in ${config.buildTime} live. Den Großteil der Arbeit übernehme ich - Ihr Aufwand bleibt minimal.`,
     },
     {
       q: "Gehört mir das System wirklich?",
-      a: "Ja. Code und Daten gehören Ihnen, mit vollem Export. Sie können jederzeit alles mitnehmen und selbst weiter betreiben — keine Abhängigkeit.",
+      a: "Ja. Code und Daten gehören Ihnen, mit vollem Export. Sie können jederzeit alles mitnehmen und selbst weiter betreiben - keine Abhängigkeit.",
     },
     {
       q: "Gibt es eine Vertragsbindung?",
-      a: "Nein. Die monatlichen Pläne sind jederzeit kündbar. Keine Knebelverträge — Sie bleiben, weil sich das System rechnet.",
+      a: "Nein. Die monatlichen Pläne sind jederzeit kündbar. Keine Knebelverträge - Sie bleiben, weil sich das System rechnet.",
     },
     {
       q: "Ist das DSGVO-konform?",
-      a: "Ja. Die Daten werden in der EU gehostet und datenschutzkonform verarbeitet — wichtig und sicher für den Einsatz in Österreich und Deutschland.",
+      a: "Ja. Die Daten werden in der EU gehostet und datenschutzkonform verarbeitet - wichtig und sicher für den Einsatz in Österreich und Deutschland.",
     },
     {
       q: "Was, wenn ich schon eine Website habe?",
-      a: "Kein Problem. Wir integrieren MaklerOS in Ihre bestehende Website oder ersetzen sie — je nachdem, was für Sie mehr Abschlüsse bringt.",
+      a: "Kein Problem. Wir integrieren MaklerOS in Ihre bestehende Website oder ersetzen sie - je nachdem, was für Sie mehr Abschlüsse bringt.",
     },
   ]
 

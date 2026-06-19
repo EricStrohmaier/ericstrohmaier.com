@@ -28,7 +28,7 @@ export async function generateMetadata({
   }
 
   const description = project.caseStudy
-    ? `${project.caseStudy.result} — ${project.description}`
+    ? `${project.caseStudy.result} - ${project.description}`
     : project.description
 
   return {
@@ -107,7 +107,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       </Link>
 
       <div className="mb-8 flex flex-col gap-6 md:flex-row md:items-start md:gap-8">
-        {/* Left — identity, description, actions, quick facts */}
+        {/* Left - identity, description, actions, quick facts */}
         <div className="min-w-0 md:flex-1">
           <div className="mb-2 flex items-center gap-3">
             <span className="relative shrink-0">
@@ -232,7 +232,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           </dl>
         </div>
 
-        {/* Right — live preview */}
+        {/* Right - live preview */}
         {project.url && (
           <OgImage
             url={project.url}
@@ -245,7 +245,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
       {project.caseStudy && (
         <div className="mb-8 space-y-3">
-          {/* Result — surfaced prominently */}
+          {/* Result - surfaced prominently */}
           <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/[0.06] p-5">
             <p className="mb-1 text-xs font-medium uppercase tracking-[0.2em] text-emerald-500/80">
               Result
@@ -288,7 +288,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                 <span className="text-foreground/70 font-medium">
                   {project.caseStudy.testimonial.name}
                 </span>{" "}
-                — {project.caseStudy.testimonial.role}
+                - {project.caseStudy.testimonial.role}
               </footer>
             </blockquote>
           )}

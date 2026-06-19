@@ -1,0 +1,15 @@
+{
+  // prettier-plugin-tailwindcss (see .prettierrc) already sorts Tailwind
+  // classes correctly on save. The Headwind extension (heybourn.headwind) is a
+  // SECOND sorter that also runs on save and corrupts arbitrary-value classes
+  // such as border-[var(--card-border)] and bg-foreground/[0.02] — producing
+  // scrambled output like "bg-caodw-sm". Disable its on-save sorting here, and
+  // prefer uninstalling the extension entirely (it is redundant + abandoned).
+  "headwind.runOnSave": false,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[javascriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" }
+}

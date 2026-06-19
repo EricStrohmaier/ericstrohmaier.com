@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 /**
  * Fetches a URL's OpenGraph image via /api/og-image and renders it.
  * Renders nothing until (and unless) an image is found, so it degrades cleanly.
- * `className` styles the wrapper, `imgClassName` the <img> — both have sensible
+ * `className` styles the wrapper, `imgClassName` the <img> - both have sensible
  * defaults matching the project detail page.
  */
 export function OgImage({

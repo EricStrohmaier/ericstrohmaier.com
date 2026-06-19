@@ -22,7 +22,7 @@ export interface ProofPoint {
 export interface CaseStudy {
   /** Who it was for. Optional for personal/own products. */
   client?: string
-  /** The problem they were facing — make the reader feel the cost. */
+  /** The problem they were facing - make the reader feel the cost. */
   problem: string
   /** What I built to solve it. */
   built: string
@@ -84,7 +84,7 @@ export const graveyardProjects: GraveyardProject[] = [
       built:
         "An automated review engine: one-tap review requests with day-3 and day-7 follow-ups, private routing for unhappy customers before they post publicly, and embeddable review widgets with schema markup for star ratings in search.",
       result:
-        "Turns every new customer into an automated review request — no manual chasing.",
+        "Turns every new customer into an automated review request - no manual chasing.",
       proof: [
         { icon: "star", label: "More 5-star Google reviews" },
         { icon: "check", label: "Day-3 & day-7 follow-ups" },
@@ -97,7 +97,7 @@ export const graveyardProjects: GraveyardProject[] = [
     description:
       "A shared todo list for you and your AI agents - one task queue, full control",
     longDescription:
-      "A task management platform that bridges humans and AI agents. One centralized task queue where autonomous agents grab tasks, do the work, and report back — while you stay in control. Features a unified dashboard for monitoring, a single REST API for seamless integration, board and list views, and quick access via keyboard shortcuts. Built for anyone delegating work to AI agents who wants visibility and oversight over the execution process.",
+      "A task management platform that bridges humans and AI agents. One centralized task queue where autonomous agents grab tasks, do the work, and report back - while you stay in control. Features a unified dashboard for monitoring, a single REST API for seamless integration, board and list views, and quick access via keyboard shortcuts. Built for anyone delegating work to AI agents who wants visibility and oversight over the execution process.",
     date: "2025",
     status: "on-hold",
     url: "https://agenttodo.vercel.app/",
@@ -128,7 +128,7 @@ export const graveyardProjects: GraveyardProject[] = [
     caseStudyFeatured: true,
     caseStudy: {
       problem:
-        "Most people write lazy, low-effort AI prompts and get weak results — then blame the tool instead of the prompt.",
+        "Most people write lazy, low-effort AI prompts and get weak results - then blame the tool instead of the prompt.",
       built:
         "A Chrome extension that improves prompts inline, anywhere you type, and nudges users toward a consistent prompting workflow.",
       result:
@@ -160,12 +160,40 @@ export const graveyardProjects: GraveyardProject[] = [
     description:
       "AI automation agency for SMEs in the DACH region - turning manual processes into smart workflows",
     longDescription:
-      "An AI automation agency I'm building with friends, focused on helping small and medium businesses in Austria, Germany, and Switzerland automate their workflows. We connect existing business systems (CRM, ERP, e-commerce), deploy AI for document analysis and knowledge systems, and build end-to-end automated workflows with human-in-the-loop oversight. DSGVO-compliant, integration-first approach — we work with your existing tools instead of replacing them. Made in Austria by a small team of engineers and ML specialists.",
+      "An AI automation agency I'm building with friends, focused on helping small and medium businesses in Austria, Germany, and Switzerland automate their workflows. We connect existing business systems (CRM, ERP, e-commerce), deploy AI for document analysis and knowledge systems, and build end-to-end automated workflows with human-in-the-loop oversight. DSGVO-compliant, integration-first approach - we work with your existing tools instead of replacing them. Made in Austria by a small team of engineers and ML specialists.",
     date: "2025",
     status: "live",
     url: "https://alpen.digital",
     users: "Agency",
     tags: ["AI", "Automation", "Agency", "DACH", "B2B"],
+    featured: true,
+  },
+  {
+    name: "Kinderversicherer",
+    slug: "kinderversicherer",
+    description:
+      "Comparison and advisory platform for children's supplemental insurance in Austria",
+    longDescription:
+      "A client project I've built and managed since 2024. Kinderversicherer helps Austrian parents compare and choose supplemental health insurance for their children - covering private physician access, hospital stays, dental care, and physiotherapy. I handle the build and ongoing maintenance of the platform.",
+    date: "2024 - Present",
+    status: "live",
+    url: "https://www.kinderversicherer.at/",
+    users: "",
+    tags: ["Client Project", "Insurance", "Austria", "Web"],
+    featured: true,
+  },
+  {
+    name: "Imperia Immobilien",
+    slug: "imperia-immobilien",
+    description:
+      "Website for a German real estate investment firm specializing in capital investment properties",
+    longDescription:
+      "A client I've partnered with since late 2024. Imperia Immobilien is a German real estate investment firm offering turnkey capital investment properties - sourcing, financing, management, and rental - for investors across the DACH region. I build and maintain their web presence.",
+    date: "Late 2024 - Present",
+    status: "live",
+    url: "https://imperiaimmobilien.de/",
+    users: "",
+    tags: ["Client Project", "Real Estate", "Germany", "Web"],
     featured: true,
   },
   {
@@ -208,7 +236,7 @@ export const graveyardProjects: GraveyardProject[] = [
     featured: true,
     caseStudy: {
       problem:
-        "Remote workers get judged on an 'away' Slack dot even when they're heads-down working — and updating it by hand never sticks.",
+        "Remote workers get judged on an 'away' Slack dot even when they're heads-down working - and updating it by hand never sticks.",
       built:
         "A set-and-forget tool that keeps Slack active automatically during configured work hours.",
       result: "Relied on daily for 3+ years at 99.5% uptime.",
@@ -242,9 +270,9 @@ export const graveyardProjects: GraveyardProject[] = [
     caseStudy: {
       client: "Friends in Flats (Vienna)",
       problem:
-        "A student-housing startup was running everything by hand — listings, applications, contracts, move-in — and couldn't grow without drowning in manual work.",
+        "A student-housing startup was running everything by hand - listings, applications, contracts, move-in - and couldn't grow without drowning in manual work.",
       built:
-        "Joined as the first technical hire and built the platform from scratch: an automated listings-to-move-in workflow with digital contracts, payments, and SEO — then led a team of 4 developers.",
+        "Joined as the first technical hire and built the platform from scratch: an automated listings-to-move-in workflow with digital contracts, payments, and SEO - then led a team of 4 developers.",
       result: "Took it from manual operations to 20,000+ users.",
       proof: [
         { icon: "users", label: "20,000+ users" },
@@ -364,12 +392,12 @@ export const graveyardProjects: GraveyardProject[] = [
     tags: ["Portfolio", "Next.js", "Personal"],
   },
   // ---------------------------------------------------------------------------
-  // PLACEHOLDER CASE STUDY — copy this entry, replace every PLACEHOLDER value
+  // PLACEHOLDER CASE STUDY - copy this entry, replace every PLACEHOLDER value
   // with a real client story, then delete this one. It demonstrates the full
   // case-study + testimonial UI on the card and detail page.
   // ---------------------------------------------------------------------------
   // {
-  //   name: "Acme Co. — PLACEHOLDER",
+  //   name: "Acme Co. - PLACEHOLDER",
   //   slug: "example-case-study",
   //   description:
   //     "PLACEHOLDER: one-line summary of what you built for this client.",
@@ -379,13 +407,13 @@ export const graveyardProjects: GraveyardProject[] = [
   //   users: "Client project",
   //   tags: ["PLACEHOLDER", "Case Study"],
   //   caseStudy: {
-  //     client: "PLACEHOLDER — Client name & industry (e.g. Acme Co., HVAC)",
+  //     client: "PLACEHOLDER - Client name & industry (e.g. Acme Co., HVAC)",
   //     problem:
   //       "PLACEHOLDER: the painful, expensive problem before you showed up. Make the reader feel the time or money being lost.",
   //     built:
-  //       "PLACEHOLDER: what you actually built — the tool, automation, or site, in plain language.",
+  //       "PLACEHOLDER: what you actually built - the tool, automation, or site, in plain language.",
   //     result:
-  //       "PLACEHOLDER: the outcome, with a metric where possible — e.g. '12 hours/week saved' or '3x more booked calls'.",
+  //       "PLACEHOLDER: the outcome, with a metric where possible - e.g. '12 hours/week saved' or '3x more booked calls'.",
   //     testimonial: {
   //       quote:
   //         "PLACEHOLDER: a short, specific quote from the client about the result.",
@@ -434,11 +462,10 @@ export function getFeaturedCaseStudies(): GraveyardProject[] {
  */
 const CREDIBILITY_SLUGS = [
   "friends-in-flats",
-  "promptsloth",
-  "bitvocation",
-  "alpen-digital",
+  "kinderversicherer",
+  "imperia-immobilien",
   "getautoreview",
-  "mydigitalcalender",
+  "promptsloth",
 ]
 
 /** Notable live projects for the under-hero credibility strip, in order. */
@@ -449,19 +476,19 @@ export function getCredibilityProjects(): GraveyardProject[] {
 }
 
 /**
- * Homepage testimonials. Replace each PLACEHOLDER with a real client quote —
+ * Homepage testimonials. Replace each PLACEHOLDER with a real client quote -
  * the section only renders entries whose quote does not start with "PLACEHOLDER".
  */
 export const homepageTestimonials: Testimonial[] = [
   {
     quote:
-      "PLACEHOLDER: a short, specific quote about the result you delivered — name the outcome (time saved, revenue, users).",
+      "PLACEHOLDER: a short, specific quote about the result you delivered - name the outcome (time saved, revenue, users).",
     name: "PLACEHOLDER Name",
     role: "PLACEHOLDER Role, Company",
   },
   {
     quote:
-      "PLACEHOLDER: a second quote, ideally about how you work — reliability, speed, being easy to work with.",
+      "PLACEHOLDER: a second quote, ideally about how you work - reliability, speed, being easy to work with.",
     name: "PLACEHOLDER Name",
     role: "PLACEHOLDER Role, Company",
   },

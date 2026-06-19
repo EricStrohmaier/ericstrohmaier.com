@@ -36,7 +36,7 @@ export default function ContactPage() {
           Hi, I&apos;m Eric.
         </h1>
         <p className="text-foreground/55 mt-3 text-sm leading-relaxed">
-          I personally read and reply to every message — usually within a day.
+          I personally read and reply to every message - usually within a day.
           Tell me what you&apos;re working on.
         </p>
         <a
@@ -54,7 +54,7 @@ export default function ContactPage() {
           href={siteConfig.bookingUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex flex-col gap-4 rounded-2xl border border-foreground/[0.08] bg-foreground/[0.02] p-5 transition-all duration-300 hover:border-foreground/15 hover:bg-foreground/[0.04] sm:flex-row sm:items-center sm:justify-between"
+          className="border-foreground/[0.06] bg-foreground/[0.02] hover:border-foreground/15 hover:bg-foreground/[0.04] group flex flex-col gap-4 rounded-2xl border p-5 transition-all duration-300 sm:flex-row sm:items-center sm:justify-between"
         >
           <div className="flex items-start gap-3.5">
             <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-blue-500/10 text-blue-500">
@@ -63,7 +63,7 @@ export default function ContactPage() {
             <div>
               <h2 className="text-foreground/90 font-semibold">Talk to me</h2>
               <p className="text-foreground/50 mt-0.5 text-sm leading-relaxed">
-                Project, quote, or just a question — grab a time that works for
+                Project, quote, or just a question - grab a time that works for
                 you.
               </p>
             </div>

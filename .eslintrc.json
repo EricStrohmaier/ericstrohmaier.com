@@ -1,3 +1,9 @@
 {
-  "extends": ["next/core-web-vitals","plugin:tailwindcss/recommended"]
+  "extends": ["next/core-web-vitals", "plugin:tailwindcss/recommended"],
+  "rules": {
+    "tailwindcss/classnames-order": "off",
+    "tailwindcss/enforces-shorthand": "off",
+    "tailwindcss/enforces-negative-arbitrary-values": "off",
+    "tailwindcss/migration-from-tailwind-2": "off"
+  }
 }

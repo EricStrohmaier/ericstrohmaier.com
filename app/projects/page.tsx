@@ -3,7 +3,7 @@ import { ClientSideProjectList } from "./Component"
 export const metadata = {
   title: "Work & Case Studies",
   description:
-    "Real software Eric Strohmaier has built and shipped — custom tools, automations, SaaS products, and websites for businesses, with outcome-driven case studies.",
+    "Real software Eric Strohmaier has built and shipped - custom tools, automations, SaaS products, and websites for businesses, with outcome-driven case studies.",
   alternates: { canonical: "/projects" },
   openGraph: {
     title: "Work & Case Studies | Eric Strohmaier",

@@ -1,5 +1,4 @@
 import Image from "next/image"
-import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { siteConfig } from "@/site-config"
 
@@ -18,7 +17,7 @@ export const metadata = {
 
 const highlights = [
   { value: "4+ yrs", label: "Longest client partnership" },
-  { value: "20,000+", label: "Users served" },
+  { value: "50,000+", label: "Users served" },
   { value: "17+", label: "Projects shipped" },
   { value: "Self-taught", label: "And still shipping" },
 ]
@@ -67,19 +66,28 @@ export default function AboutPage() {
       {/* Bio */}
       <section className="mt-8 max-w-2xl space-y-4">
         <p className="text-foreground/70 leading-relaxed">
-          I&apos;m Eric — a self-taught engineer and the person behind every
-          project here. I learned to build the unglamorous way: late nights,
-          broken side projects, and shipping things until they worked. No
-          classroom, just a stubborn habit of figuring it out.
+          I&apos;m Eric - a self-taught engineer and the person behind every
+          project here. I learned to build by shipping, and solving real
+          problems: late nights, broken side projects, and pushing things until
+          they worked. No classroom, just a stubborn habit of figuring it out.
         </p>
         <p className="text-foreground/70 leading-relaxed">
-          Today I help small and mid-sized businesses turn rough, expensive
-          problems into software that quietly pays for itself — internal tools,
-          automations, and websites that make or save real money. I work as a
-          long-term partner, not a vendor who vanishes after launch. Two of my
-          client relationships have run past four years, and the products
-          I&apos;ve built are used by 20,000+ people. Clarity over noise,
-          outcomes over buzzwords.
+          Today I help small and mid-sized businesses turn slow, expensive
+          problems into software that quietly pays for itself. Most of it is
+          boring on purpose: automating the repetitive tasks that cost people
+          hours, building custom tools that replace fragile spreadsheets, and
+          fixing websites so they actually bring in revenue. I work as a
+          long-term partner, not a vendor who vanishes after launch - two of my
+          client relationships have run past four years.
+        </p>
+        <p className="text-foreground/70 leading-relaxed">
+          The results are what I care about. For one client I grew revenue 270%
+          by rebuilding their SEO and bringing in the right traffic. As the
+          first technical hire at Friends in Flats I built the platform from
+          scratch to 20,000+ users and led a team of four. And I build my own
+          products to stay sharp - PromptSloth reached 7,000+ users and $3K in
+          just 9 months on organic search alone, with no active marketing, and
+          now runs on autopilot. Clarity over noise, outcomes over buzzwords.
         </p>
       </section>
 
@@ -121,7 +129,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="border-foreground/[0.06] mt-10 flex flex-col items-start gap-4 rounded-2xl border bg-[var(--secondary)] px-6 py-6 sm:flex-row sm:items-center sm:justify-between">
+      <section className="border-foreground/[0.06] mt-10 flex flex-col items-start gap-4 rounded-2xl border bg-[var(--secondary)] p-6 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h2 className="text-lg font-semibold tracking-tight">
             Have something worth building?

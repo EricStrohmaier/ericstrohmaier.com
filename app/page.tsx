@@ -36,7 +36,9 @@ export default function Home() {
       <Reveal>
         <Hero />
       </Reveal>
-      <CredibilityStrip />
+      <Reveal>
+        <About />
+      </Reveal>
       <Reveal>
         <WhatIBuild />
       </Reveal>
@@ -54,9 +56,6 @@ export default function Home() {
       </Reveal>
       <Reveal>
         <Pricing />
-      </Reveal>
-      <Reveal>
-        <About />
       </Reveal>
       <Reveal>
         <FinalCta />
@@ -92,17 +91,18 @@ function PrimaryCta({
 /* HERO                                                                     */
 /* ----------------------------------------------------------------------- */
 function Hero() {
+  const projects = getCredibilityProjects()
   return (
     <section className="py-10 md:py-14">
       <p className="text-foreground/40 mb-3 text-sm font-medium uppercase tracking-[0.2em]">
         Your software partner.
       </p>
-      <h1 className="to-foreground/60 mb-4 max-w-2xl bg-gradient-to-r from-foreground via-foreground bg-clip-text text-4xl font-semibold leading-[1.1] tracking-tight text-transparent md:text-5xl">
+      <h1 className="mb-4 max-w-2xl text-4xl font-semibold leading-[1.1] tracking-tight text-foreground md:text-5xl">
         Software that makes your business more money.
       </h1>
       <p className="text-foreground/55 mb-7 max-w-xl text-lg leading-relaxed">
         I build custom tools, automations, and websites for small and mid-sized
-        businesses — software designed to cut costs, save hours, and bring in
+        businesses - software designed to cut costs, save hours, and bring in
         revenue. The kind that pays for itself.
       </p>
 
@@ -127,53 +127,39 @@ function Hero() {
         <span className="text-foreground/60 font-semibold">4+</span> year
         partnerships
         <span className="text-foreground/15 mx-2">|</span>
-        <span className="text-foreground/60 font-semibold">20,000+</span> users
+        <span className="text-foreground/60 font-semibold">50,000+</span> users
         served
       </p>
-    </section>
-  )
-}
 
-/* ----------------------------------------------------------------------- */
-/* CREDIBILITY STRIP  (logo + name row under the hero)                      */
-/* ----------------------------------------------------------------------- */
-function CredibilityStrip() {
-  const projects = getCredibilityProjects()
-  if (projects.length === 0) return null
-
-  return (
-    <section className="pb-10 md:pb-14">
-      <p className="text-foreground/30 mb-4 text-xs font-medium uppercase tracking-[0.2em]">
-        Shipped & running
-      </p>
-      <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-        {projects.map((project) => {
-          const favicon = faviconUrl(project.url)
-          return (
-            <a
-              key={project.slug}
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-foreground/45 hover:text-foreground/80 group inline-flex items-center gap-2 text-sm font-medium transition-colors"
-            >
-              {favicon ? (
-                <Image
-                  src={favicon}
-                  alt=""
-                  width={18}
-                  height={18}
-                  className="size-[18px] rounded opacity-80 transition-opacity group-hover:opacity-100"
-                  unoptimized
-                />
-              ) : (
-                <Globe className="text-foreground/40 size-4" />
-              )}
-              {project.name}
-            </a>
-          )
-        })}
-      </div>
+      {/* Project logos - directly under the trust line */}
+      {projects.length > 0 && (
+        <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2.5">
+          {projects.map((project) => {
+            const favicon = faviconUrl(project.url, 128)
+            return (
+              <Link
+                key={project.slug}
+                href={`/projects/${project.slug}`}
+                className="text-foreground/90 hover:text-foreground/40 group inline-flex items-center gap-2.5 text-base font-medium transition-colors md:text-lg"
+              >
+                {favicon ? (
+                  <Image
+                    src={favicon}
+                    alt={`${project.name} logo`}
+                    width={32}
+                    height={32}
+                    className="size-7 rounded opacity-100 transition-opacity group-hover:opacity-50"
+                    unoptimized
+                  />
+                ) : (
+                  <Globe className="text-foreground/50 size-6" />
+                )}
+                {project.name}
+              </Link>
+            )
+          })}
+        </div>
+      )}
     </section>
   )
 }
@@ -242,7 +228,7 @@ function WhatIBuild() {
           return (
             <div
               key={o.title}
-              className="border-[var(--card-border)] bg-card shadow-sm hover:border-foreground/10 hover:bg-foreground/[0.04] flex flex-col rounded-2xl border p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
+              className="hover:border-foreground/10 hover:bg-foreground/[0.04] flex flex-col rounded-2xl border border-[var(--card-border)] bg-card p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
             >
               <h3 className="text-foreground/90 mb-1.5 font-semibold">
                 {o.title}
@@ -250,7 +236,7 @@ function WhatIBuild() {
               <p className="text-foreground/50 text-sm leading-relaxed">
                 {o.blurb}
               </p>
-              <ul className="border-[var(--card-border)] mt-5 space-y-1.5 border-t pt-5">
+              <ul className="mt-5 space-y-1.5 border-t border-[var(--card-border)] pt-5">
                 {o.examples.map((ex) => (
                   <li
                     key={ex}
@@ -284,7 +270,7 @@ function HowItWorks() {
     {
       icon: Hammer,
       title: "Build",
-      copy: "I scope it, build it, and ship it fast — software that does the job, with nothing you don't need.",
+      copy: "I scope it, build it, and ship it fast - software that does the job, with nothing you don't need.",
     },
     {
       icon: TrendingUp,
@@ -304,7 +290,7 @@ function HowItWorks() {
           return (
             <div
               key={step.title}
-              className="border-[var(--card-border)] bg-card shadow-sm relative rounded-2xl border p-5"
+              className="relative rounded-2xl border border-[var(--card-border)] bg-card p-5 shadow-sm"
             >
               <span className="text-foreground/15 absolute right-4 top-4 text-2xl font-bold tabular-nums">
                 {i + 1}
@@ -325,7 +311,7 @@ function HowItWorks() {
 }
 
 /* ----------------------------------------------------------------------- */
-/* FEATURED WORK  (placeholder — wired to case studies in a later step)     */
+/* FEATURED WORK  (placeholder - wired to case studies in a later step)     */
 /* ----------------------------------------------------------------------- */
 const PROOF_ICONS = {
   star: Star,
@@ -351,7 +337,7 @@ function FeaturedWork() {
   return (
     <Section>
       <h2 className="mb-6 max-w-2xl text-2xl font-semibold tracking-tight md:text-3xl">
-        Built to be used — and to last.
+        Built to be used - and to last.
       </h2>
       <div className="grid gap-3 md:grid-cols-3">
         {featured.map((project) => {
@@ -361,12 +347,12 @@ function FeaturedWork() {
             <Link
               key={project.slug}
               href={`/projects/${project.slug}`}
-              className="border-[var(--card-border)] bg-card shadow-sm hover:border-foreground/10 hover:bg-foreground/[0.04] group flex flex-col overflow-hidden rounded-2xl border transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
+              className="hover:border-foreground/10 hover:bg-foreground/[0.04] group flex flex-col overflow-hidden rounded-2xl border border-[var(--card-border)] bg-card shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
             >
               {project.url && (
                 <OgImage
                   url={project.url}
-                  className="border-[var(--card-border)] aspect-[16/9] w-full overflow-hidden border-b bg-background"
+                  className="aspect-[16/9] w-full overflow-hidden border-b border-[var(--card-border)] bg-background"
                   imgClassName="h-full w-full object-cover"
                 />
               )}
@@ -444,7 +430,7 @@ function Testimonials() {
         {testimonials.map((t) => (
           <figure
             key={`${t.name}-${t.role}`}
-            className="border-[var(--card-border)] bg-card shadow-sm flex flex-col rounded-2xl border p-6"
+            className="flex flex-col rounded-2xl border border-[var(--card-border)] bg-card p-6 shadow-sm"
           >
             <Quote className="mb-4 size-5 shrink-0 text-blue-500/50" />
             <blockquote className="text-foreground/75 flex-1 leading-relaxed">
@@ -471,14 +457,14 @@ function Testimonials() {
 }
 
 /* ----------------------------------------------------------------------- */
-/* PRICING  (placeholder — numbers added in a later step)                   */
+/* PRICING  (placeholder - numbers added in a later step)                   */
 /* ----------------------------------------------------------------------- */
 function Pricing() {
-  // PLACEHOLDER prices — swap once you've quoted a few clients.
+  // PLACEHOLDER prices - swap once you've quoted a few clients.
   const tiers = [
     {
       name: "Website Care Plan",
-      who: "For businesses that need a site that gets found and brings in leads — fully managed.",
+      who: "For businesses that need a site that gets found and brings in leads - fully managed.",
       price: "$249",
       cadence: "/mo",
       cta: "Book a free call",
@@ -488,13 +474,13 @@ function Pricing() {
         "Uptime monitoring so you're never down quietly",
         "Small content & design changes every month",
         "Fast load times that keep customers from bouncing",
-        "One point of contact — no agencies, no runaround",
+        "One point of contact - no agencies, no runaround",
       ],
       featured: false,
     },
     {
       name: "Software Partner",
-      who: "For businesses that want to keep improving — a senior dev on call, month to month.",
+      who: "For businesses that want to keep improving - a senior dev on call, month to month.",
       price: "$2,500",
       cadence: "/mo",
       cta: "Become a partner",
@@ -504,13 +490,13 @@ function Pricing() {
         "Ongoing maintenance, monitoring & fixes",
         "Priority turnaround on what matters most",
         "Continuous work toward more revenue, less busywork",
-        "Month-to-month — cancel anytime, no lock-in",
+        "Month-to-month - cancel anytime, no lock-in",
       ],
       featured: true,
     },
     {
       name: "Custom Software",
-      who: "For specific problems worth solving — internal tools, automations, and revenue features.",
+      who: "For specific problems worth solving - internal tools, automations, and revenue features.",
       price: "From $5,000",
       cadence: " / project",
       cta: "Scope a project",
@@ -519,7 +505,7 @@ function Pricing() {
         "Dashboards, CRMs, booking & payment flows",
         "Automations that kill repetitive manual work",
         "AI tools tailored to how you actually operate",
-        "Scoped up front — clear price, clear outcome",
+        "Scoped up front - clear price, clear outcome",
         "Rolls into a care or partner plan once it ships",
       ],
       featured: false,
@@ -538,7 +524,7 @@ function Pricing() {
             className={`relative flex flex-col rounded-2xl border p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md ${
               tier.featured
                 ? "border-blue-500/40 bg-blue-500/[0.05] shadow-sm shadow-blue-600/10 hover:bg-blue-500/[0.07]"
-                : "border-[var(--card-border)] bg-card shadow-sm hover:border-foreground/10 hover:bg-foreground/[0.04]"
+                : "hover:border-foreground/10 hover:bg-foreground/[0.04] border-[var(--card-border)] bg-card shadow-sm"
             }`}
           >
             {tier.featured && (
@@ -601,29 +587,40 @@ function Pricing() {
 function About() {
   return (
     <Section>
-      <SectionLabel>About</SectionLabel>
-      <div className="border-[var(--card-border)] bg-card shadow-sm flex flex-col gap-6 rounded-2xl border p-6 sm:flex-row sm:items-center sm:gap-8 sm:p-8">
+      <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:gap-12">
         <Image
           src="/eric-portrait.png"
           width={400}
           height={533}
           alt="Eric Strohmaier"
-          className="ring-foreground/[0.08] h-40 w-32 shrink-0 rounded-2xl object-cover object-top shadow-sm ring-1 sm:h-48 sm:w-40"
+          className="ring-foreground/[0.08] h-56 w-44 shrink-0 rounded-2xl object-cover object-top shadow-sm ring-1 sm:h-80 sm:w-64"
         />
-        <div>
-          <p className="text-foreground/65 max-w-2xl leading-relaxed">
-            I&apos;m Eric — a self-taught engineer who learned to build by
-            shipping, not sitting in a classroom. I&apos;ve spent years turning
-            rough business problems into software people actually use, with two
-            client partnerships running past four years. I care about clarity
-            over noise and outcomes over buzzwords.
-          </p>
+        <div className="max-w-2xl">
+          <div className="text-foreground/75 space-y-4 text-lg leading-relaxed md:text-xl">
+            <p>
+              I&apos;m Eric - a self-taught engineer who learned to build by
+              shipping, and solving real problems.
+            </p>
+            <p>
+              Most of my work is boring and profitable for my clients:
+              automating the repetitive tasks, building custom tools that
+              replace fragile spreadsheets, and fixing websites so they actually
+              earn.
+            </p>
+            <p>
+              For one client I grew revenue 270% by rebuilding their SEO and
+              bringing in the right traffic. I build my own products too -
+              PromptSloth reached 7,000+ users and $3K in revenue in just 9
+              months on organic search alone, with no active marketing, and now
+              runs on autopilot.
+            </p>
+          </div>
           <Link
             href="/about"
-            className="text-foreground/50 mt-4 inline-flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-foreground"
+            className="text-foreground/50 mt-6 inline-flex items-center gap-1.5 text-base font-medium transition-colors hover:text-foreground"
           >
             More about me
-            <ArrowRight className="size-3.5" />
+            <ArrowRight className="size-4" />
           </Link>
         </div>
       </div>
@@ -637,7 +634,7 @@ function About() {
 function FinalCta() {
   return (
     <section className="mt-10 md:mt-14">
-      <div className="border-[var(--card-border)] bg-foreground/[0.03] relative overflow-hidden rounded-2xl border px-6 py-10 text-center">
+      <div className="bg-foreground/[0.03] relative overflow-hidden rounded-2xl border border-[var(--card-border)] px-6 py-10 text-center">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,_rgb(59,130,246),_transparent_50%),radial-gradient(circle_at_80%_50%,_rgb(16,185,129),_transparent_50%)] opacity-5" />
         <div className="relative">
           <h2 className="mx-auto mb-2 max-w-lg text-2xl font-semibold tracking-tight md:text-3xl">
@@ -660,7 +657,7 @@ function FinalCta() {
 function MidCta() {
   return (
     <section className="py-10 md:py-14">
-      <div className="border-[var(--card-border)] bg-card shadow-sm flex flex-col items-start gap-4 rounded-2xl border p-6 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col items-start gap-4 rounded-2xl border border-[var(--card-border)] bg-card p-6 shadow-sm sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h2 className="text-lg font-semibold tracking-tight">
             Not sure what to build first?
@@ -681,7 +678,7 @@ function MidCta() {
 /* ----------------------------------------------------------------------- */
 function Section({ children }: { children: React.ReactNode }) {
   return (
-    <section className="border-[var(--card-border)] border-t py-10 md:py-14">
+    <section className="border-t border-[var(--card-border)] py-10 md:py-14">
       {children}
     </section>
   )
