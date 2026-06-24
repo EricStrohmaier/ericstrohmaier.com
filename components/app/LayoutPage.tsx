@@ -10,7 +10,15 @@ interface LayoutProps {
 
 // Routes that render their own chrome (standalone landing pages) and should
 // NOT get the global site nav/footer or the centered max-w-5xl container.
-const STANDALONE_ROUTES = ["/immobilienmakler"]
+// Routes that hide the global site nav/footer for a cleaner, focused chrome:
+// the authenticated dashboard and the auth pages. Public tools like /invoice
+// and the /timetracking marketing page keep the normal header + nav.
+const STANDALONE_ROUTES = [
+  "/immobilienmakler",
+  "/dashboard",
+  "/login",
+  "/register",
+]
 
 export function LayoutPage({ children }: LayoutProps) {
   const pathname = usePathname()

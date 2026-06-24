@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import "./globals.css"
+import { Toaster } from "sonner"
 import { ThemeProvider } from "@/components/ThemeProvider"
 import LayoutPage from "@/components/app/LayoutPage"
 import TimeProvider from "@/lib/time"
@@ -124,6 +125,7 @@ export default function RootLayout({
           <TimeProvider>
             <LayoutPage>{children}</LayoutPage>
           </TimeProvider>
+          <Toaster richColors position="top-center" />
         </ThemeProvider>
       </body>
     </html>

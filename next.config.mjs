@@ -1,5 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // @react-pdf/renderer v4 is ESM-only; let Next transpile it for the client.
+  transpilePackages: ["@react-pdf/renderer"],
+  // libSQL ships a native binary (only used for file:/embedded URLs — remote
+  // Turso talks over HTTP/WS). Keep these out of the webpack bundle so the
+  // `.node` binary isn't parsed at build time.
+  experimental: {
+    serverComponentsExternalPackages: [
+      "@libsql/client",
+      "@libsql/kysely-libsql",
+      "libsql",
+    ],
+  },
   images: {
     remotePatterns: [
       { hostname: "avatar.vercel.sh" },

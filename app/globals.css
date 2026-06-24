@@ -9,6 +9,8 @@
     --teal: hsl(183, 70%, 62%);
     --white: hsl(334, 7%, 95%);
 
+    --radius: 0.5rem; /* shadcn primitives base radius */
+
     --background: #f1f2f4; /* Light theme canvas — cool & bright so white cards pop */
     --text: #1c1917; /* Light theme text color */
     --primary: #e7e5e4; /* Light theme primary color */
@@ -16,6 +18,19 @@
     --border: #d7d9de; /* Light theme border color */
     --card: #ffffff; /* Card surface — pure white in light mode */
     --card-border: #e7e8ec; /* Soft hairline around cards */
+    --card-foreground: #1c1917;
+
+    /* shadcn tokens referenced by ui primitives (input/select/dialog/table) */
+    --muted: #e9eaec;
+    --muted-foreground: #6b7280;
+    --input: #d7d9de;
+    --ring: #2563eb;
+    --accent: #e6e7ea;
+    --accent-foreground: #1c1917;
+    --popover: #ffffff;
+    --popover-foreground: #1c1917;
+    --destructive: #dc2626;
+    --destructive-foreground: #ffffff;
   }
 
   .dark {
@@ -26,6 +41,18 @@
     --border: #cccccc;
     --card: #262626; /* Card surface — lifted above the canvas in dark mode */
     --card-border: #353535; /* Soft hairline around cards */
+    --card-foreground: #e5e5e5;
+
+    --muted: #2a2a2a;
+    --muted-foreground: #a3a3a3;
+    --input: #3a3a3a;
+    --ring: #3b82f6;
+    --accent: #333333;
+    --accent-foreground: #e5e5e5;
+    --popover: #262626;
+    --popover-foreground: #e5e5e5;
+    --destructive: #ef4444;
+    --destructive-foreground: #ffffff;
   }
 }
 body::-webkit-scrollbar {
