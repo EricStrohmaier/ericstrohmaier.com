@@ -1,31 +1,38 @@
+"use client"
+
 import Link from "next/link"
 import { Mail } from "lucide-react"
 import { BsGithub, BsLinkedin } from "react-icons/bs"
 import { siteConfig } from "@/site-config"
-
-const tools = [
-  { href: "/invoice", label: "Invoice" },
-  { href: "/timetracking", label: "Time Tracking" },
-]
+import { useLocale } from "@/lib/use-locale"
+import { chrome } from "@/lib/i18n-chrome"
 
 export default function Footer() {
   const year = new Date().getFullYear()
+  const locale = useLocale()
+  const t = chrome[locale]
+
+  const tools = [
+    // Invoice tool lives at the root (not localized); time-tracking landing is.
+    { href: "/invoice", label: t.tools.invoice },
+    { href: `/${locale}/timetracking`, label: t.tools.timeTracking },
+  ]
 
   return (
     <footer className="border-foreground/[0.06] mt-16 border-t">
       <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 gap-y-3 px-5 py-6 md:px-8">
         <p className="text-foreground/35 text-xs">
-          © {year} Eric Strohmaier. All rights reserved.
+          © {year} Eric Strohmaier. {t.rights}
         </p>
 
         <nav className="flex items-center gap-4 text-sm">
-          {tools.map((t) => (
+          {tools.map((tool) => (
             <Link
-              key={t.href}
-              href={t.href}
+              key={tool.href}
+              href={tool.href}
               className="text-foreground/55 transition-colors hover:text-foreground"
             >
-              {t.label}
+              {tool.label}
             </Link>
           ))}
         </nav>

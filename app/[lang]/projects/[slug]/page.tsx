@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
@@ -5,42 +6,59 @@ import { Globe } from "lucide-react"
 import {
   getProjectBySlug,
   graveyardProjects,
-  getStatusDisplayName,
   faviconUrl,
+  ProjectStatus,
 } from "@/lib/project-graveyard"
-import { OgImage } from "./OgImage"
+import { i18n, type Locale } from "@/i18n-config"
+import { getDictionary } from "@/lib/dictionaries"
+import { OgImage } from "@/components/app/OgImage"
 
 export async function generateStaticParams() {
-  return graveyardProjects.map((project) => ({
-    slug: project.slug,
-  }))
+  return i18n.locales.flatMap((lang) =>
+    graveyardProjects.map((project) => ({
+      lang,
+      slug: project.slug,
+    })),
+  )
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string }
-}) {
-  const project = getProjectBySlug(params.slug)
+  params: { lang: Locale; slug: string }
+}): Promise<Metadata> {
+  const { lang, slug } = params
+  const dict = await getDictionary(lang, "projects")
+  const project = getProjectBySlug(slug)
 
   if (!project) {
-    return { title: "Project Not Found" }
+    return { title: dict.detail.notFoundTitle }
   }
 
   const description = project.caseStudy
     ? `${project.caseStudy.result} - ${project.description}`
     : project.description
 
+  const path = `/projects/${project.slug}`
+
   return {
     title: project.name,
     description,
     keywords: project.tags,
-    alternates: { canonical: `/projects/${project.slug}` },
+    alternates: {
+      canonical: `/${lang}${path}`,
+      languages: {
+        en: `/en${path}`,
+        de: `/de${path}`,
+        "x-default": `/en${path}`,
+      },
+    },
     openGraph: {
       type: "article",
+      locale: lang === "de" ? "de_DE" : "en_US",
       title: `${project.name} | Eric Strohmaier`,
       description,
-      url: `/projects/${project.slug}`,
+      url: `/${lang}${path}`,
     },
     twitter: {
       card: "summary_large_image",
@@ -67,20 +85,51 @@ function statusDot(status: string) {
   }
 }
 
-function formatUsers(value: string | number) {
+type StatusLabels = {
+  live: string
+  inProgress: string
+  onHold: string
+  offline: string
+  archived: string
+}
+
+function statusLabel(status: ProjectStatus, labels: StatusLabels) {
+  switch (status) {
+    case "live":
+      return labels.live
+    case "in-progress":
+      return labels.inProgress
+    case "on-hold":
+      return labels.onHold
+    case "offline":
+      return labels.offline
+    case "archived":
+      return labels.archived
+    default:
+      return status
+  }
+}
+
+function formatUsers(value: string | number, suffix: string) {
   if (typeof value === "number") {
-    return `${value} users`
+    return `${value} ${suffix}`
   }
 
   if (/^\d[\d,.+]*$/.test(value.trim())) {
-    return `${value} users`
+    return `${value} ${suffix}`
   }
 
   return value
 }
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const project = getProjectBySlug(params.slug)
+export default async function ProjectPage({
+  params,
+}: {
+  params: { lang: Locale; slug: string }
+}) {
+  const { lang, slug } = params
+  const dict = await getDictionary(lang, "projects")
+  const project = getProjectBySlug(slug)
 
   if (!project) {
     return notFound()
@@ -100,10 +149,10 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   return (
     <div>
       <Link
-        href="/projects"
+        href={`/${lang}/projects`}
         className="text-foreground/40 hover:text-foreground/70 mb-6 inline-block text-sm transition-colors"
       >
-        &larr; back to projects
+        {dict.detail.back}
       </Link>
 
       <div className="mb-8 flex flex-col gap-6 md:flex-row md:items-start md:gap-8">
@@ -133,7 +182,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               {project.name}
             </h1>
             <span className="text-foreground/30 text-sm">
-              {getStatusDisplayName(project.status)}
+              {statusLabel(project.status, dict.status)}
             </span>
           </div>
 
@@ -164,7 +213,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                     <polyline points="15 3 21 3 21 9" />
                     <line x1="10" y1="14" x2="21" y2="3" />
                   </svg>
-                  visit project
+                  {dict.detail.visitProject}
                 </a>
               )}
               {project.github && (
@@ -182,14 +231,12 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   >
                     <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
                   </svg>
-                  source code
+                  {dict.detail.sourceCode}
                 </a>
               )}
             </div>
           ) : (
-            <p className="text-foreground/30 text-sm">
-              no public links for this project
-            </p>
+            <p className="text-foreground/30 text-sm">{dict.detail.noLinks}</p>
           )}
 
           {/* Quick facts */}
@@ -197,7 +244,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             {hostname && (
               <div>
                 <dt className="text-foreground/35 mb-0.5 text-xs uppercase tracking-[0.12em]">
-                  Website
+                  {dict.detail.facts.website}
                 </dt>
                 <dd>
                   <a
@@ -214,7 +261,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             {project.date && (
               <div>
                 <dt className="text-foreground/35 mb-0.5 text-xs uppercase tracking-[0.12em]">
-                  Year
+                  {dict.detail.facts.year}
                 </dt>
                 <dd className="text-foreground/70">{project.date}</dd>
               </div>
@@ -222,10 +269,10 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             {project.users && project.users !== "0" && (
               <div>
                 <dt className="text-foreground/35 mb-0.5 text-xs uppercase tracking-[0.12em]">
-                  Reach
+                  {dict.detail.facts.reach}
                 </dt>
                 <dd className="text-foreground/70">
-                  {formatUsers(project.users)}
+                  {formatUsers(project.users, dict.detail.usersSuffix)}
                 </dd>
               </div>
             )}
@@ -248,14 +295,14 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           {/* Result - surfaced prominently */}
           <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/[0.06] p-5">
             <p className="mb-1 text-xs font-medium uppercase tracking-[0.2em] text-emerald-500/80">
-              Result
+              {dict.detail.caseStudy.result}
             </p>
             <p className="text-lg font-semibold leading-snug text-foreground">
               {project.caseStudy.result}
             </p>
             {project.caseStudy.client && (
               <p className="text-foreground/45 mt-2 text-sm">
-                For {project.caseStudy.client}
+                {dict.detail.caseStudy.for} {project.caseStudy.client}
               </p>
             )}
           </div>
@@ -263,7 +310,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           <div className="grid gap-3 sm:grid-cols-2">
             <div className="rounded-xl border border-border bg-[var(--secondary)] p-4">
               <p className="text-foreground/35 mb-1.5 text-xs font-medium uppercase tracking-[0.15em]">
-                The problem
+                {dict.detail.caseStudy.problem}
               </p>
               <p className="text-foreground/65 text-sm leading-relaxed">
                 {project.caseStudy.problem}
@@ -271,7 +318,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             </div>
             <div className="rounded-xl border border-border bg-[var(--secondary)] p-4">
               <p className="text-foreground/35 mb-1.5 text-xs font-medium uppercase tracking-[0.15em]">
-                What I built
+                {dict.detail.caseStudy.built}
               </p>
               <p className="text-foreground/65 text-sm leading-relaxed">
                 {project.caseStudy.built}
@@ -308,24 +355,29 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         <div className="mb-6 grid gap-2 rounded-xl border border-border bg-[var(--secondary)] p-4 text-sm">
           {project.experienceType && (
             <p className="text-foreground/55">
-              <span className="text-foreground/35">type:</span>{" "}
+              <span className="text-foreground/35">{dict.detail.info.type}</span>{" "}
               {project.experienceType}
             </p>
           )}
           {project.role && (
             <p className="text-foreground/55">
-              <span className="text-foreground/35">role:</span> {project.role}
+              <span className="text-foreground/35">{dict.detail.info.role}</span>{" "}
+              {project.role}
             </p>
           )}
           {project.workMode && (
             <p className="text-foreground/55">
-              <span className="text-foreground/35">work mode:</span>{" "}
+              <span className="text-foreground/35">
+                {dict.detail.info.workMode}
+              </span>{" "}
               {project.workMode}
             </p>
           )}
           {project.location && (
             <p className="text-foreground/55">
-              <span className="text-foreground/35">location:</span>{" "}
+              <span className="text-foreground/35">
+                {dict.detail.info.location}
+              </span>{" "}
               {project.location}
             </p>
           )}

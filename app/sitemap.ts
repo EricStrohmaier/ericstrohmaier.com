@@ -1,40 +1,55 @@
+import type { MetadataRoute } from "next"
 import { graveyardProjects } from "@/lib/project-graveyard"
+import { siteConfig } from "@/site-config"
+import { i18n } from "@/i18n-config"
 
-export default function sitemap() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+export default function sitemap(): MetadataRoute.Sitemap {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || siteConfig.url
 
-  const projectUrls = graveyardProjects.map((project) => ({
-    url: `${siteUrl}/projects/${project.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }))
+  // Localized marketing paths (relative to a locale prefix).
+  const marketingPaths = [
+    { path: "", priority: 1, changeFrequency: "monthly" as const },
+    { path: "/projects", priority: 0.9, changeFrequency: "monthly" as const },
+    { path: "/contact", priority: 0.8, changeFrequency: "monthly" as const },
+    { path: "/timetracking", priority: 0.8, changeFrequency: "monthly" as const },
+    { path: "/about", priority: 0.6, changeFrequency: "monthly" as const },
+    ...graveyardProjects.map((p) => ({
+      path: `/projects/${p.slug}`,
+      priority: 0.7,
+      changeFrequency: "monthly" as const,
+    })),
+  ]
 
-  return [
+  const lastModified = new Date()
+
+  // One entry per (locale, path) with hreflang alternates pointing at every
+  // locale + an x-default.
+  const localized: MetadataRoute.Sitemap = marketingPaths.flatMap((m) =>
+    i18n.locales.map((locale) => ({
+      url: `${siteUrl}/${locale}${m.path}`,
+      lastModified,
+      changeFrequency: m.changeFrequency,
+      priority: m.priority,
+      alternates: {
+        languages: {
+          ...Object.fromEntries(
+            i18n.locales.map((l) => [l, `${siteUrl}/${l}${m.path}`]),
+          ),
+          "x-default": `${siteUrl}/${i18n.defaultLocale}${m.path}`,
+        },
+      },
+    })),
+  )
+
+  // Public tools (not localized).
+  const tools: MetadataRoute.Sitemap = [
     {
-      url: siteUrl,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 1,
-    },
-    {
-      url: `${siteUrl}/projects`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.9,
-    },
-    {
-      url: `${siteUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
+      url: `${siteUrl}/invoice`,
+      lastModified,
+      changeFrequency: "monthly",
       priority: 0.8,
     },
-    {
-      url: `${siteUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-    },
-    ...projectUrls,
   ]
+
+  return [...localized, ...tools]
 }

@@ -3,18 +3,27 @@
 import React, { useState } from "react"
 import { toast } from "sonner"
 
-const TOPICS = [
-  "New project / custom software",
-  "Website & lead generation",
-  "Internal tools & automation",
-  "Ongoing software partnership",
-  "Something else",
-]
+type FeedbackFormStrings = {
+  name: { label: string; placeholder: string }
+  email: { label: string; placeholder: string }
+  topic: { label: string; placeholder: string; options: string[] }
+  message: { label: string; placeholder: string }
+  submit: string
+  submitting: string
+  toasts: {
+    invalidEmailTitle: string
+    invalidEmailDescription: string
+    successTitle: string
+    successDescription: string
+    errorTitle: string
+    errorDescription: string
+  }
+}
 
 const inputClasses =
   "w-full rounded-xl border border-border bg-foreground/[0.02] px-4 py-3 text-sm text-foreground/80 placeholder:text-foreground/30 outline-none transition-colors focus:border-foreground/40"
 
-export default function FeedbackForm() {
+export default function FeedbackForm({ t }: { t: FeedbackFormStrings }) {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [topic, setTopic] = useState("")
@@ -27,8 +36,8 @@ export default function FeedbackForm() {
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(email)) {
-      toast.error("Invalid email address", {
-        description: "Please enter a valid email address.",
+      toast.error(t.toasts.invalidEmailTitle, {
+        description: t.toasts.invalidEmailDescription,
       })
       setIsSubmitting(false)
       return
@@ -44,8 +53,8 @@ export default function FeedbackForm() {
       if (response.ok) {
         const data = await response.json()
         if (data.success) {
-          toast.success("Message sent", {
-            description: "Thanks, I'll get back to you.",
+          toast.success(t.toasts.successTitle, {
+            description: t.toasts.successDescription,
           })
           setName("")
           setEmail("")
@@ -58,9 +67,9 @@ export default function FeedbackForm() {
         throw new Error("Failed to send")
       }
     } catch (error) {
-      toast.error("Failed to send", {
+      toast.error(t.toasts.errorTitle, {
         description:
-          error instanceof Error ? error.message : "Please try again.",
+          error instanceof Error ? error.message : t.toasts.errorDescription,
       })
     } finally {
       setIsSubmitting(false)
@@ -76,8 +85,8 @@ export default function FeedbackForm() {
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
-          placeholder="Your name"
-          aria-label="Your name"
+          placeholder={t.name.placeholder}
+          aria-label={t.name.label}
           className={inputClasses}
         />
         <input
@@ -86,8 +95,8 @@ export default function FeedbackForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          placeholder="you@example.com"
-          aria-label="Your email"
+          placeholder={t.email.placeholder}
+          aria-label={t.email.label}
           className={inputClasses}
         />
       </div>
@@ -95,13 +104,13 @@ export default function FeedbackForm() {
         id="topic"
         value={topic}
         onChange={(e) => setTopic(e.target.value)}
-        aria-label="Select a topic"
+        aria-label={t.topic.label}
         className={`${inputClasses} ${topic ? "" : "text-foreground/30"}`}
       >
-        <option value="">Select a topic</option>
-        {TOPICS.map((t) => (
-          <option key={t} value={t} className="text-foreground">
-            {t}
+        <option value="">{t.topic.placeholder}</option>
+        {t.topic.options.map((option) => (
+          <option key={option} value={option} className="text-foreground">
+            {option}
           </option>
         ))}
       </select>
@@ -111,8 +120,8 @@ export default function FeedbackForm() {
         onChange={(e) => setMessage(e.target.value)}
         required
         rows={6}
-        placeholder="How can I help you?"
-        aria-label="Your message"
+        placeholder={t.message.placeholder}
+        aria-label={t.message.label}
         className={`${inputClasses} resize-none`}
       />
       <button
@@ -120,7 +129,7 @@ export default function FeedbackForm() {
         disabled={isSubmitting}
         className="w-full rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm shadow-blue-600/20 transition-colors hover:bg-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] disabled:opacity-50"
       >
-        {isSubmitting ? "Sending..." : "Send Message"}
+        {isSubmitting ? t.submitting : t.submit}
       </button>
     </form>
   )

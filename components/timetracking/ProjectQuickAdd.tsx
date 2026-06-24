@@ -6,6 +6,7 @@ import { toast } from "sonner"
 
 import { createProject, type Project } from "@/app/dashboard/actions"
 import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 
 interface ProjectQuickAddProps {
@@ -15,6 +16,7 @@ interface ProjectQuickAddProps {
 export function ProjectQuickAdd({ onProjectCreated }: ProjectQuickAddProps) {
   const [name, setName] = useState("")
   const [client, setClient] = useState("")
+  const [rate, setRate] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleAdd = async () => {
@@ -24,11 +26,19 @@ export function ProjectQuickAdd({ onProjectCreated }: ProjectQuickAddProps) {
       return
     }
 
+    const trimmedRate = rate.trim()
+    const parsedRate = trimmedRate ? Number(trimmedRate) : null
+    if (trimmedRate && (parsedRate === null || Number.isNaN(parsedRate))) {
+      toast.error("Rate must be a number")
+      return
+    }
+
     setIsSubmitting(true)
     try {
       const result = await createProject({
         name: trimmed,
         client: client.trim() || null,
+        hourly_rate: parsedRate,
       })
       if (result.error || !result.data) {
         toast.error(result.error || "Failed to create project")
@@ -36,6 +46,7 @@ export function ProjectQuickAdd({ onProjectCreated }: ProjectQuickAddProps) {
         toast.success("Project created")
         setName("")
         setClient("")
+        setRate("")
         onProjectCreated(result.data)
       }
     } catch {
@@ -72,6 +83,23 @@ export function ProjectQuickAdd({ onProjectCreated }: ProjectQuickAddProps) {
           onKeyDown={handleKeyDown}
           className="sm:flex-1"
         />
+        <div className="sm:w-28">
+          <Label htmlFor="project-rate" className="sr-only">
+            Rate per hour
+          </Label>
+          <Input
+            id="project-rate"
+            type="number"
+            inputMode="decimal"
+            min={0}
+            step="0.01"
+            placeholder="Rate/h"
+            value={rate}
+            onChange={(e) => setRate(e.target.value)}
+            onKeyDown={handleKeyDown}
+            className="w-full"
+          />
+        </div>
         <Button
           onClick={handleAdd}
           disabled={isSubmitting}

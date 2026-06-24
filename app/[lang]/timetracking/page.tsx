@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import {
   ArrowRight,
@@ -9,70 +10,62 @@ import {
   Hammer,
   TrendingUp,
 } from "lucide-react"
+import type { Locale } from "@/i18n-config"
+import { getDictionary } from "@/lib/dictionaries"
 
-export const metadata = {
-  title: "Time Tracking",
-  description:
-    "Simple time tracking with project filters and one-click PDF reports.",
-  alternates: { canonical: "/timetracking" },
+export async function generateMetadata({
+  params,
+}: {
+  params: { lang: Locale }
+}): Promise<Metadata> {
+  const lang = params.lang
+  const dict = await getDictionary(lang, "timetracking")
+  const path = "/timetracking"
+  return {
+    title: dict.meta.title,
+    description: dict.meta.description,
+    keywords: dict.meta.keywords,
+    alternates: {
+      canonical: `/${lang}${path}`,
+      languages: {
+        en: `/en${path}`,
+        de: `/de${path}`,
+        "x-default": `/en${path}`,
+      },
+    },
+    openGraph: {
+      type: "website",
+      locale: lang === "de" ? "de_DE" : "en_US",
+      url: `/${lang}${path}`,
+      title: dict.meta.title,
+      description: dict.meta.description,
+    },
+  }
 }
 
-const features = [
-  {
-    icon: Clock,
-    title: "Track time per project",
-    copy: "Log entries against any project and keep a clean, accurate record of where your hours go.",
-  },
-  {
-    icon: Filter,
-    title: "Filter by project & date",
-    copy: "Slice your entries by project and date range to see exactly what you worked on, and when.",
-  },
-  {
-    icon: FileText,
-    title: "Export PDF reports",
-    copy: "Turn any filtered view into a polished, branded PDF report in a single click - ready to send.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Your data, your account",
-    copy: "Everything lives in your own private account. Your time, your projects, your reports - no one else's.",
-  },
-]
+const featureIcons = [Clock, Filter, FileText, ShieldCheck]
+const stepIcons = [PhoneCall, Hammer, TrendingUp]
 
-const steps = [
-  {
-    icon: PhoneCall,
-    title: "Create your account",
-    copy: "Sign up in seconds and add the projects you want to track time against.",
-  },
-  {
-    icon: Hammer,
-    title: "Log your hours",
-    copy: "Add time entries per project as you work, then filter them by project and date.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Export a report",
-    copy: "Generate a clean, branded PDF of any filtered view and share it with one click.",
-  },
-]
+export default async function TimeTrackingPage({
+  params,
+}: {
+  params: { lang: Locale }
+}) {
+  const lang = params.lang
+  const dict = await getDictionary(lang, "timetracking")
 
-export default function TimeTrackingPage() {
   return (
     <div className="w-full">
       {/* Hero */}
       <section className="py-10 md:py-14">
         <p className="text-foreground/40 mb-3 text-sm font-medium uppercase tracking-[0.2em]">
-          Time tracking
+          {dict.hero.eyebrow}
         </p>
         <h1 className="mb-4 max-w-2xl text-4xl font-semibold leading-[1.1] tracking-tight text-foreground md:text-5xl">
-          Simple time tracking with one-click PDF reports.
+          {dict.hero.title}
         </h1>
         <p className="text-foreground/55 mb-7 max-w-xl text-lg leading-relaxed">
-          Track time per project, filter your entries by project and date, and
-          turn any view into a polished, branded PDF report - all from one clean
-          dashboard. No bloat, just the numbers you need.
+          {dict.hero.subtitle}
         </p>
 
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -80,7 +73,7 @@ export default function TimeTrackingPage() {
             href="/dashboard"
             className="group inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-medium text-white shadow-sm shadow-blue-600/20 transition-all duration-300 hover:gap-3 hover:bg-blue-500 hover:shadow-md hover:shadow-blue-600/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--primary)]"
           >
-            Open dashboard
+            {dict.hero.ctaPrimary}
             <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
           </Link>
           <div className="flex items-center gap-2">
@@ -88,13 +81,13 @@ export default function TimeTrackingPage() {
               href="/login"
               className="border-foreground/10 text-foreground/70 hover:border-foreground/20 focus-visible:ring-foreground/20 inline-flex items-center justify-center gap-2 rounded-full border px-6 py-3 text-sm font-medium transition-all duration-300 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--primary)]"
             >
-              Log in
+              {dict.hero.ctaLogin}
             </Link>
             <Link
               href="/register"
               className="text-foreground/50 inline-flex items-center justify-center gap-1.5 rounded-full px-4 py-3 text-sm font-medium transition-colors hover:text-foreground"
             >
-              Create account
+              {dict.hero.ctaRegister}
             </Link>
           </div>
         </div>
@@ -102,13 +95,13 @@ export default function TimeTrackingPage() {
 
       {/* Features */}
       <Section>
-        <SectionLabel>What you get</SectionLabel>
+        <SectionLabel>{dict.features.label}</SectionLabel>
         <h2 className="mb-6 max-w-2xl text-2xl font-semibold tracking-tight md:text-3xl">
-          Everything you need, nothing you don&apos;t.
+          {dict.features.heading}
         </h2>
         <div className="grid gap-3 sm:grid-cols-2">
-          {features.map((f) => {
-            const Icon = f.icon
+          {dict.features.items.map((f, i) => {
+            const Icon = featureIcons[i]
             return (
               <div
                 key={f.title}
@@ -131,13 +124,13 @@ export default function TimeTrackingPage() {
 
       {/* How it works */}
       <Section>
-        <SectionLabel>How it works</SectionLabel>
+        <SectionLabel>{dict.steps.label}</SectionLabel>
         <h2 className="mb-6 max-w-2xl text-2xl font-semibold tracking-tight md:text-3xl">
-          From zero to a sent report in three steps.
+          {dict.steps.heading}
         </h2>
         <div className="grid gap-3 md:grid-cols-3">
-          {steps.map((step, i) => {
-            const Icon = step.icon
+          {dict.steps.items.map((step, i) => {
+            const Icon = stepIcons[i]
             return (
               <div
                 key={step.title}
@@ -165,17 +158,16 @@ export default function TimeTrackingPage() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,_rgb(59,130,246),_transparent_50%),radial-gradient(circle_at_80%_50%,_rgb(16,185,129),_transparent_50%)] opacity-5" />
           <div className="relative">
             <h2 className="mx-auto mb-2 max-w-lg text-2xl font-semibold tracking-tight md:text-3xl">
-              Start tracking in under a minute.
+              {dict.cta.heading}
             </h2>
             <p className="text-foreground/50 mx-auto mb-6 max-w-md leading-relaxed">
-              Open the dashboard, add a project, and log your first entry. Your
-              first branded PDF report is one click away.
+              {dict.cta.copy}
             </p>
             <Link
               href="/dashboard"
               className="group inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-medium text-white shadow-sm shadow-blue-600/20 transition-all duration-300 hover:gap-3 hover:bg-blue-500 hover:shadow-md hover:shadow-blue-600/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--primary)]"
             >
-              Open dashboard
+              {dict.cta.button}
               <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
             </Link>
           </div>

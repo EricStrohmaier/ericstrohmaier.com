@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "title": "Zeiterfassung",
+    "description": "Einfache Zeiterfassung mit Projektfiltern und PDF-Report auf Knopfdruck. Stunden pro Projekt erfassen, nach Datum filtern und professionelle Stundenzettel als PDF exportieren.",
+    "keywords": [
+      "Zeiterfassung",
+      "Stunden erfassen",
+      "PDF-Report",
+      "Stundenzettel",
+      "Arbeitszeiterfassung",
+      "Projektzeiterfassung",
+      "Zeiterfassung Software",
+      "Zeiterfassung für KMU"
+    ],
+    "ogAlt": "Zeiterfassung mit PDF-Report auf Knopfdruck"
+  },
+  "hero": {
+    "eyebrow": "Zeiterfassung",
+    "title": "Einfache Zeiterfassung mit PDF-Report auf Knopfdruck.",
+    "subtitle": "Erfassen Sie Ihre Zeit pro Projekt, filtern Sie Ihre Einträge nach Projekt und Datum und verwandeln Sie jede Ansicht in einen sauberen, gebrandeten PDF-Report - alles aus einem aufgeräumten Dashboard. Kein Ballast, nur die Zahlen, die Sie brauchen.",
+    "ctaPrimary": "Dashboard öffnen",
+    "ctaLogin": "Anmelden",
+    "ctaRegister": "Konto erstellen"
+  },
+  "features": {
+    "label": "Das bekommen Sie",
+    "heading": "Alles, was Sie brauchen - nichts, was Sie nicht brauchen.",
+    "items": [
+      {
+        "title": "Zeit pro Projekt erfassen",
+        "copy": "Erfassen Sie Einträge zu jedem beliebigen Projekt und behalten Sie eine saubere, präzise Übersicht, wohin Ihre Stunden fließen."
+      },
+      {
+        "title": "Nach Projekt & Datum filtern",
+        "copy": "Filtern Sie Ihre Einträge nach Projekt und Zeitraum und sehen Sie genau, woran Sie wann gearbeitet haben."
+      },
+      {
+        "title": "PDF-Reports exportieren",
+        "copy": "Verwandeln Sie jede gefilterte Ansicht mit einem Klick in einen sauberen, gebrandeten PDF-Report - bereit zum Versenden."
+      },
+      {
+        "title": "Ihre Daten, Ihr Konto",
+        "copy": "Alles liegt in Ihrem eigenen privaten Konto. Ihre Zeit, Ihre Projekte, Ihre Reports - sonst niemand."
+      }
+    ]
+  },
+  "steps": {
+    "label": "So funktioniert's",
+    "heading": "In drei Schritten vom Start zum fertigen Report.",
+    "items": [
+      {
+        "title": "Konto erstellen",
+        "copy": "Registrieren Sie sich in Sekunden und legen Sie die Projekte an, deren Zeit Sie erfassen möchten."
+      },
+      {
+        "title": "Stunden erfassen",
+        "copy": "Erfassen Sie Zeiteinträge pro Projekt während der Arbeit und filtern Sie sie anschließend nach Projekt und Datum."
+      },
+      {
+        "title": "Report exportieren",
+        "copy": "Erstellen Sie aus jeder gefilterten Ansicht ein sauberes, gebrandetes PDF und teilen Sie es mit einem Klick."
+      }
+    ]
+  },
+  "cta": {
+    "heading": "In unter einer Minute startklar.",
+    "copy": "Öffnen Sie das Dashboard, legen Sie ein Projekt an und erfassen Sie Ihren ersten Eintrag. Ihr erster gebrandeter PDF-Report ist nur einen Klick entfernt.",
+    "button": "Dashboard öffnen"
+  }
+}

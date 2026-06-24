@@ -14,8 +14,10 @@ import {
   subMonths,
   subYears,
 } from "date-fns"
-import { Pencil, Trash2, X } from "lucide-react"
+import { Pencil, Trash2, X, Receipt } from "lucide-react"
 import { toast } from "sonner"
+
+import { CreateFromTimeDialog } from "@/components/invoices/CreateFromTimeDialog"
 
 import { cn } from "@/lib/utils"
 
@@ -248,6 +250,22 @@ export function TimeEntryTable({
             }
             disabled={entries.length === 0}
           />
+          {entries.length > 0 && (
+            <CreateFromTimeDialog
+              projects={projects}
+              initialProjectId={
+                selectedProject === ALL_PROJECTS ? undefined : selectedProject
+              }
+              initialStartDate={startDate || undefined}
+              initialEndDate={endDate || undefined}
+              trigger={
+                <button className="inline-flex items-center gap-1.5 rounded-full bg-blue-600 px-3 py-1.5 text-sm font-medium text-white transition-colors hover:bg-blue-500">
+                  <Receipt className="size-4" />
+                  Create invoice
+                </button>
+              }
+            />
+          )}
         </div>
       </div>
 

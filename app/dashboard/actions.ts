@@ -147,6 +147,7 @@ export const createProject = async (input: {
   name: string
   client?: string | null
   description?: string | null
+  hourly_rate?: number | null
 }): Promise<ActionResult<Project>> => {
   try {
     const userId = await requireUserId()
@@ -161,7 +162,7 @@ export const createProject = async (input: {
         input.name,
         input.description ?? null,
         input.client ?? null,
-        null,
+        input.hourly_rate ?? null,
         createdAt,
         userId,
         1,
@@ -175,7 +176,7 @@ export const createProject = async (input: {
         name: input.name,
         description: input.description ?? null,
         client: input.client ?? null,
-        hourly_rate: null,
+        hourly_rate: input.hourly_rate ?? null,
         created_at: createdAt,
         user_id: userId,
         is_active: true,
@@ -189,7 +190,9 @@ export const createProject = async (input: {
 
 export const updateProject = async (
   id: string,
-  partial: Partial<Pick<Project, "name" | "client" | "description" | "is_active">>,
+  partial: Partial<
+    Pick<Project, "name" | "client" | "description" | "is_active" | "hourly_rate">
+  >,
 ): Promise<ActionResult<Project>> => {
   try {
     const userId = await requireUserId()
@@ -200,6 +203,10 @@ export const updateProject = async (
     if (partial.name !== undefined) {
       sets.push("name = ?")
       args.push(partial.name)
+    }
+    if (partial.hourly_rate !== undefined) {
+      sets.push("hourly_rate = ?")
+      args.push(partial.hourly_rate ?? null)
     }
     if (partial.client !== undefined) {
       sets.push("client = ?")

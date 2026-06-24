@@ -1,0 +1,161 @@
+{
+  "meta": {
+    "title": "Eric Strohmaier - Individuelle Software für KMU",
+    "description": "Ich entwickle individuelle Software, interne Tools, Automatisierungen und conversion-starke Websites für kleine und mittlere Unternehmen - Software, die sich selbst bezahlt macht.",
+    "keywords": [
+      "Softwareentwickler Österreich",
+      "individuelle Softwareentwicklung",
+      "Software für KMU",
+      "interne Tools",
+      "Automatisierung für Unternehmen",
+      "Prozessautomatisierung",
+      "Webentwicklung",
+      "Webseite erstellen lassen",
+      "App-Entwicklung",
+      "Next.js Entwickler",
+      "Software-Partner"
+    ]
+  },
+  "hero": {
+    "eyebrow": "Ihr Software-Partner.",
+    "title": "Software, die Ihrem Unternehmen mehr Geld bringt.",
+    "subtitle": "Ich entwickle individuelle Tools, Automatisierungen und Websites für kleine und mittlere Unternehmen - Software, die Kosten senkt, Stunden spart und Umsatz bringt. Die Art, die sich selbst bezahlt macht.",
+    "ctaPrimary": "Kostenloses Gespräch buchen",
+    "ctaSecondary": "Projekte ansehen",
+    "trust": {
+      "prefix": "Vertraut von",
+      "businessesLabel": "Unternehmen",
+      "partnershipsValue": "4+",
+      "partnershipsLabel": "Jahre Partnerschaften",
+      "usersValue": "50.000+",
+      "usersLabel": "betreute Nutzer"
+    }
+  },
+  "about": {
+    "imageAlt": "Eric Strohmaier",
+    "paragraphs": [
+      "Ich bin Eric - ein autodidaktischer Entwickler, der das Bauen durch das Ausliefern echter Lösungen und das Lösen realer Probleme gelernt hat.",
+      "Der Großteil meiner Arbeit ist für meine Kunden unspektakulär und profitabel: wiederkehrende Aufgaben automatisieren, individuelle Tools bauen, die fragile Tabellen ersetzen, und Websites so reparieren, dass sie tatsächlich Umsatz bringen.",
+      "Für einen Kunden habe ich den Umsatz um 270 % gesteigert, indem ich seine SEO neu aufgebaut und die richtigen Besucher gebracht habe. Ich entwickle auch eigene Produkte - PromptSloth erreichte in nur 9 Monaten über 7.000 Nutzer und 3.000 USD Umsatz, allein über organische Suche, ganz ohne aktives Marketing, und läuft heute auf Autopilot."
+    ],
+    "link": "Mehr über mich"
+  },
+  "whatIBuild": {
+    "title": "Drei Wege, wie sich Software für Sie auszahlt.",
+    "items": [
+      {
+        "title": "Umsatz-Websites & Lead-Systeme",
+        "blurb": "Gefunden werden, Vertrauen gewinnen und Besucher in gebuchte Termine und zahlende Kunden verwandeln.",
+        "examples": [
+          "Conversion-starke Websites & Landingpages",
+          "Lead-Erfassung mit automatischem Follow-up",
+          "Termin- & Online-Zahlungsflüsse"
+        ]
+      },
+      {
+        "title": "Interne Tools & Automatisierungen",
+        "blurb": "Ersetzen Sie manuelle Fleißarbeit und fragile Tabellen durch Software, die sich selbst erledigt.",
+        "examples": [
+          "Individuelle Dashboards & CRMs",
+          "Prozess- & Datenautomatisierungen",
+          "KI-Tools für wiederkehrende Arbeit"
+        ]
+      },
+      {
+        "title": "Laufende Software-Partnerschaft",
+        "blurb": "Ein erfahrener Entwickler auf Abruf, der alles am Laufen hält und jeden Monat Verbesserungen liefert.",
+        "examples": [
+          "Wartung & Monitoring",
+          "Kontinuierliche Verbesserungen",
+          "Monatlich kündbar, keine Bindung"
+        ]
+      }
+    ]
+  },
+  "howItWorks": {
+    "title": "Einfacher Start. Gebaut, um zu bleiben.",
+    "steps": [
+      {
+        "title": "Gespräch",
+        "copy": "Wir sprechen über Ihr Unternehmen und finden heraus, wo Software Ihnen am meisten Geld bringt oder spart."
+      },
+      {
+        "title": "Umsetzung",
+        "copy": "Ich definiere den Umfang, baue es und liefere schnell aus - Software, die ihren Zweck erfüllt, ohne unnötigen Ballast."
+      },
+      {
+        "title": "Pflege & Wachstum",
+        "copy": "Ich halte alles am Laufen und verbessere es kontinuierlich, damit es sich Monat für Monat auszahlt."
+      }
+    ]
+  },
+  "midCta": {
+    "title": "Nicht sicher, womit Sie anfangen sollen?",
+    "copy": "Genau dafür ist das Gespräch da. Wir finden gemeinsam die Lösung mit dem höchsten Return."
+  },
+  "featuredWork": {
+    "title": "Gebaut, um genutzt zu werden - und zu bleiben.",
+    "link": "Alle Projekte ansehen"
+  },
+  "testimonials": {
+    "label": "Was Kunden sagen",
+    "title": "Verlassen Sie sich nicht nur auf mein Wort."
+  },
+  "pricing": {
+    "title": "Preise",
+    "footnote": "Keine Verträge. Keine Bindung. Sie bleiben, weil es sich selbst bezahlt macht.",
+    "mostPopular": "Am beliebtesten",
+    "tiers": [
+      {
+        "name": "Website Care Plan",
+        "who": "Für Unternehmen, die eine Website brauchen, die gefunden wird und Leads bringt - vollständig betreut.",
+        "price": "249 €",
+        "cadence": "/Monat",
+        "cta": "Kostenloses Gespräch buchen",
+        "bullets": [
+          "Conversion-fokussierte Website, die Besucher zu Leads macht",
+          "Hosting, Sicherheit & SSL komplett übernommen",
+          "Uptime-Monitoring, damit Sie nie unbemerkt offline sind",
+          "Kleine Inhalts- & Designänderungen jeden Monat",
+          "Schnelle Ladezeiten, die Kunden zum Bleiben bewegen",
+          "Ein Ansprechpartner - keine Agenturen, kein Hin und Her"
+        ]
+      },
+      {
+        "name": "Software Partner",
+        "who": "Für Unternehmen, die sich laufend verbessern wollen - ein erfahrener Entwickler auf Abruf, von Monat zu Monat.",
+        "price": "2.500 €",
+        "cadence": "/Monat",
+        "cta": "Partner werden",
+        "bullets": [
+          "Ein erfahrener Entwickler auf Abruf für Ihr Unternehmen",
+          "Eine ausgelieferte Verbesserung in den meisten Wochen",
+          "Laufende Wartung, Monitoring & Fehlerbehebung",
+          "Priorisierte Bearbeitung dessen, was am wichtigsten ist",
+          "Kontinuierliche Arbeit für mehr Umsatz, weniger Fleißarbeit",
+          "Monatlich kündbar - jederzeit, keine Bindung"
+        ]
+      },
+      {
+        "name": "Individuelle Software",
+        "who": "Für konkrete Probleme, die sich zu lösen lohnen - interne Tools, Automatisierungen und umsatzbringende Funktionen.",
+        "price": "Ab 5.000 €",
+        "cadence": " / Projekt",
+        "cta": "Projekt definieren",
+        "bullets": [
+          "Gebaut, um Ihnen messbar Geld zu bringen oder zu sparen",
+          "Dashboards, CRMs, Termin- & Zahlungsflüsse",
+          "Automatisierungen, die wiederkehrende Handarbeit beseitigen",
+          "KI-Tools, zugeschnitten auf Ihre tatsächlichen Abläufe",
+          "Vorab definiert - klarer Preis, klares Ergebnis",
+          "Geht nach dem Launch in einen Care- oder Partner-Plan über"
+        ]
+      }
+    ]
+  },
+  "finalCta": {
+    "title": "Lassen Sie uns die Software finden, die sich selbst bezahlt macht.",
+    "copy": "Buchen Sie ein kostenloses Gespräch. Wir schauen, wo Sie Zeit oder Geld verlieren und was es bräuchte, um das zu beheben. Kein Druck, kein Fachjargon.",
+    "cta": "Kostenloses Gespräch buchen"
+  }
+}

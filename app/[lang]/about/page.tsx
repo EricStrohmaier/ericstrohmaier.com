@@ -1,43 +1,46 @@
+import type { Metadata } from "next"
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
+import type { Locale } from "@/i18n-config"
+import { getDictionary } from "@/lib/dictionaries"
 import { siteConfig } from "@/site-config"
 
-export const metadata = {
-  title: "About",
-  description:
-    "Eric Strohmaier is a self-taught software engineer who builds custom tools, automations, and websites that make small and mid-sized businesses more money.",
-  alternates: { canonical: "/about" },
-  openGraph: {
-    title: "About Eric Strohmaier",
-    description:
-      "Self-taught engineer building software that pays for itself for small and mid-sized businesses.",
-    url: "/about",
-  },
+export async function generateMetadata({
+  params,
+}: {
+  params: { lang: Locale }
+}): Promise<Metadata> {
+  const dict = await getDictionary(params.lang, "about")
+  const lang = params.lang
+  return {
+    title: dict.meta.title,
+    description: dict.meta.description,
+    keywords: dict.meta.keywords,
+    alternates: {
+      canonical: `/${lang}/about`,
+      languages: {
+        en: "/en/about",
+        de: "/de/about",
+        "x-default": "/en/about",
+      },
+    },
+    openGraph: {
+      title: dict.meta.ogTitle,
+      description: dict.meta.ogDescription,
+      url: `/${lang}/about`,
+      locale: lang === "de" ? "de_DE" : "en_US",
+    },
+  }
 }
 
-const highlights = [
-  { value: "4+ yrs", label: "Longest client partnership" },
-  { value: "50,000+", label: "Users served" },
-  { value: "17+", label: "Projects shipped" },
-  { value: "Self-taught", label: "And still shipping" },
-]
+export default async function AboutPage({
+  params,
+}: {
+  params: { lang: Locale }
+}) {
+  const lang = params.lang
+  const dict = await getDictionary(lang, "about")
 
-const principles = [
-  {
-    title: "Beyond the comfort zone",
-    copy: "I do my best work on the problems that push me. If it's a little hard, it's interesting.",
-  },
-  {
-    title: "Deep focus",
-    copy: "When I'm building, three hours feel like twenty minutes. That's when the good work happens.",
-  },
-  {
-    title: "Minimal by default",
-    copy: "Clear mind, clean setup, no bloat. I ship what moves your numbers and nothing you don't need.",
-  },
-]
-
-export default function AboutPage() {
   return (
     <div className="w-full">
       {/* Header */}
@@ -52,48 +55,25 @@ export default function AboutPage() {
         />
         <div>
           <p className="text-foreground/40 mb-1.5 text-xs font-medium uppercase tracking-[0.2em]">
-            Your software partner
+            {dict.eyebrow}
           </p>
           <h1 className="text-2xl font-semibold tracking-tight md:text-3xl">
             {siteConfig.name}
           </h1>
-          <p className="text-foreground/50 mt-1 text-sm">
-            Software that pays for itself.
-          </p>
+          <p className="text-foreground/50 mt-1 text-sm">{dict.tagline}</p>
         </div>
       </section>
 
       {/* Bio */}
       <section className="mt-8 max-w-2xl space-y-4">
-        <p className="text-foreground/70 leading-relaxed">
-          I&apos;m Eric - a self-taught engineer and the person behind every
-          project here. I learned to build by shipping, and solving real
-          problems: late nights, broken side projects, and pushing things until
-          they worked. No classroom, just a stubborn habit of figuring it out.
-        </p>
-        <p className="text-foreground/70 leading-relaxed">
-          Today I help small and mid-sized businesses turn slow, expensive
-          problems into software that quietly pays for itself. Most of it is
-          boring on purpose: automating the repetitive tasks that cost people
-          hours, building custom tools that replace fragile spreadsheets, and
-          fixing websites so they actually bring in revenue. I work as a
-          long-term partner, not a vendor who vanishes after launch - two of my
-          client relationships have run past four years.
-        </p>
-        <p className="text-foreground/70 leading-relaxed">
-          The results are what I care about. For one client I grew revenue 270%
-          by rebuilding their SEO and bringing in the right traffic. As the
-          first technical hire at Friends in Flats I built the platform from
-          scratch to 20,000+ users and led a team of four. And I build my own
-          products to stay sharp - PromptSloth reached 7,000+ users and $3K in
-          just 9 months on organic search alone, with no active marketing, and
-          now runs on autopilot. Clarity over noise, outcomes over buzzwords.
-        </p>
+        <p className="text-foreground/70 leading-relaxed">{dict.bio.p1}</p>
+        <p className="text-foreground/70 leading-relaxed">{dict.bio.p2}</p>
+        <p className="text-foreground/70 leading-relaxed">{dict.bio.p3}</p>
       </section>
 
       {/* Highlights */}
       <section className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        {highlights.map((h) => (
+        {dict.highlights.map((h) => (
           <div
             key={h.label}
             className="border-foreground/[0.06] bg-foreground/[0.02] rounded-2xl border p-4"
@@ -109,10 +89,10 @@ export default function AboutPage() {
       {/* How I work */}
       <section className="mt-10">
         <p className="text-foreground/30 mb-3 text-xs font-medium uppercase tracking-[0.2em]">
-          How I work
+          {dict.howIWork}
         </p>
         <div className="grid gap-3 sm:grid-cols-3">
-          {principles.map((p) => (
+          {dict.principles.map((p) => (
             <div
               key={p.title}
               className="border-foreground/[0.06] bg-foreground/[0.02] rounded-2xl border p-5"
@@ -132,11 +112,9 @@ export default function AboutPage() {
       <section className="border-foreground/[0.06] mt-10 flex flex-col items-start gap-4 rounded-2xl border bg-[var(--secondary)] p-6 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h2 className="text-lg font-semibold tracking-tight">
-            Have something worth building?
+            {dict.cta.title}
           </h2>
-          <p className="text-foreground/50 mt-1 text-sm">
-            Let&apos;s find the software that pays for itself.
-          </p>
+          <p className="text-foreground/50 mt-1 text-sm">{dict.cta.subtitle}</p>
         </div>
         <a
           href={siteConfig.bookingUrl}
@@ -144,7 +122,7 @@ export default function AboutPage() {
           rel="noopener noreferrer"
           className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm shadow-blue-600/20 transition-all duration-300 hover:gap-3 hover:bg-blue-500"
         >
-          Book a free call
+          {dict.cta.button}
           <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
         </a>
       </section>
@@ -157,7 +135,7 @@ export default function AboutPage() {
           rel="noopener noreferrer"
           className="text-foreground/50 underline-offset-4 transition-colors hover:text-foreground hover:underline"
         >
-          GitHub
+          {dict.links.github}
         </a>
         <a
           href={siteConfig.links.linkedin}
@@ -165,13 +143,13 @@ export default function AboutPage() {
           rel="noopener noreferrer"
           className="text-foreground/50 underline-offset-4 transition-colors hover:text-foreground hover:underline"
         >
-          LinkedIn
+          {dict.links.linkedin}
         </a>
         <a
           href={siteConfig.links.email}
           className="text-foreground/50 underline-offset-4 transition-colors hover:text-foreground hover:underline"
         >
-          Email
+          {dict.links.email}
         </a>
       </section>
     </div>

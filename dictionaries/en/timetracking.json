@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "title": "Time Tracking",
+    "description": "Simple time tracking with project filters and one-click PDF reports. Track hours per project, filter by date, and export polished timesheet PDFs.",
+    "keywords": [
+      "time tracking",
+      "timesheet",
+      "track hours",
+      "PDF reports",
+      "project time tracking",
+      "time tracking app",
+      "billable hours",
+      "hours tracker"
+    ],
+    "ogAlt": "Time tracking with one-click PDF reports"
+  },
+  "hero": {
+    "eyebrow": "Time tracking",
+    "title": "Simple time tracking with one-click PDF reports.",
+    "subtitle": "Track time per project, filter your entries by project and date, and turn any view into a polished, branded PDF report - all from one clean dashboard. No bloat, just the numbers you need.",
+    "ctaPrimary": "Open dashboard",
+    "ctaLogin": "Log in",
+    "ctaRegister": "Create account"
+  },
+  "features": {
+    "label": "What you get",
+    "heading": "Everything you need, nothing you don't.",
+    "items": [
+      {
+        "title": "Track time per project",
+        "copy": "Log entries against any project and keep a clean, accurate record of where your hours go."
+      },
+      {
+        "title": "Filter by project & date",
+        "copy": "Slice your entries by project and date range to see exactly what you worked on, and when."
+      },
+      {
+        "title": "Export PDF reports",
+        "copy": "Turn any filtered view into a polished, branded PDF report in a single click - ready to send."
+      },
+      {
+        "title": "Your data, your account",
+        "copy": "Everything lives in your own private account. Your time, your projects, your reports - no one else's."
+      }
+    ]
+  },
+  "steps": {
+    "label": "How it works",
+    "heading": "From zero to a sent report in three steps.",
+    "items": [
+      {
+        "title": "Create your account",
+        "copy": "Sign up in seconds and add the projects you want to track time against."
+      },
+      {
+        "title": "Log your hours",
+        "copy": "Add time entries per project as you work, then filter them by project and date."
+      },
+      {
+        "title": "Export a report",
+        "copy": "Generate a clean, branded PDF of any filtered view and share it with one click."
+      }
+    ]
+  },
+  "cta": {
+    "heading": "Start tracking in under a minute.",
+    "copy": "Open the dashboard, add a project, and log your first entry. Your first branded PDF report is one click away.",
+    "button": "Open dashboard"
+  }
+}

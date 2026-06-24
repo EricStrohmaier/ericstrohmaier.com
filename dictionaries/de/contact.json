@@ -1,0 +1,48 @@
+{
+  "profile": {
+    "eyebrow": "Ihr Software-Partner",
+    "heading": "Hallo, ich bin Eric.",
+    "intro": "Ich lese und beantworte jede Nachricht persönlich - meist innerhalb eines Tages. Erzählen Sie mir, woran Sie gerade arbeiten."
+  },
+  "booking": {
+    "title": "Sprechen wir miteinander",
+    "description": "Projekt, Angebot oder einfach eine Frage - wählen Sie einen Termin, der Ihnen passt.",
+    "cta": "Termin buchen"
+  },
+  "divider": "oder schreiben Sie mir",
+  "form": {
+    "name": {
+      "label": "Ihr Name",
+      "placeholder": "Ihr Name"
+    },
+    "email": {
+      "label": "Ihre E-Mail",
+      "placeholder": "sie@beispiel.com"
+    },
+    "topic": {
+      "label": "Thema auswählen",
+      "placeholder": "Thema auswählen",
+      "options": [
+        "Neues Projekt / individuelle Software",
+        "Website & Lead-Generierung",
+        "Interne Tools & Automatisierung",
+        "Laufende Software-Partnerschaft",
+        "Etwas anderes"
+      ]
+    },
+    "message": {
+      "label": "Ihre Nachricht",
+      "placeholder": "Wie kann ich Ihnen helfen?"
+    },
+    "submit": "Nachricht senden",
+    "submitting": "Wird gesendet...",
+    "toasts": {
+      "invalidEmailTitle": "Ungültige E-Mail-Adresse",
+      "invalidEmailDescription": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+      "successTitle": "Nachricht gesendet",
+      "successDescription": "Danke, ich melde mich bei Ihnen.",
+      "errorTitle": "Senden fehlgeschlagen",
+      "errorDescription": "Bitte versuchen Sie es erneut."
+    }
+  }
+}

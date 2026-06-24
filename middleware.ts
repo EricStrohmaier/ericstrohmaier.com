@@ -1,20 +1,89 @@
 import { NextRequest, NextResponse } from "next/server"
 import { getSessionCookie } from "better-auth/cookies"
+import { i18n, isLocale } from "@/i18n-config"
 
-// Optimistic, cookie-presence guard for the authenticated tool. The real
-// session is still validated server-side in the dashboard page + actions.
-export function middleware(request: NextRequest) {
-  const sessionCookie = getSessionCookie(request)
+const LOCALE_COOKIE = "NEXT_LOCALE"
+const ONE_YEAR = 60 * 60 * 24 * 365
 
-  if (!sessionCookie) {
-    const url = new URL("/login", request.url)
-    url.searchParams.set("redirect", request.nextUrl.pathname)
-    return NextResponse.redirect(url)
+// Unprefixed routes that are NOT localized (tools, auth, the standalone DE
+// landing). Everything else under "/" is treated as a marketing path.
+const nonLocalized = [
+  "/invoice",
+  "/dashboard",
+  "/login",
+  "/register",
+  "/immobilienmakler",
+]
+
+function detectLocale(req: NextRequest): string {
+  // 1) explicit choice (cookie) wins — keeps you in your language across links
+  const cookie = req.cookies.get(LOCALE_COOKIE)?.value
+  if (isLocale(cookie)) return cookie
+  // 2) geo: visitors in Austria / Germany default to German. req.geo is the
+  //    Vercel edge value; fall back to the raw header for robustness.
+  const country =
+    req.geo?.country || req.headers.get("x-vercel-ip-country") || ""
+  if (country === "AT" || country === "DE") return "de"
+  // 3) browser language
+  const primary = (req.headers.get("accept-language") || "")
+    .split(",")[0]
+    ?.trim()
+    .toLowerCase()
+  if (primary?.startsWith("de")) return "de"
+  // 4) fallback
+  return i18n.defaultLocale
+}
+
+function rememberLocale(res: NextResponse, locale: string) {
+  res.cookies.set(LOCALE_COOKIE, locale, {
+    path: "/",
+    maxAge: ONE_YEAR,
+    sameSite: "lax",
+  })
+  return res
+}
+
+export function middleware(req: NextRequest) {
+  const { pathname } = req.nextUrl
+
+  // 1) Dashboard auth gate (unprefixed tool route).
+  if (pathname === "/dashboard" || pathname.startsWith("/dashboard/")) {
+    if (!getSessionCookie(req)) {
+      const url = new URL("/login", req.url)
+      url.searchParams.set("redirect", pathname)
+      return NextResponse.redirect(url)
+    }
+    return NextResponse.next()
   }
 
-  return NextResponse.next()
+  // 2) Other non-localized routes pass straight through.
+  if (
+    nonLocalized.some((p) => pathname === p || pathname.startsWith(p + "/"))
+  ) {
+    return NextResponse.next()
+  }
+
+  // 3) Already locale-prefixed (/en/..., /de/...): remember it so any later
+  //    unprefixed link (e.g. /projects) resolves to THIS language.
+  const seg = pathname.split("/")[1]
+  if (isLocale(seg)) {
+    const res = NextResponse.next()
+    if (req.cookies.get(LOCALE_COOKIE)?.value !== seg) {
+      rememberLocale(res, seg)
+    }
+    return res
+  }
+
+  // 4) Unprefixed marketing path ("/", "/about", ...): redirect to the
+  //    detected locale and remember it.
+  const locale = detectLocale(req)
+  const url = req.nextUrl.clone()
+  url.pathname = `/${locale}${pathname === "/" ? "" : pathname}`
+  return rememberLocale(NextResponse.redirect(url), locale)
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*"],
+  // Run on everything except Next internals, the API, and files with an
+  // extension (robots.txt, sitemap.xml, images, etc.).
+  matcher: ["/((?!_next|api|.*\\..*).*)"],
 }

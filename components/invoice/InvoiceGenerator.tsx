@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import dynamic from "next/dynamic"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -56,7 +56,23 @@ const defaultCompanySettings: CompanySettings = {
   dateFormat: "MM/DD/YYYY",
 }
 
-const InvoiceGenerator = () => {
+interface InvoiceGeneratorProps {
+  // Account mode: when `onPersist` is provided, the editor hydrates from
+  // `initialInvoice` and autosaves (debounced) via `onPersist` instead of
+  // localStorage. With no props it stays the public localStorage tool.
+  initialInvoice?: Invoice | null
+  onPersist?: (invoice: Invoice) => void
+  headerSlot?: React.ReactNode
+}
+
+const InvoiceGenerator = ({
+  initialInvoice = null,
+  onPersist,
+  headerSlot,
+}: InvoiceGeneratorProps) => {
+  const isAccount = typeof onPersist === "function"
+  const hydratedRef = useRef(false)
+  const saveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const [activeTab, setActiveTab] = useState("editor")
 
   // Update showPDF when tab changes
@@ -144,51 +160,65 @@ ${companySettings.email || ""}`.trim()
     }
   }, [])
 
-  // Load saved invoice data from localStorage
+  // Hydrate the invoice: from the account record (account mode) or localStorage
+  // (public tool). companyDetails/notes/bankDetails come from the company
+  // profile effect, same in both modes.
   useEffect(() => {
-    const loadInvoice = async () => {
-      const invoice = await getFromSecureLocalStorage<Invoice>("currentInvoice")
-      if (invoice) {
-        setItems(invoice.items || [])
-        setSubtotal(invoice.subtotal || 0)
-        setTaxRate(invoice.taxRate || 0)
-        setTax(invoice.tax || 0)
-        setShippingFee(invoice.shippingFee || 0)
-        setTotal(invoice.total || 0)
-        setInvoiceNumber(invoice.invoiceNumber || "")
-        setBillTo(invoice.billTo || "")
-        setInvoiceDate(invoice.issueDate || "")
-        setDueDate(invoice.dueDate || "")
-        setSelectedContactId(invoice.selectedContactId || "")
-        if (invoice.currency) setCurrency(invoice.currency)
-      }
+    const applyInvoice = (invoice: Invoice) => {
+      if (invoice.items && invoice.items.length) setItems(invoice.items)
+      setSubtotal(invoice.subtotal || 0)
+      setTaxRate(invoice.taxRate || 0)
+      setTax(invoice.tax || 0)
+      setShippingFee(invoice.shippingFee || 0)
+      setTotal(invoice.total || 0)
+      setInvoiceNumber(invoice.invoiceNumber || "")
+      setBillTo(invoice.billTo || "")
+      setInvoiceDate(invoice.issueDate || "")
+      setDueDate(invoice.dueDate || "")
+      setSelectedContactId(invoice.selectedContactId || "")
+      if (invoice.currency) setCurrency(invoice.currency)
     }
-    loadInvoice()
+    const load = async () => {
+      if (isAccount) {
+        if (initialInvoice) applyInvoice(initialInvoice)
+        hydratedRef.current = true
+        return
+      }
+      const invoice = await getFromSecureLocalStorage<Invoice>("currentInvoice")
+      if (invoice) applyInvoice(invoice)
+      hydratedRef.current = true
+    }
+    load()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // Save invoice data to localStorage
+  // Persist on change: debounced to the account (account mode) or immediately
+  // to localStorage (public tool).
   useEffect(() => {
-    const saveInvoice = async () => {
-      const invoice: Invoice = {
-        invoiceNumber,
-        issueDate: invoiceDate,
-        dueDate,
-        companyDetails,
-        billTo,
-        items,
-        subtotal,
-        taxRate,
-        tax,
-        shippingFee,
-        total,
-        selectedContactId,
-        notes: companySettings.notes,
-        bankDetails: companySettings.bankDetails,
-        currency,
-      }
-      await secureLocalStorage("currentInvoice", invoice)
+    const invoice: Invoice = {
+      invoiceNumber,
+      issueDate: invoiceDate,
+      dueDate,
+      companyDetails,
+      billTo,
+      items,
+      subtotal,
+      taxRate,
+      tax,
+      shippingFee,
+      total,
+      selectedContactId,
+      notes: companySettings.notes,
+      bankDetails: companySettings.bankDetails,
+      currency,
     }
-    saveInvoice()
+    if (isAccount) {
+      if (!hydratedRef.current) return
+      if (saveTimerRef.current) clearTimeout(saveTimerRef.current)
+      saveTimerRef.current = setTimeout(() => onPersist?.(invoice), 800)
+      return
+    }
+    secureLocalStorage("currentInvoice", invoice)
   }, [
     items,
     subtotal,
@@ -370,15 +400,17 @@ ${contact.email || ""}`.trim()
           </div>
         </DialogContent>
       </Dialog>
-      <div className="mb-6 flex flex-col">
-        <h1 className="mb-2 text-2xl font-semibold tracking-tight">
-          Invoice Generator
-        </h1>
-        <p className="text-sm text-foreground/55">
-          A simple invoice generator. Your data stays in your browser - no
-          servers, no tracking.
-        </p>
-      </div>
+      {headerSlot ?? (
+        <div className="mb-6 flex flex-col">
+          <h1 className="mb-2 text-2xl font-semibold tracking-tight">
+            Invoice Generator
+          </h1>
+          <p className="text-sm text-foreground/55">
+            A simple invoice generator. Your data stays in your browser - no
+            servers, no tracking.
+          </p>
+        </div>
+      )}
 
       <div className="grid grid-cols-1 gap-4 md:gap-6 lg:grid-cols-4">
         {/* Left Sidebar - Contacts */}

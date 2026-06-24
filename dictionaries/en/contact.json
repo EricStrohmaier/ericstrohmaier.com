@@ -1,0 +1,48 @@
+{
+  "profile": {
+    "eyebrow": "Your software partner",
+    "heading": "Hi, I'm Eric.",
+    "intro": "I personally read and reply to every message - usually within a day. Tell me what you're working on."
+  },
+  "booking": {
+    "title": "Talk to me",
+    "description": "Project, quote, or just a question - grab a time that works for you.",
+    "cta": "Book a call"
+  },
+  "divider": "or send a message",
+  "form": {
+    "name": {
+      "label": "Your name",
+      "placeholder": "Your name"
+    },
+    "email": {
+      "label": "Your email",
+      "placeholder": "you@example.com"
+    },
+    "topic": {
+      "label": "Select a topic",
+      "placeholder": "Select a topic",
+      "options": [
+        "New project / custom software",
+        "Website & lead generation",
+        "Internal tools & automation",
+        "Ongoing software partnership",
+        "Something else"
+      ]
+    },
+    "message": {
+      "label": "Your message",
+      "placeholder": "How can I help you?"
+    },
+    "submit": "Send Message",
+    "submitting": "Sending...",
+    "toasts": {
+      "invalidEmailTitle": "Invalid email address",
+      "invalidEmailDescription": "Please enter a valid email address.",
+      "successTitle": "Message sent",
+      "successDescription": "Thanks, I'll get back to you.",
+      "errorTitle": "Failed to send",
+      "errorDescription": "Please try again."
+    }
+  }
+}

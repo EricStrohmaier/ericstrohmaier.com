@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "title": "Projekte & Case Studies",
+    "description": "Echte Software, die Eric Strohmaier entwickelt und ausgeliefert hat - individuelle Software, interne Tools, Automatisierungen, SaaS-Produkte und conversion-starke Websites für Unternehmen, mit ergebnisorientierten Case Studies.",
+    "keywords": [
+      "Softwareentwickler Österreich",
+      "individuelle Softwareentwicklung",
+      "Case Studies",
+      "interne Tools",
+      "Automatisierung für Unternehmen",
+      "Webentwicklung",
+      "Software für KMU"
+    ],
+    "ogTitle": "Projekte & Case Studies | Eric Strohmaier",
+    "ogDescription": "Individuelle Tools, Automatisierungen und Produkte, die Unternehmen Geld bringen oder sparen."
+  },
+  "heading": "Projekte",
+  "subheading": "Dinge, die ich gebaut und mitgebaut habe",
+  "list": {
+    "searchPlaceholder": "suchen...",
+    "empty": "Keine Projekte gefunden",
+    "caseStudyBadge": "Case Study",
+    "featuredBadge": "Highlight",
+    "legend": {
+      "live": "live",
+      "inProgress": "in Arbeit",
+      "onHold": "pausiert",
+      "archived": "archiviert"
+    }
+  },
+  "status": {
+    "live": "Live",
+    "inProgress": "In Arbeit",
+    "onHold": "Pausiert",
+    "offline": "Offline",
+    "archived": "Archiviert"
+  },
+  "detail": {
+    "back": "← zurück zu den Projekten",
+    "notFoundTitle": "Projekt nicht gefunden",
+    "visitProject": "Projekt ansehen",
+    "sourceCode": "Quellcode",
+    "noLinks": "keine öffentlichen Links für dieses Projekt",
+    "facts": {
+      "website": "Website",
+      "year": "Jahr",
+      "reach": "Reichweite"
+    },
+    "usersSuffix": "Nutzer",
+    "caseStudy": {
+      "result": "Ergebnis",
+      "for": "Für",
+      "problem": "Das Problem",
+      "built": "Was ich gebaut habe"
+    },
+    "info": {
+      "type": "Art:",
+      "role": "Rolle:",
+      "workMode": "Arbeitsmodus:",
+      "location": "Standort:"
+    }
+  }
+}

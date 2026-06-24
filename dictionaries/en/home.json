@@ -1,0 +1,161 @@
+{
+  "meta": {
+    "title": "Eric Strohmaier - Custom Software for Small Businesses",
+    "description": "I build custom software, internal tools, automations, and high-converting websites for small and mid-sized businesses - software that pays for itself.",
+    "keywords": [
+      "custom software developer",
+      "custom software development",
+      "software for small businesses",
+      "internal tools",
+      "business automation",
+      "workflow automation",
+      "web development",
+      "lead generation websites",
+      "AI tools for business",
+      "Next.js developer",
+      "software partner"
+    ]
+  },
+  "hero": {
+    "eyebrow": "Your software partner.",
+    "title": "Software that makes your business more money.",
+    "subtitle": "I build custom tools, automations, and websites for small and mid-sized businesses - software designed to cut costs, save hours, and bring in revenue. The kind that pays for itself.",
+    "ctaPrimary": "Book a free call",
+    "ctaSecondary": "See the work",
+    "trust": {
+      "prefix": "Trusted by",
+      "businessesLabel": "businesses",
+      "partnershipsValue": "4+",
+      "partnershipsLabel": "year partnerships",
+      "usersValue": "50,000+",
+      "usersLabel": "users served"
+    }
+  },
+  "about": {
+    "imageAlt": "Eric Strohmaier",
+    "paragraphs": [
+      "I'm Eric - a self-taught engineer who learned to build by shipping, and solving real problems.",
+      "Most of my work is boring and profitable for my clients: automating the repetitive tasks, building custom tools that replace fragile spreadsheets, and fixing websites so they actually earn.",
+      "For one client I grew revenue 270% by rebuilding their SEO and bringing in the right traffic. I build my own products too - PromptSloth reached 7,000+ users and $3K in revenue in just 9 months on organic search alone, with no active marketing, and now runs on autopilot."
+    ],
+    "link": "More about me"
+  },
+  "whatIBuild": {
+    "title": "Three ways software pays you back.",
+    "items": [
+      {
+        "title": "Revenue websites & lead systems",
+        "blurb": "Get found, win trust, and turn visitors into booked calls and paying customers.",
+        "examples": [
+          "High-converting sites & landing pages",
+          "Lead capture with automated follow-up",
+          "Booking & online payment flows"
+        ]
+      },
+      {
+        "title": "Internal tools & automations",
+        "blurb": "Replace manual busywork and fragile spreadsheets with software that runs itself.",
+        "examples": [
+          "Custom dashboards & CRMs",
+          "Workflow & data automations",
+          "AI tools for repetitive work"
+        ]
+      },
+      {
+        "title": "Ongoing software partnership",
+        "blurb": "A senior developer on call to keep things running and ship improvements every month.",
+        "examples": [
+          "Maintenance & monitoring",
+          "Continuous improvements",
+          "Month-to-month, no lock-in"
+        ]
+      }
+    ]
+  },
+  "howItWorks": {
+    "title": "Simple to start. Built to last.",
+    "steps": [
+      {
+        "title": "Call",
+        "copy": "We talk through your business and find where software can make or save you the most money."
+      },
+      {
+        "title": "Build",
+        "copy": "I scope it, build it, and ship it fast - software that does the job, with nothing you don't need."
+      },
+      {
+        "title": "Maintain & grow",
+        "copy": "I keep it running and keep improving it, so it pays off month after month."
+      }
+    ]
+  },
+  "midCta": {
+    "title": "Not sure what to build first?",
+    "copy": "That's what the call is for. We'll find the highest-payback fix together."
+  },
+  "featuredWork": {
+    "title": "Built to be used - and to last.",
+    "link": "See all work"
+  },
+  "testimonials": {
+    "label": "What clients say",
+    "title": "Don't just take my word for it."
+  },
+  "pricing": {
+    "title": "Pricing",
+    "footnote": "No contracts. No lock-in. You stay because it pays for itself.",
+    "mostPopular": "Most popular",
+    "tiers": [
+      {
+        "name": "Website Care Plan",
+        "who": "For businesses that need a site that gets found and brings in leads - fully managed.",
+        "price": "$249",
+        "cadence": "/mo",
+        "cta": "Book a free call",
+        "bullets": [
+          "Conversion-focused website that turns visitors into leads",
+          "Hosting, security & SSL fully handled",
+          "Uptime monitoring so you're never down quietly",
+          "Small content & design changes every month",
+          "Fast load times that keep customers from bouncing",
+          "One point of contact - no agencies, no runaround"
+        ]
+      },
+      {
+        "name": "Software Partner",
+        "who": "For businesses that want to keep improving - a senior dev on call, month to month.",
+        "price": "$2,500",
+        "cadence": "/mo",
+        "cta": "Become a partner",
+        "bullets": [
+          "A senior developer on call for your business",
+          "One shipped improvement most weeks",
+          "Ongoing maintenance, monitoring & fixes",
+          "Priority turnaround on what matters most",
+          "Continuous work toward more revenue, less busywork",
+          "Month-to-month - cancel anytime, no lock-in"
+        ]
+      },
+      {
+        "name": "Custom Software",
+        "who": "For specific problems worth solving - internal tools, automations, and revenue features.",
+        "price": "From $5,000",
+        "cadence": " / project",
+        "cta": "Scope a project",
+        "bullets": [
+          "Built to make or save you money, measured",
+          "Dashboards, CRMs, booking & payment flows",
+          "Automations that kill repetitive manual work",
+          "AI tools tailored to how you actually operate",
+          "Scoped up front - clear price, clear outcome",
+          "Rolls into a care or partner plan once it ships"
+        ]
+      }
+    ]
+  },
+  "finalCta": {
+    "title": "Let's find the software that pays for itself.",
+    "copy": "Book a free call. We'll look at where you're leaking time or money and what it would take to fix it. No pressure, no jargon.",
+    "cta": "Book a free call"
+  }
+}

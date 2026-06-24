@@ -1,0 +1,57 @@
+{
+  "eyebrow": "Ihr Software-Partner",
+  "tagline": "Software, die sich selbst bezahlt macht.",
+  "bio": {
+    "p1": "Ich bin Eric - autodidaktischer Entwickler und die Person hinter jedem Projekt hier. Ich habe das Entwickeln gelernt, indem ich Dinge gebaut und echte Probleme gelöst habe: lange Nächte, gescheiterte Nebenprojekte und das hartnäckige Weitermachen, bis es funktionierte. Kein Hörsaal, nur die sture Angewohnheit, eine Lösung zu finden.",
+    "p2": "Heute helfe ich kleinen und mittleren Unternehmen (KMU), langsame und teure Probleme in Software zu verwandeln, die sich still und leise selbst bezahlt macht. Vieles davon ist bewusst unspektakulär: das Automatisieren der wiederkehrenden Aufgaben, die wertvolle Stunden kosten, der Bau individueller interner Tools, die fragile Tabellen ersetzen, und das Optimieren von Websites, damit sie tatsächlich Umsatz bringen. Ich arbeite als langfristiger Partner, nicht als Dienstleister, der nach dem Launch verschwindet - zwei meiner Kundenbeziehungen laufen bereits seit über vier Jahren.",
+    "p3": "Worauf es mir ankommt, sind Ergebnisse. Für einen Kunden habe ich den Umsatz um 270 % gesteigert, indem ich das SEO neu aufgesetzt und den richtigen Traffic gebracht habe. Als erster technischer Mitarbeiter bei Friends in Flats habe ich die Plattform von Grund auf auf über 20.000 Nutzer aufgebaut und ein vierköpfiges Team geleitet. Und ich entwickle eigene Produkte, um in Form zu bleiben - PromptSloth erreichte in nur 9 Monaten über 7.000 Nutzer und 3.000 $ allein über organische Suche, ganz ohne aktives Marketing, und läuft jetzt auf Autopilot. Klarheit statt Lärm, Ergebnisse statt Schlagwörter."
+  },
+  "highlights": [
+    { "value": "4+ Jahre", "label": "Längste Kundenpartnerschaft" },
+    { "value": "50.000+", "label": "Betreute Nutzer" },
+    { "value": "17+", "label": "Umgesetzte Projekte" },
+    { "value": "Autodidakt", "label": "Und immer noch am Liefern" }
+  ],
+  "howIWork": "So arbeite ich",
+  "principles": [
+    {
+      "title": "Jenseits der Komfortzone",
+      "copy": "Meine beste Arbeit leiste ich bei den Problemen, die mich fordern. Wenn es ein wenig schwierig ist, ist es spannend."
+    },
+    {
+      "title": "Tiefer Fokus",
+      "copy": "Wenn ich entwickle, fühlen sich drei Stunden wie zwanzig Minuten an. Dann entsteht die wirklich gute Arbeit."
+    },
+    {
+      "title": "Minimalistisch von Haus aus",
+      "copy": "Klarer Kopf, sauberes Setup, kein Ballast. Ich liefere, was Ihre Zahlen bewegt - und nichts, was Sie nicht brauchen."
+    }
+  ],
+  "cta": {
+    "title": "Haben Sie etwas, das es wert ist, gebaut zu werden?",
+    "subtitle": "Finden wir die Software, die sich selbst bezahlt macht.",
+    "button": "Kostenlosen Termin buchen"
+  },
+  "links": {
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "E-Mail"
+  },
+  "meta": {
+    "title": "Über mich - Eric Strohmaier, Softwareentwickler Österreich",
+    "description": "Eric Strohmaier ist ein autodidaktischer Softwareentwickler, der individuelle Software, interne Tools, Automatisierungen und conversion-starke Websites baut, mit denen kleine und mittlere Unternehmen mehr verdienen.",
+    "keywords": [
+      "Eric Strohmaier",
+      "Softwareentwickler Österreich",
+      "individuelle Softwareentwicklung",
+      "autodidaktischer Entwickler",
+      "interne Tools",
+      "Automatisierung für Unternehmen",
+      "Webentwicklung",
+      "Software für KMU",
+      "Software-Partner"
+    ],
+    "ogTitle": "Über Eric Strohmaier",
+    "ogDescription": "Autodidaktischer Entwickler, der Software baut, die sich selbst bezahlt macht - für kleine und mittlere Unternehmen."
+  }
+}

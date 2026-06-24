@@ -1,0 +1,57 @@
+{
+  "eyebrow": "Your software partner",
+  "tagline": "Software that pays for itself.",
+  "bio": {
+    "p1": "I'm Eric - a self-taught engineer and the person behind every project here. I learned to build by shipping, and solving real problems: late nights, broken side projects, and pushing things until they worked. No classroom, just a stubborn habit of figuring it out.",
+    "p2": "Today I help small and mid-sized businesses turn slow, expensive problems into software that quietly pays for itself. Most of it is boring on purpose: automating the repetitive tasks that cost people hours, building custom tools that replace fragile spreadsheets, and fixing websites so they actually bring in revenue. I work as a long-term partner, not a vendor who vanishes after launch - two of my client relationships have run past four years.",
+    "p3": "The results are what I care about. For one client I grew revenue 270% by rebuilding their SEO and bringing in the right traffic. As the first technical hire at Friends in Flats I built the platform from scratch to 20,000+ users and led a team of four. And I build my own products to stay sharp - PromptSloth reached 7,000+ users and $3K in just 9 months on organic search alone, with no active marketing, and now runs on autopilot. Clarity over noise, outcomes over buzzwords."
+  },
+  "highlights": [
+    { "value": "4+ yrs", "label": "Longest client partnership" },
+    { "value": "50,000+", "label": "Users served" },
+    { "value": "17+", "label": "Projects shipped" },
+    { "value": "Self-taught", "label": "And still shipping" }
+  ],
+  "howIWork": "How I work",
+  "principles": [
+    {
+      "title": "Beyond the comfort zone",
+      "copy": "I do my best work on the problems that push me. If it's a little hard, it's interesting."
+    },
+    {
+      "title": "Deep focus",
+      "copy": "When I'm building, three hours feel like twenty minutes. That's when the good work happens."
+    },
+    {
+      "title": "Minimal by default",
+      "copy": "Clear mind, clean setup, no bloat. I ship what moves your numbers and nothing you don't need."
+    }
+  ],
+  "cta": {
+    "title": "Have something worth building?",
+    "subtitle": "Let's find the software that pays for itself.",
+    "button": "Book a free call"
+  },
+  "links": {
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "Email"
+  },
+  "meta": {
+    "title": "About Eric Strohmaier - Custom Software Developer",
+    "description": "Eric Strohmaier is a self-taught software engineer who builds custom software, internal tools, automations, and high-converting websites that make small and mid-sized businesses more money.",
+    "keywords": [
+      "Eric Strohmaier",
+      "custom software developer",
+      "self-taught software engineer",
+      "internal tools",
+      "business automation",
+      "web development",
+      "software partner",
+      "Next.js developer",
+      "freelance software engineer"
+    ],
+    "ogTitle": "About Eric Strohmaier",
+    "ogDescription": "Self-taught engineer building software that pays for itself for small and mid-sized businesses."
+  }
+}

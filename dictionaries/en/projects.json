@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "title": "Work & Case Studies",
+    "description": "Real software Eric Strohmaier has built and shipped - custom tools, automations, SaaS products, and high-converting websites for businesses, with outcome-driven case studies.",
+    "keywords": [
+      "custom software developer",
+      "case studies",
+      "internal tools",
+      "business automation",
+      "web development",
+      "SaaS products"
+    ],
+    "ogTitle": "Work & Case Studies | Eric Strohmaier",
+    "ogDescription": "Custom tools, automations, and products built to make or save businesses money."
+  },
+  "heading": "projects",
+  "subheading": "things i've built and helped build",
+  "list": {
+    "searchPlaceholder": "search...",
+    "empty": "no projects found",
+    "caseStudyBadge": "case study",
+    "featuredBadge": "featured",
+    "legend": {
+      "live": "live",
+      "inProgress": "in progress",
+      "onHold": "on hold",
+      "archived": "archived"
+    }
+  },
+  "status": {
+    "live": "Live",
+    "inProgress": "In Progress",
+    "onHold": "On Hold",
+    "offline": "Offline",
+    "archived": "Archived"
+  },
+  "detail": {
+    "back": "← back to projects",
+    "notFoundTitle": "Project Not Found",
+    "visitProject": "visit project",
+    "sourceCode": "source code",
+    "noLinks": "no public links for this project",
+    "facts": {
+      "website": "Website",
+      "year": "Year",
+      "reach": "Reach"
+    },
+    "usersSuffix": "users",
+    "caseStudy": {
+      "result": "Result",
+      "for": "For",
+      "problem": "The problem",
+      "built": "What I built"
+    },
+    "info": {
+      "type": "type:",
+      "role": "role:",
+      "workMode": "work mode:",
+      "location": "location:"
+    }
+  }
+}
