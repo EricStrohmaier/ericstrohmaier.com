@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { headers } from "next/headers"
 import "./globals.css"
 import { Toaster } from "sonner"
 import { ThemeProvider } from "@/components/ThemeProvider"
@@ -114,8 +115,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  // Locale is resolved in middleware and forwarded via x-locale so the served
+  // HTML has the correct lang for crawlers (German pages ship lang="de").
+  const locale = headers().get("x-locale") || "en"
   return (
-    <html lang="en" suppressHydrationWarning={true}>
+    <html lang={locale} suppressHydrationWarning={true}>
       <body>
         <script
           type="application/ld+json"

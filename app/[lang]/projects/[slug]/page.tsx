@@ -5,22 +5,12 @@ import Image from "next/image"
 import { Globe } from "lucide-react"
 import {
   getProjectBySlug,
-  graveyardProjects,
   faviconUrl,
   ProjectStatus,
 } from "@/lib/project-graveyard"
-import { i18n, type Locale } from "@/i18n-config"
+import { type Locale } from "@/i18n-config"
 import { getDictionary } from "@/lib/dictionaries"
 import { OgImage } from "@/components/app/OgImage"
-
-export async function generateStaticParams() {
-  return i18n.locales.flatMap((lang) =>
-    graveyardProjects.map((project) => ({
-      lang,
-      slug: project.slug,
-    })),
-  )
-}
 
 export async function generateMetadata({
   params,

@@ -43,6 +43,15 @@ function rememberLocale(res: NextResponse, locale: string) {
   return res
 }
 
+// Forward the resolved locale to the app via a request header so the root
+// layout can set <html lang> correctly at SSR (visible to crawlers), without
+// reading cookies/headers in the layout for routes that don't need it.
+function nextWithLocale(req: NextRequest, locale: string) {
+  const requestHeaders = new Headers(req.headers)
+  requestHeaders.set("x-locale", locale)
+  return NextResponse.next({ request: { headers: requestHeaders } })
+}
+
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl
 
@@ -53,21 +62,21 @@ export function middleware(req: NextRequest) {
       url.searchParams.set("redirect", pathname)
       return NextResponse.redirect(url)
     }
-    return NextResponse.next()
+    return nextWithLocale(req, "en")
   }
 
-  // 2) Other non-localized routes pass straight through.
+  // 2) Other non-localized routes pass through (English tools).
   if (
     nonLocalized.some((p) => pathname === p || pathname.startsWith(p + "/"))
   ) {
-    return NextResponse.next()
+    return nextWithLocale(req, "en")
   }
 
   // 3) Already locale-prefixed (/en/..., /de/...): remember it so any later
   //    unprefixed link (e.g. /projects) resolves to THIS language.
   const seg = pathname.split("/")[1]
   if (isLocale(seg)) {
-    const res = NextResponse.next()
+    const res = nextWithLocale(req, seg)
     if (req.cookies.get(LOCALE_COOKIE)?.value !== seg) {
       rememberLocale(res, seg)
     }
