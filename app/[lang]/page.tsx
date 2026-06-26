@@ -97,7 +97,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
         <About lang={lang} dict={dict} />
       </Reveal>
       <Reveal>
-        <WhatIBuild dict={dict} />
+        <WhatIBuild lang={lang} dict={dict} />
       </Reveal>
       <Reveal>
         <HowItWorks dict={dict} />
@@ -236,7 +236,7 @@ function Hero({ lang, dict }: { lang: Locale; dict: HomeDict }) {
 /* ----------------------------------------------------------------------- */
 /* WHAT I BUILD                                                             */
 /* ----------------------------------------------------------------------- */
-function WhatIBuild({ dict }: { dict: HomeDict }) {
+function WhatIBuild({ lang, dict }: { lang: Locale; dict: HomeDict }) {
   const accents = ["blue", "emerald", "violet"] as const
 
   const accentStyles = {
@@ -288,6 +288,13 @@ function WhatIBuild({ dict }: { dict: HomeDict }) {
           )
         })}
       </div>
+      <Link
+        href={`/${lang}/leistungen`}
+        className="text-foreground/50 mt-5 inline-flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-foreground"
+      >
+        {dict.whatIBuild.ctaLink}
+        <ArrowRight className="size-3.5" />
+      </Link>
     </Section>
   )
 }

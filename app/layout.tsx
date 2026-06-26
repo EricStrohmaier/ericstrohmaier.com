@@ -6,8 +6,59 @@ import { ThemeProvider } from "@/components/ThemeProvider"
 import LayoutPage from "@/components/app/LayoutPage"
 import TimeProvider from "@/lib/time"
 import { siteConfig } from "@/site-config"
+import { offers } from "@/lib/offers"
 
 const homeTitle = "Eric Strohmaier - Custom Software for Small Businesses"
+
+// Structured offer catalog — real published prices (lib/offers.ts), so AI/SERP
+// see concrete intent instead of a vague "$$".
+const offerCatalog = {
+  "@type": "OfferCatalog",
+  name: "Custom software, websites & automation",
+  itemListElement: offers.map((o) => ({
+    "@type": "Offer",
+    name: `${o.name} (${o.label.en})`,
+    description: o.description.en,
+    price: String(o.price),
+    priceCurrency: o.priceCurrency,
+    url: siteConfig.url,
+  })),
+}
+
+// Products Eric owns/co-runs — entity edges so AI engines attribute the real
+// proof to him by name.
+const ownedProducts = [
+  {
+    "@type": "SoftwareApplication",
+    "@id": "https://promptsloth.com/#app",
+    name: "PromptSloth",
+    url: "https://promptsloth.com",
+    applicationCategory: "BrowserApplication",
+    operatingSystem: "Chrome",
+    description:
+      "Chrome extension that helps people write better prompts; grew organically to 7,000+ installs.",
+    author: { "@id": `${siteConfig.url}/#person` },
+  },
+  {
+    "@type": "SoftwareApplication",
+    "@id": "https://getautoreview.com/#app",
+    name: "AutoReview",
+    url: "https://getautoreview.com",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    description:
+      "Automated Google review collection for local service businesses.",
+    author: { "@id": `${siteConfig.url}/#person` },
+  },
+  {
+    "@type": "Organization",
+    "@id": "https://alpen.digital/#org",
+    name: "alpen.digital",
+    url: "https://alpen.digital",
+    description:
+      "DSGVO-compliant AI-automation agency for SMEs in the DACH region.",
+  },
+]
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || siteConfig.url),
@@ -80,6 +131,7 @@ const jsonLd = {
         "SaaS",
       ],
       knowsLanguage: ["en", "de"],
+      owns: ownedProducts.map((p) => ({ "@id": p["@id"] })),
       sameAs: [
         siteConfig.links.github,
         siteConfig.links.linkedin,
@@ -110,7 +162,8 @@ const jsonLd = {
         "Websites & lead systems",
         "Software maintenance & retainer",
       ],
-      priceRange: "$$",
+      priceRange: "€€",
+      hasOfferCatalog: offerCatalog,
       sameAs: [
         siteConfig.links.github,
         siteConfig.links.linkedin,
@@ -126,6 +179,7 @@ const jsonLd = {
       inLanguage: ["en", "de"],
       publisher: { "@id": `${siteConfig.url}/#person` },
     },
+    ...ownedProducts,
   ],
 }
 

@@ -14,7 +14,9 @@ export default function TopNav() {
 
   const links = [
     { href: `/${locale}`, label: t.nav.home, exact: true },
+    { href: `/${locale}/leistungen`, label: t.nav.services },
     { href: `/${locale}/projects`, label: t.nav.work },
+    { href: `/${locale}/tools`, label: t.nav.tools },
     { href: `/${locale}/about`, label: t.nav.about },
     { href: `/${locale}/contact`, label: t.nav.contact },
   ]

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next"
 import { graveyardProjects } from "@/lib/project-graveyard"
+import { getVerticalSlugs } from "@/lib/verticals"
 import { siteConfig } from "@/site-config"
 import { i18n } from "@/i18n-config"
 
@@ -9,8 +10,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Localized marketing paths (relative to a locale prefix).
   const marketingPaths = [
     { path: "", priority: 1, changeFrequency: "monthly" as const },
+    { path: "/leistungen", priority: 0.9, changeFrequency: "monthly" as const },
+    ...getVerticalSlugs().map((slug) => ({
+      path: `/leistungen/${slug}`,
+      priority: 0.9,
+      changeFrequency: "monthly" as const,
+    })),
     { path: "/projects", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/contact", priority: 0.8, changeFrequency: "monthly" as const },
+    { path: "/tools", priority: 0.8, changeFrequency: "monthly" as const },
+    {
+      path: "/tools/website-kosten-rechner",
+      priority: 0.8,
+      changeFrequency: "monthly" as const,
+    },
+    {
+      path: "/tools/lead-response-rechner",
+      priority: 0.8,
+      changeFrequency: "monthly" as const,
+    },
     { path: "/timetracking", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/about", priority: 0.6, changeFrequency: "monthly" as const },
     ...graveyardProjects.map((p) => ({

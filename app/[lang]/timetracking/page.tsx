@@ -12,6 +12,7 @@ import {
 } from "lucide-react"
 import type { Locale } from "@/i18n-config"
 import { getDictionary } from "@/lib/dictionaries"
+import { siteConfig } from "@/site-config"
 
 export async function generateMetadata({
   params,

@@ -13,12 +13,7 @@ interface LayoutProps {
 // Routes that hide the global site nav/footer for a cleaner, focused chrome:
 // the authenticated dashboard and the auth pages. Public tools like /invoice
 // and the /timetracking marketing page keep the normal header + nav.
-const STANDALONE_ROUTES = [
-  "/immobilienmakler",
-  "/dashboard",
-  "/login",
-  "/register",
-]
+const STANDALONE_ROUTES = ["/dashboard", "/login", "/register"]
 
 export function LayoutPage({ children }: LayoutProps) {
   const pathname = usePathname()

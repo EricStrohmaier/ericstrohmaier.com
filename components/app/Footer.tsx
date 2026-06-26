@@ -12,6 +12,11 @@ export default function Footer() {
   const locale = useLocale()
   const t = chrome[locale]
 
+  const primary = [
+    { href: `/${locale}/leistungen`, label: t.nav.services },
+    { href: `/${locale}/tools`, label: t.nav.tools },
+  ]
+
   const tools = [
     // Invoice tool lives at the root (not localized); time-tracking landing is.
     { href: "/invoice", label: t.tools.invoice },
@@ -32,6 +37,15 @@ export default function Footer() {
         </p>
 
         <nav className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm">
+          {primary.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-foreground/55 transition-colors hover:text-foreground"
+            >
+              {item.label}
+            </Link>
+          ))}
           {tools.map((tool) => (
             <Link
               key={tool.href}

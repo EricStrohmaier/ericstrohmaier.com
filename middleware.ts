@@ -7,13 +7,7 @@ const ONE_YEAR = 60 * 60 * 24 * 365
 
 // Unprefixed routes that are NOT localized (tools, auth, the standalone DE
 // landing). Everything else under "/" is treated as a marketing path.
-const nonLocalized = [
-  "/invoice",
-  "/dashboard",
-  "/login",
-  "/register",
-  "/immobilienmakler",
-]
+const nonLocalized = ["/invoice", "/dashboard", "/login", "/register"]
 
 function detectLocale(req: NextRequest): string {
   // 1) explicit choice (cookie) wins — keeps you in your language across links
@@ -63,6 +57,14 @@ export function middleware(req: NextRequest) {
       return NextResponse.redirect(url)
     }
     return nextWithLocale(req, "en")
+  }
+
+  // 1b) Old standalone Makler landing → new localized vertical page (permanent).
+  if (pathname === "/immobilienmakler") {
+    const locale = detectLocale(req)
+    const url = req.nextUrl.clone()
+    url.pathname = `/${locale}/leistungen/immobilienmakler`
+    return rememberLocale(NextResponse.redirect(url, 308), locale)
   }
 
   // 2) Other non-localized routes pass through (English tools).
