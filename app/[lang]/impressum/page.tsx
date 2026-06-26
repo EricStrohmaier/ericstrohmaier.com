@@ -62,6 +62,20 @@ export default function ImpressumPage() {
             Rechtsform: Einzelunternehmen
             <br />
             UID-Nummer: ATU83271638
+            <br />
+            GISA-Zahl: 37536176
+            <br />
+            Mitglied der Wirtschaftskammer Österreich (WKO)
+            <br />
+            Berufsrecht: Gewerbeordnung (GewO),{" "}
+            <a
+              className="text-blue-500 hover:underline"
+              href="https://www.ris.bka.gv.at"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              www.ris.bka.gv.at
+            </a>
           </p>
         </section>
 
