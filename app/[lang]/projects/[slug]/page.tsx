@@ -338,6 +338,24 @@ export default async function ProjectPage({
         </p>
       )}
 
+      {project.image && (
+        <figure className="mb-6 overflow-hidden rounded-2xl border border-border bg-card p-2 shadow-sm">
+          <Image
+            src={project.image}
+            alt={project.imageCaption ?? `${project.name} — screenshot`}
+            width={2658}
+            height={920}
+            className="h-auto w-full rounded-lg"
+            sizes="(max-width: 768px) 100vw, 720px"
+          />
+          {project.imageCaption && (
+            <figcaption className="text-foreground/45 px-2 pb-1 pt-2 text-sm leading-relaxed">
+              {project.imageCaption}
+            </figcaption>
+          )}
+        </figure>
+      )}
+
       {(project.experienceType ||
         project.role ||
         project.location ||

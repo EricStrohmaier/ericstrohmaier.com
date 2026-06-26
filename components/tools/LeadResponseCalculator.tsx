@@ -23,11 +23,13 @@ const LOSS_FACTOR: Record<ResponseKey, number> = {
   later: 0.65,
 }
 
+// Assumed share of fast-answered inquiries that become deals (disclosed in the note).
+const ASSUMED_CLOSE = 0.3
+
 const STRINGS = {
   de: {
     leads: "Anfragen pro Monat",
     value: "Ø Auftragswert / Provision (€)",
-    close: "Abschlussquote bei schneller Antwort",
     response: "Ihre aktuelle Antwortzeit",
     options: [
       { key: "under5min", label: "Unter 5 Minuten" },
@@ -46,12 +48,11 @@ const STRINGS = {
     cta: "Kostenloses Erstgespräch buchen",
     assumptionsTitle: "Wie wird das berechnet?",
     assumptions:
-      "Schätzung: Anfragen × Auftragswert × Abschlussquote × Anteil verlorener Anfragen. Der Anteil hängt von Ihrer Antwortzeit ab (0 % unter 5 Min., 10 % < 1 Std., 25 % wenige Std., 50 % nächster Tag, 65 % später) — basierend auf dem Speed-to-Lead-Prinzip: Interessenten entscheiden sich meist für den, der zuerst antwortet. Ein Modell, kein Versprechen — passen Sie die Werte an Ihre Zahlen an.",
+      "Schätzung: Anfragen × Auftragswert × Anteil verlorener Anfragen × angenommene Abschlussquote (30 %). Der Anteil hängt von Ihrer Antwortzeit ab (0 % unter 5 Min., 10 % < 1 Std., 25 % wenige Std., 50 % nächster Tag, 65 % später) — basierend auf dem Speed-to-Lead-Prinzip: Interessenten entscheiden sich meist für den, der zuerst antwortet. Ein Modell, kein Versprechen — passen Sie die Werte an Ihre Zahlen an.",
   },
   en: {
     leads: "Inquiries per month",
     value: "Avg. deal value / commission (€)",
-    close: "Close rate with a fast reply",
     response: "Your current response time",
     options: [
       { key: "under5min", label: "Under 5 minutes" },
@@ -70,7 +71,7 @@ const STRINGS = {
     cta: "Book a free intro call",
     assumptionsTitle: "How is this calculated?",
     assumptions:
-      "Estimate: inquiries × deal value × close rate × share of lost inquiries. The share depends on your response time (0% under 5 min, 10% < 1 h, 25% a few hours, 50% next day, 65% later) — based on the speed-to-lead principle: prospects usually go with whoever answers first. A model, not a promise — adjust the values to your numbers.",
+      "Estimate: inquiries × deal value × share of lost inquiries × an assumed close rate (30%). The share depends on your response time (0% under 5 min, 10% < 1 h, 25% a few hours, 50% next day, 65% later) — based on the speed-to-lead principle: prospects usually go with whoever answers first. A model, not a promise — adjust the values to your numbers.",
   },
 } as const
 
@@ -98,7 +99,6 @@ export function LeadResponseCalculator({ lang }: { lang: Locale }) {
   const t = STRINGS[lang] ?? STRINGS.en
   const [leads, setLeads] = useState(40)
   const [value, setValue] = useState(2000)
-  const [close, setClose] = useState(30)
   const [response, setResponse] = useState<ResponseKey>("hours")
 
   const fmt = useMemo(
@@ -113,9 +113,9 @@ export function LeadResponseCalculator({ lang }: { lang: Locale }) {
 
   const lostMonth = useMemo(() => {
     const factor = LOSS_FACTOR[response]
-    const v = leads * value * (close / 100) * factor
+    const v = leads * value * ASSUMED_CLOSE * factor
     return Number.isFinite(v) && v > 0 ? v : 0
-  }, [leads, value, close, response])
+  }, [leads, value, response])
 
   return (
     <div className="grid gap-3 lg:grid-cols-[1.1fr_1fr]">
@@ -138,17 +138,6 @@ export function LeadResponseCalculator({ lang }: { lang: Locale }) {
               value={value}
               onChange={(e) => setValue(Math.max(0, Number(e.target.value)))}
               className={inputClass}
-            />
-          </Field>
-          <Field label={`${t.close}: ${close}%`}>
-            <input
-              type="range"
-              min={5}
-              max={80}
-              step={1}
-              value={close}
-              onChange={(e) => setClose(Number(e.target.value))}
-              className="mt-1 w-full accent-blue-600"
             />
           </Field>
           <Field label={t.response}>

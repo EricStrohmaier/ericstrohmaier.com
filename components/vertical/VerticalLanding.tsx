@@ -208,6 +208,48 @@ export function VerticalLanding({
         </Reveal>
       )}
 
+      {/* Evidence — real visual proof (e.g. Search Console screenshots) */}
+      {c.evidence && (
+        <Reveal>
+          <Section id="beweis">
+            <SectionLabel>{c.evidence.label}</SectionLabel>
+            <h2 className="mb-3 max-w-2xl text-2xl font-semibold tracking-tight md:text-3xl">
+              {c.evidence.heading}
+            </h2>
+            <p className="text-foreground/55 mb-6 max-w-2xl text-lg leading-relaxed">
+              {c.evidence.caption}
+            </p>
+            <div className="space-y-3">
+              {c.evidence.images.map((img) => (
+                <figure
+                  key={img.src}
+                  className="overflow-hidden rounded-2xl border border-[var(--card-border)] bg-card p-2 shadow-sm"
+                >
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    width={img.width}
+                    height={img.height}
+                    className="h-auto w-full rounded-lg"
+                    sizes="(max-width: 1024px) 100vw, 900px"
+                  />
+                </figure>
+              ))}
+            </div>
+            <p className="text-foreground/40 mt-3 text-sm">
+              <a
+                href={c.evidence.creditHref}
+                target="_blank"
+                rel="noopener"
+                className="underline-offset-2 transition-colors hover:text-foreground hover:underline"
+              >
+                {c.evidence.creditLabel}
+              </a>
+            </p>
+          </Section>
+        </Reveal>
+      )}
+
       {/* Solution / features */}
       <Reveal>
         <Section id="loesung">

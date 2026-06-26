@@ -199,9 +199,6 @@ function Hero({ lang, dict }: { lang: Locale; dict: HomeDict }) {
         {t.trust.usersLabel}
       </p>
 
-      {/* Local signal - crawlable Austria/Germany line */}
-      <p className="text-foreground/40 mt-3 text-sm">{t.location}</p>
-
       {/* Project logos - directly under the trust line */}
       {projects.length > 0 && (
         <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2.5">

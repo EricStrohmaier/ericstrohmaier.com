@@ -203,6 +203,29 @@ export const seo: Vertical = {
       finalCtaCopy:
         "Lassen Sie uns das ändern. Im kostenlosen SEO-Gespräch zeige ich Ihnen die größten Hebel für Ihre Sichtbarkeit — bei Google und in der KI-Suche.",
       finalCtaLabel: "Kostenloses SEO-Gespräch buchen",
+      evidence: {
+        label: "Echte Daten",
+        heading: "240.000 Impressionen in 6 Monaten — rein organisch.",
+        caption:
+          "Ein Beispiel aus meinem eigenen Produkt PromptSloth: rund 240.000 Impressionen und 11.100 Klicks pro Halbjahr bei Google — ohne bezahlte Werbung, allein über SEO. Genau diese Sichtbarkeit baue ich auch für Kunden auf.",
+        creditLabel:
+          "Quelle: PromptSloth — eigenes Produkt · Google Search Console (Juni 2026) ↗",
+        creditHref: "https://promptsloth.com",
+        images: [
+          {
+            src: "/proof/promptsloth-search-console-chart.png",
+            alt: "Google Search Console: PromptSloth wuchs in 6 Monaten auf rund 240.000 Impressionen und 11.100 Klicks — allein über organische Suche.",
+            width: 2658,
+            height: 920,
+          },
+          {
+            src: "/proof/promptsloth-search-console.png",
+            alt: "Google-Search-Console-Bericht für PromptSloth: 11.100 Klicks, 240.000 Impressionen, 4,6 % CTR und Position 8,6 — mit Top-Suchbegriffen wie „prompt sloth“.",
+            width: 2702,
+            height: 1848,
+          },
+        ],
+      },
     },
 
     en: {
@@ -395,6 +418,29 @@ export const seo: Vertical = {
       finalCtaCopy:
         "Let's change that. On a free SEO call I'll show you the biggest levers for your visibility — on Google and in AI search.",
       finalCtaLabel: "Book a free SEO call",
+      evidence: {
+        label: "Real data",
+        heading: "240,000 impressions in 6 months — purely organic.",
+        caption:
+          "An example from my own product PromptSloth: around 240,000 impressions and 11,100 clicks per half-year on Google — with no paid ads, purely through SEO. This is exactly the visibility I build for clients too.",
+        creditLabel:
+          "Source: PromptSloth — own product · Google Search Console (June 2026) ↗",
+        creditHref: "https://promptsloth.com",
+        images: [
+          {
+            src: "/proof/promptsloth-search-console-chart.png",
+            alt: "Google Search Console: PromptSloth grew to around 240,000 impressions and 11,100 clicks over 6 months — purely through organic search.",
+            width: 2658,
+            height: 920,
+          },
+          {
+            src: "/proof/promptsloth-search-console.png",
+            alt: "Google Search Console report for PromptSloth: 11,100 clicks, 240,000 impressions, 4.6% CTR and average position 8.6 — with top queries like “prompt sloth”.",
+            width: 2702,
+            height: 1848,
+          },
+        ],
+      },
     },
   },
 }

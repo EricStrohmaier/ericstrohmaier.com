@@ -50,6 +50,8 @@ export interface GraveyardProject {
   github?: string
   tags?: string[]
   image?: string
+  /** Caption + alt for `image` (English; project copy is English on both locales). */
+  imageCaption?: string
   featured?: boolean
   /** Outcome-driven case study. Drives the result metric + testimonial UI. */
   caseStudy?: CaseStudy
@@ -117,6 +119,9 @@ export const graveyardProjects: GraveyardProject[] = [
     status: "live",
     url: "https://promptsloth.com/",
     users: "7,000+",
+    image: "/proof/promptsloth-search-console-chart.png",
+    imageCaption:
+      "Organic search performance (Google Search Console): around 240,000 impressions and 11,100 clicks in 6 months — no paid ads, purely SEO.",
     tags: [
       "AI",
       "Chrome Extension",

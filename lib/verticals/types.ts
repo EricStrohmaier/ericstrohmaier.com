@@ -120,6 +120,16 @@ export interface VerticalContent {
 
   /** Optional related pages (e.g. comparison pages) for internal linking. */
   relatedLinks?: { href: string; label: string }[]
+
+  /** Optional visual proof block (e.g. real screenshots with a credit). */
+  evidence?: {
+    label: string
+    heading: string
+    caption: string
+    creditLabel: string
+    creditHref: string
+    images: { src: string; alt: string; width: number; height: number }[]
+  }
 }
 
 export interface Vertical {
