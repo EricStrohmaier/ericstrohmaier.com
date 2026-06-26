@@ -2,10 +2,9 @@ import type { Metadata } from "next"
 import type { Locale } from "@/i18n-config"
 import { siteConfig } from "@/site-config"
 
-// NOTE: This is a DSGVO/DSG TEMPLATE covering what this site actually does
-// (a contact form, a language cookie, hosting). Add/remove sections to match
-// reality (e.g. analytics), fill the [BITTE AUSFÜLLEN] fields, have it reviewed,
-// then remove the `robots` noindex below.
+// DSGVO/DSG privacy policy covering what this site actually does: a contact
+// form, one technically-necessary language cookie, and hosting via Vercel. No
+// analytics/tracking. A quick legal review is still recommended.
 export async function generateMetadata({
   params,
 }: {
@@ -17,12 +16,9 @@ export async function generateMetadata({
     description: isDe
       ? "Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO."
       : "Information on the processing of personal data under the GDPR.",
-    robots: { index: false, follow: true }, // TODO: remove once reviewed
     alternates: { canonical: `/${params.lang}/datenschutz` },
   }
 }
-
-const TODO = "[BITTE AUSFÜLLEN]"
 
 export default function DatenschutzPage() {
   return (
@@ -39,7 +35,7 @@ export default function DatenschutzPage() {
           <p>
             {siteConfig.name}
             <br />
-            {TODO} (Anschrift)
+            Sonnenweg 11, 3071 Böheimkirchen, Österreich
             <br />
             E-Mail:{" "}
             <a
@@ -59,33 +55,34 @@ export default function DatenschutzPage() {
             Wenn Sie das Kontaktformular nutzen oder uns per E-Mail schreiben,
             verarbeiten wir die von Ihnen angegebenen Daten (z. B. Name,
             E-Mail-Adresse, Nachricht) ausschließlich zur Bearbeitung Ihrer
-            Anfrage. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b und f DSGVO.
+            Anfrage. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b und f DSGVO. Die
+            Daten werden gelöscht, sobald sie für den Zweck nicht mehr benötigt
+            werden.
           </p>
         </section>
 
         <section>
-          <h2 className="text-foreground mb-2 text-lg font-semibold">
-            Cookies
-          </h2>
+          <h2 className="text-foreground mb-2 text-lg font-semibold">Cookies</h2>
           <p>
-            Diese Website setzt ein technisch notwendiges Cookie
-            (<code>NEXT_LOCALE</code>), das Ihre Sprachauswahl speichert. Es ist
-            für den Betrieb erforderlich (Art. 6 Abs. 1 lit. f DSGVO) und dient
-            nicht der Analyse. {TODO}: weitere Dienste (z. B. Analytics) ergänzen,
-            falls eingesetzt.
+            Diese Website verwendet keine Tracking- oder Analyse-Cookies. Gesetzt
+            wird ausschließlich ein technisch notwendiges Cookie
+            (<code>NEXT_LOCALE</code>), das Ihre Sprachauswahl (Deutsch/Englisch)
+            speichert. Es ist für den Betrieb der Website erforderlich
+            (Art. 6 Abs. 1 lit. f DSGVO) und dient nicht der Auswertung Ihres
+            Verhaltens.
           </p>
         </section>
 
         <section>
-          <h2 className="text-foreground mb-2 text-lg font-semibold">
-            Hosting
-          </h2>
+          <h2 className="text-foreground mb-2 text-lg font-semibold">Hosting</h2>
           <p>
-            Die Website wird bei einem Dienstleister gehostet ({TODO}, z. B.
-            Vercel Inc.). Dabei werden Server-Logfiles (u. a. IP-Adresse,
-            Zeitpunkt, abgerufene Seite) zur Sicherstellung des Betriebs
-            verarbeitet. Mit dem Anbieter besteht ein Auftragsverarbeitungs-
-            vertrag (Art. 28 DSGVO).
+            Die Website wird bei Vercel Inc. (USA) gehostet. Beim Aufruf werden
+            technisch notwendige Server-Logfiles (u. a. IP-Adresse, Zeitpunkt,
+            abgerufene Seite, User-Agent) verarbeitet, um den sicheren Betrieb zu
+            gewährleisten (Art. 6 Abs. 1 lit. f DSGVO). Mit dem Anbieter besteht
+            ein Auftragsverarbeitungsvertrag (Art. 28 DSGVO); eine Datenübermittlung
+            in die USA erfolgt auf Basis der EU-Standardvertragsklauseln bzw. des
+            EU-US Data Privacy Framework (Art. 46 DSGVO).
           </p>
         </section>
 
@@ -97,15 +94,9 @@ export default function DatenschutzPage() {
             Sie haben das Recht auf Auskunft, Berichtigung, Löschung,
             Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch.
             Sie können sich außerdem bei der österreichischen Datenschutzbehörde
-            beschweren.
+            (dsb.gv.at) beschweren.
           </p>
         </section>
-
-        <p className="text-foreground/40 text-sm">
-          Vorlage – an den tatsächlichen Einsatz anpassen, {TODO}-Felder
-          ausfüllen, juristisch prüfen lassen und anschließend das{" "}
-          <code>noindex</code> entfernen.
-        </p>
       </div>
     </article>
   )
