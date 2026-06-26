@@ -116,6 +116,8 @@ export function generateMetadata({
   if (!isLocale(params.lang)) return {}
   const t = copy[params.lang]
   const path = "/tools"
+  const og =
+    params.lang === "de" ? `${siteConfig.ogImage}?lang=de` : siteConfig.ogImage
   return {
     title: t.metaTitle,
     description: t.metaDescription,
@@ -134,6 +136,14 @@ export function generateMetadata({
       siteName: "Eric Strohmaier",
       title: t.metaTitle,
       description: t.metaDescription,
+      images: [{ url: og, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t.metaTitle,
+      description: t.metaDescription,
+      images: [og],
+      creator: "@EricStrohmaier",
     },
   }
 }

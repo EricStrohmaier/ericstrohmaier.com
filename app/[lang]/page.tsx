@@ -45,9 +45,11 @@ export async function generateMetadata({
   const lang = params.lang
   const dict = await getDictionary(lang, "home")
   const path = `/${lang}`
+  const og =
+    lang === "de" ? `${siteConfig.ogImage}?lang=de` : siteConfig.ogImage
 
   return {
-    title: dict.meta.title,
+    title: { absolute: dict.meta.title },
     description: dict.meta.description,
     keywords: dict.meta.keywords,
     alternates: {
@@ -67,7 +69,7 @@ export async function generateMetadata({
       description: dict.meta.description,
       images: [
         {
-          url: siteConfig.ogImage,
+          url: og,
           width: 1200,
           height: 630,
           alt: "Eric Strohmaier - Your software partner",
@@ -78,7 +80,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: dict.meta.title,
       description: dict.meta.description,
-      images: [siteConfig.ogImage],
+      images: [og],
       creator: "@EricStrohmaier",
     },
   }
@@ -142,7 +144,7 @@ function PrimaryCta({
       href={BOOKING_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-medium text-white shadow-sm shadow-blue-600/20 transition-all duration-300 hover:gap-3 hover:bg-blue-500 hover:shadow-md hover:shadow-blue-600/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--primary)] ${className}`}
+      className={`group inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-medium text-white shadow-sm shadow-blue-600/20 transition-all duration-300 hover:gap-3 hover:bg-blue-500 hover:shadow-md hover:shadow-blue-600/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] ${className}`}
     >
       {children}
       <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
@@ -172,7 +174,7 @@ function Hero({ lang, dict }: { lang: Locale; dict: HomeDict }) {
         <PrimaryCta>{t.ctaPrimary}</PrimaryCta>
         <Link
           href={`/${lang}/projects`}
-          className="border-foreground/10 text-foreground/70 hover:border-foreground/20 focus-visible:ring-foreground/20 inline-flex items-center justify-center gap-2 rounded-full border px-6 py-3 text-sm font-medium transition-all duration-300 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--primary)]"
+          className="border-foreground/10 text-foreground/70 hover:border-foreground/20 focus-visible:ring-foreground/20 inline-flex items-center justify-center gap-2 rounded-full border px-6 py-3 text-sm font-medium transition-all duration-300 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
         >
           {t.ctaSecondary}
         </Link>
@@ -589,7 +591,7 @@ function Pricing({ dict }: { dict: HomeDict }) {
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--primary)] ${
+                className={`inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] ${
                   featured
                     ? "bg-blue-600 text-white shadow-sm shadow-blue-600/20 hover:bg-blue-500 focus-visible:ring-blue-500"
                     : "border-foreground/10 text-foreground/70 hover:border-foreground/20 focus-visible:ring-foreground/20 border hover:text-foreground"

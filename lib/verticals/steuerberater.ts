@@ -29,7 +29,7 @@ export const steuerberater: Vertical = {
       eyebrow: "Für Steuerberater, Rechtsanwälte & Kanzleien in AT & DE",
       h1: "Ein seriöser Auftritt und ein sicheres Mandantenportal — für Ihre Kanzlei.",
       subtitle:
-        "Ich baue Kanzleien eine professionelle Website und ein einfaches, DSGVO-konformes Mandantenportal: sicherer Dokumenten-Upload, Online-Terminbuchung für Erstgespräche und digitales Onboarding — statt veraltetem Webauftritt und ständigem E-Mail-Hin-und-Her.",
+        "Ich baue Kanzleien eine professionelle Website und ein einfaches, DSGVO-konformes Mandantenportal: sicherer Dokumenten-Upload, Online-Terminbuchung für Erstgespräche und digitales Onboarding — statt eines veralteten Webauftritts und ständigen E-Mail-Hin-und-Hers.",
       trustLine:
         "Sichere Web-Plattformen für anspruchsvolle Dienstleister in der DACH-Region — DSGVO-konform, EU-Hosting",
       primaryCtaLabel: "Kostenloses Erstgespräch buchen",

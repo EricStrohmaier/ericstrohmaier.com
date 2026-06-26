@@ -13,7 +13,7 @@ export async function generateMetadata({
   const dict = await getDictionary(params.lang, "about")
   const lang = params.lang
   return {
-    title: dict.meta.title,
+    title: { absolute: dict.meta.title },
     description: dict.meta.description,
     keywords: dict.meta.keywords,
     alternates: {

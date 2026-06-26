@@ -57,7 +57,7 @@ export const handwerker: Vertical = {
 
       roi: {
         label: "Was Sie das kostet",
-        heading: "Ein einziger zusätzlicher Auftrag pro Monat zahlt die Website.",
+        heading: "Ein einziger zusätzlicher Auftrag pro Monat bezahlt die Website.",
         statValue: "1 Auftrag",
         statLabel: "deckt die Website locker",
         copy: "Schon ein gut bezahlter Auftrag im Monat, den Sie sonst verpasst hätten, deckt die laufenden Kosten um ein Vielfaches. Alles darüber ist zusätzlicher Umsatz — Monat für Monat.",
@@ -90,13 +90,13 @@ export const handwerker: Vertical = {
         },
         {
           icon: "mobile",
-          title: "Mobile-first & blitzschnell",
+          title: "Fürs Handy gemacht & blitzschnell",
           copy: "Die meisten Ihrer Kunden suchen am Handy. Ihre Seite lädt in Sekunden, sieht auf jedem Gerät top aus und macht es mit einem Tipp leicht, Sie anzurufen.",
         },
         {
           icon: "receipt",
           title: "Angebot → Auftrag → Rechnung",
-          copy: "Auf Wunsch automatisiere ich Ihren Papierkram: aus der Anfrage wird ein Angebot, aus dem Angebot ein Auftrag und am Ende die Rechnung — Schluss mit Angebote schreiben am Abend.",
+          copy: "Auf Wunsch automatisiere ich Ihren Papierkram: aus der Anfrage wird ein Angebot, aus dem Angebot ein Auftrag und am Ende die Rechnung — nie wieder abends Angebote schreiben.",
         },
       ],
 

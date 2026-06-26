@@ -22,6 +22,8 @@ export async function generateMetadata({
   const lang = params.lang
   const dict = await getDictionary(lang, "timetracking")
   const path = "/timetracking"
+  const og =
+    lang === "de" ? `${siteConfig.ogImage}?lang=de` : siteConfig.ogImage
   return {
     title: dict.meta.title,
     description: dict.meta.description,
@@ -38,8 +40,17 @@ export async function generateMetadata({
       type: "website",
       locale: lang === "de" ? "de_DE" : "en_US",
       url: `/${lang}${path}`,
+      siteName: "Eric Strohmaier",
       title: dict.meta.title,
       description: dict.meta.description,
+      images: [{ url: og, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: dict.meta.title,
+      description: dict.meta.description,
+      images: [og],
+      creator: "@EricStrohmaier",
     },
   }
 }
@@ -72,7 +83,7 @@ export default async function TimeTrackingPage({
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           <Link
             href="/dashboard"
-            className="group inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-medium text-white shadow-sm shadow-blue-600/20 transition-all duration-300 hover:gap-3 hover:bg-blue-500 hover:shadow-md hover:shadow-blue-600/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--primary)]"
+            className="group inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-medium text-white shadow-sm shadow-blue-600/20 transition-all duration-300 hover:gap-3 hover:bg-blue-500 hover:shadow-md hover:shadow-blue-600/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
           >
             {dict.hero.ctaPrimary}
             <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
@@ -80,7 +91,7 @@ export default async function TimeTrackingPage({
           <div className="flex items-center gap-2">
             <Link
               href="/login"
-              className="border-foreground/10 text-foreground/70 hover:border-foreground/20 focus-visible:ring-foreground/20 inline-flex items-center justify-center gap-2 rounded-full border px-6 py-3 text-sm font-medium transition-all duration-300 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--primary)]"
+              className="border-foreground/10 text-foreground/70 hover:border-foreground/20 focus-visible:ring-foreground/20 inline-flex items-center justify-center gap-2 rounded-full border px-6 py-3 text-sm font-medium transition-all duration-300 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
             >
               {dict.hero.ctaLogin}
             </Link>
@@ -166,12 +177,39 @@ export default async function TimeTrackingPage({
             </p>
             <Link
               href="/dashboard"
-              className="group inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-medium text-white shadow-sm shadow-blue-600/20 transition-all duration-300 hover:gap-3 hover:bg-blue-500 hover:shadow-md hover:shadow-blue-600/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--primary)]"
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-medium text-white shadow-sm shadow-blue-600/20 transition-all duration-300 hover:gap-3 hover:bg-blue-500 hover:shadow-md hover:shadow-blue-600/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
             >
               {dict.cta.button}
               <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Soft booking CTA — this free tool is a sample of the custom work */}
+      <section className="mt-3">
+        <div className="flex flex-col items-start gap-4 rounded-2xl border border-blue-500/30 bg-blue-500/[0.05] p-6 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h2 className="text-lg font-semibold tracking-tight">
+              {lang === "de"
+                ? "Sie brauchen ein eigenes internes Tool?"
+                : "Need a custom internal tool?"}
+            </h2>
+            <p className="text-foreground/55 mt-1 text-sm leading-relaxed">
+              {lang === "de"
+                ? "Zeiterfassung ist nur ein Beispiel. Brauchen Sie ein Tool, das genau zu Ihrem Ablauf passt? Gebaut von Eric — buchen Sie ein kostenloses Gespräch."
+                : "Time tracking is just one example. Need a tool built for your exact workflow? Built by Eric — book a free call."}
+            </p>
+          </div>
+          <a
+            href={siteConfig.bookingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-medium text-white shadow-sm shadow-blue-600/20 transition-all duration-300 hover:gap-3 hover:bg-blue-500 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
+          >
+            {lang === "de" ? "Kostenloses Gespräch buchen" : "Book a free call"}
+            <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+          </a>
         </div>
       </section>
     </div>

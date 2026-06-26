@@ -56,11 +56,11 @@ export function ToolPageShell({
   return (
     <div className="w-full">
       {/* Hero */}
-      <section className="py-8 md:py-12">
+      <section className="py-10 md:py-14">
         <p className="text-foreground/40 mb-3 text-sm font-medium uppercase tracking-[0.2em]">
           {eyebrow}
         </p>
-        <h1 className="mb-4 max-w-2xl text-3xl font-semibold leading-[1.1] tracking-tight text-foreground md:text-5xl">
+        <h1 className="mb-4 max-w-2xl text-4xl font-semibold leading-[1.1] tracking-tight text-foreground md:text-5xl">
           {h1}
         </h1>
         <p className="text-foreground/55 max-w-2xl text-lg leading-relaxed">

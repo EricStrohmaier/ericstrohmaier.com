@@ -31,6 +31,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     { path: "/timetracking", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/about", priority: 0.6, changeFrequency: "monthly" as const },
+    { path: "/impressum", priority: 0.3, changeFrequency: "yearly" as const },
+    { path: "/datenschutz", priority: 0.3, changeFrequency: "yearly" as const },
     ...graveyardProjects.map((p) => ({
       path: `/projects/${p.slug}`,
       priority: 0.7,

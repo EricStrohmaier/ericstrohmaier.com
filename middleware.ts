@@ -67,6 +67,15 @@ export function middleware(req: NextRequest) {
     return rememberLocale(NextResponse.redirect(url, 308), locale)
   }
 
+  // 1c) Legacy "/work" (and "/{locale}/work") → the projects page.
+  if (pathname === "/work" || /^\/(en|de)\/work$/.test(pathname)) {
+    const seg = pathname.split("/")[1]
+    const locale = isLocale(seg) ? seg : detectLocale(req)
+    const url = req.nextUrl.clone()
+    url.pathname = `/${locale}/projects`
+    return rememberLocale(NextResponse.redirect(url, 308), locale)
+  }
+
   // 2) Other non-localized routes pass through (English tools).
   if (
     nonLocalized.some((p) => pathname === p || pathname.startsWith(p + "/"))

@@ -160,10 +160,10 @@ export function LeadResponseCalculator({ lang }: { lang: Locale }) {
                     key={o.key}
                     type="button"
                     onClick={() => setResponse(o.key as ResponseKey)}
-                    className={`rounded-xl border px-3 py-2 text-left text-sm transition-colors ${
+                    className={`rounded-xl border px-3 py-2 text-left text-sm outline-none transition-colors focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--card)] ${
                       active
-                        ? "border-blue-500 bg-blue-500/10 text-foreground"
-                        : "border-[var(--card-border)] bg-background text-foreground/60 hover:text-foreground"
+                        ? "border-blue-500 bg-blue-500/10 text-foreground shadow-sm shadow-blue-600/10"
+                        : "border-[var(--card-border)] bg-card text-foreground/65 shadow-sm hover:border-foreground/20 hover:text-foreground"
                     }`}
                   >
                     {o.label}

@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, Star, ChevronDown } from "lucide-react"
+import { ArrowRight, Check, ChevronDown } from "lucide-react"
 import type { Locale } from "@/i18n-config"
 import type { Accent, VerticalContent } from "@/lib/verticals/types"
 import { getIcon } from "@/components/vertical/icons"
@@ -144,16 +144,8 @@ export function VerticalLanding({
             </a>
           )}
         </div>
-        <p className="text-foreground/40 mt-7 flex items-center gap-2 text-sm">
-          <span className="flex -space-x-1">
-            {[...Array(5)].map((_, i) => (
-              <Star
-                key={i}
-                className={`size-3.5 ${a.check}`}
-                fill="currentColor"
-              />
-            ))}
-          </span>
+        <p className="text-foreground/45 mt-7 flex items-center gap-2 text-sm">
+          <Check className={`size-4 shrink-0 ${a.check}`} strokeWidth={2.5} />
           {c.trustLine}
         </p>
       </section>

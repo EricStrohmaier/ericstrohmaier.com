@@ -13,15 +13,12 @@ export default function TopNav() {
   const t = chrome[locale]
 
   const links = [
-    { href: `/${locale}`, label: t.nav.home, exact: true },
     { href: `/${locale}/leistungen`, label: t.nav.services },
     { href: `/${locale}/projects`, label: t.nav.work },
-    { href: `/${locale}/tools`, label: t.nav.tools },
     { href: `/${locale}/about`, label: t.nav.about },
     { href: `/${locale}/contact`, label: t.nav.contact },
   ]
-  const isActive = (l: (typeof links)[number]) =>
-    l.exact ? pathname === l.href : pathname.startsWith(l.href)
+  const isActive = (l: (typeof links)[number]) => pathname.startsWith(l.href)
 
   return (
     <header className="border-foreground/[0.06] sticky top-0 z-30 border-b bg-[var(--background)]">

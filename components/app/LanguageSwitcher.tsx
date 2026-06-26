@@ -34,10 +34,10 @@ export function LanguageSwitcher() {
           aria-label={`Switch to ${locale.toUpperCase()}`}
           aria-current={active === locale}
           className={cn(
-            "rounded-full px-1.5 py-0.5 text-[11px] font-medium uppercase tracking-wide transition-colors",
+            "rounded-full px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide transition-colors",
             active === locale
-              ? "bg-foreground/[0.10] text-foreground/80"
-              : "text-foreground/35 hover:text-foreground/60",
+              ? "bg-blue-600 text-white shadow-sm shadow-blue-600/20"
+              : "text-foreground/45 hover:text-foreground",
           )}
         >
           {locale}

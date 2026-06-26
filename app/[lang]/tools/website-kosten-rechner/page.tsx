@@ -32,7 +32,7 @@ const copy = {
       },
       {
         title: "Keine klare Handlung = Besucher ohne Ergebnis",
-        copy: "Ohne klaren nächsten Schritt (anrufen, Termin buchen, anfragen) verlassen Besucher die Seite, ohne etwas zu tun. Traffic ohne Conversion bringt nichts.",
+        copy: "Ohne klaren nächsten Schritt (anrufen, Termin buchen, anfragen) verlassen Besucher die Seite, ohne etwas zu tun. Besucher, die nichts tun, bringen nichts.",
       },
     ],
     faqHeading: "Häufige Fragen",
@@ -47,7 +47,7 @@ const copy = {
       },
       {
         q: "Warum nicht einfach ein Baukasten (Wix, WordPress-Vorlage)?",
-        a: "Baukästen sind günstig im Aufbau, kosten aber oft bei Ladezeit, SEO und Conversion. Ich baue individuell und schnell — auf das Ziel ausgerichtet, mehr Anfragen zu bringen, nicht nur „online zu sein“.",
+        a: "Baukästen sind günstig im Aufbau, schwächeln aber oft bei Ladezeit, Sichtbarkeit bei Google und Anfragen. Ich baue individuell und schnell — auf das Ziel ausgerichtet, mehr Anfragen zu bringen, nicht nur „online zu sein“.",
       },
       {
         q: "Bleiben meine Eingaben privat?",

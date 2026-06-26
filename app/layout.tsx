@@ -131,7 +131,10 @@ const jsonLd = {
         "SaaS",
       ],
       knowsLanguage: ["en", "de"],
-      owns: ownedProducts.map((p) => ({ "@id": p["@id"] })),
+      owns: ownedProducts
+        .filter((p) => p["@type"] === "SoftwareApplication")
+        .map((p) => ({ "@id": p["@id"] })),
+      memberOf: { "@id": "https://alpen.digital/#org" },
       sameAs: [
         siteConfig.links.github,
         siteConfig.links.linkedin,

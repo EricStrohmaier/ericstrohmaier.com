@@ -121,10 +121,10 @@ function round100(n: number) {
 }
 
 const chipClass = (active: boolean) =>
-  `flex items-center gap-2 rounded-xl border px-3.5 py-2.5 text-left text-sm transition-colors ${
+  `flex items-center gap-2 rounded-xl border px-3.5 py-2.5 text-left text-sm outline-none transition-colors focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--card)] ${
     active
-      ? "border-blue-500 bg-blue-500/10 text-foreground"
-      : "border-[var(--card-border)] bg-background text-foreground/60 hover:text-foreground"
+      ? "border-blue-500 bg-blue-500/10 text-foreground shadow-sm shadow-blue-600/10"
+      : "border-[var(--card-border)] bg-card text-foreground/65 shadow-sm hover:border-foreground/20 hover:text-foreground"
   }`
 
 export function WebsiteCostCalculator({ lang }: { lang: Locale }) {
@@ -182,7 +182,7 @@ export function WebsiteCostCalculator({ lang }: { lang: Locale }) {
                 className={`flex size-4 shrink-0 items-center justify-center rounded-full border ${
                   project === p.key
                     ? "border-blue-500 bg-blue-500"
-                    : "border-foreground/25"
+                    : "border-foreground/30 bg-background"
                 }`}
               >
                 {project === p.key && (
@@ -211,7 +211,7 @@ export function WebsiteCostCalculator({ lang }: { lang: Locale }) {
                   className={`flex size-4 shrink-0 items-center justify-center rounded border ${
                     active
                       ? "border-blue-500 bg-blue-500 text-white"
-                      : "border-foreground/25"
+                      : "border-foreground/30 bg-background"
                   }`}
                 >
                   {active && <Check className="size-3" strokeWidth={3} />}

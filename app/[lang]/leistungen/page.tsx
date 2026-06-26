@@ -10,7 +10,7 @@ const copy = {
   de: {
     metaTitle: "Leistungen — Software & Websites für Ihre Branche",
     metaDescription:
-      "Individuelle Software, Automatisierungen und conversion-starke Websites für Immobilienmakler, Handwerker, Steuerberater und KMU in Österreich und Deutschland. DSGVO-konform.",
+      "Individuelle Software, Automatisierungen und Websites, die mehr Anfragen bringen — für Immobilienmakler, Handwerker, Steuerberater und KMU in Österreich und Deutschland. DSGVO-konform.",
     eyebrow: "Leistungen",
     h1: "Software & Websites, gebaut für Ihre Branche.",
     intro:
@@ -54,6 +54,8 @@ export function generateMetadata({
   if (!isLocale(params.lang)) return {}
   const t = copy[params.lang]
   const path = "/leistungen"
+  const og =
+    params.lang === "de" ? `${siteConfig.ogImage}?lang=de` : siteConfig.ogImage
   return {
     title: t.metaTitle,
     description: t.metaDescription,
@@ -72,6 +74,14 @@ export function generateMetadata({
       siteName: "Eric Strohmaier",
       title: t.metaTitle,
       description: t.metaDescription,
+      images: [{ url: og, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t.metaTitle,
+      description: t.metaDescription,
+      images: [og],
+      creator: "@EricStrohmaier",
     },
   }
 }

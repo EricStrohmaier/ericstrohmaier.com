@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { ArrowRight } from "lucide-react"
 import { InvoiceClient } from "@/components/invoice/InvoiceClient"
 import { siteConfig } from "@/site-config"
 
@@ -93,6 +94,30 @@ export default function InvoicePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <InvoiceClient />
+
+      {/* Soft booking CTA — this free tool is a sample of the custom work */}
+      <section className="mx-auto mt-10 w-full max-w-5xl px-5 md:px-8">
+        <div className="flex flex-col items-start gap-4 rounded-2xl border border-blue-500/30 bg-blue-500/[0.05] p-6 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h2 className="text-lg font-semibold tracking-tight">
+              Need custom software for your business?
+            </h2>
+            <p className="text-foreground/55 mt-1 text-sm leading-relaxed">
+              This free invoice tool is the kind of software I build for
+              clients. Built by Eric — book a free call.
+            </p>
+          </div>
+          <a
+            href={siteConfig.bookingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-medium text-white shadow-sm shadow-blue-600/20 transition-all duration-300 hover:gap-3 hover:bg-blue-500 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
+          >
+            Book a free call
+            <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+          </a>
+        </div>
+      </section>
     </>
   )
 }

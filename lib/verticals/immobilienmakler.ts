@@ -35,7 +35,7 @@ export const immobilienmakler: Vertical = {
 
       problemLabel: "Das Problem",
       problemHeading:
-        "Sie verlieren keine Leads, weil Sie schlecht sind — sondern weil Sie zu beschäftigt sind.",
+        "Sie verlieren keine Anfragen, weil Sie Ihren Job schlecht machen — sondern weil Sie zu beschäftigt sind.",
       problemIntro:
         "Jede Anfrage, die zu spät oder gar nicht beantwortet wird, landet beim Mitbewerber. Das passiert jede Woche — leise, ohne dass Sie es merken.",
       pains: [
@@ -224,7 +224,7 @@ export const immobilienmakler: Vertical = {
 
       problemLabel: "The problem",
       problemHeading:
-        "You don't lose leads because you're bad — you lose them because you're busy.",
+        "You don't lose inquiries because you do your job badly — you lose them because you're busy.",
       problemIntro:
         "Every inquiry answered too late, or not at all, goes to a competitor. It happens every week — quietly, without you noticing.",
       pains: [

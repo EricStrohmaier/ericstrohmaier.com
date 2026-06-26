@@ -30,7 +30,7 @@ export const softwareAutomatisierung: Vertical = {
       eyebrow: "Für KMU in AT & DE",
       h1: "Schluss mit Excel-Chaos und Doppelerfassung — individuelle Software für Ihr KMU.",
       subtitle:
-        "Ich baue KMU interne Tools, Automatisierungen und Schnittstellen, die fragile Excel-Tabellen ablösen, Routinearbeit erledigen und Ihre bestehenden Programme verbinden — damit Ihr Wachstum nicht länger in Handarbeit erstickt.",
+        "Ich baue für KMU interne Tools, Automatisierungen und Schnittstellen, die fragile Excel-Tabellen ablösen, Routinearbeit erledigen und Ihre bestehenden Programme verbinden — damit Ihr Wachstum nicht länger in Handarbeit erstickt.",
       trustLine:
         "Aufgebaut mit echten KMU und Startups in der DACH-Region",
       primaryCtaLabel: "Kostenloses Erstgespräch buchen",
@@ -57,10 +57,10 @@ export const softwareAutomatisierung: Vertical = {
       ],
 
       roi: {
-        label: "Was sich das rechnet",
-        heading: "Schon ein paar gesparte Stunden pro Woche zahlen das Tool zurück.",
-        statValue: "Std./Woche",
-        statLabel: "eingesparte Handarbeit — Woche für Woche",
+        label: "Was es bringt",
+        heading: "Schon ein paar gesparte Stunden pro Woche, und das Tool hat sich bezahlt gemacht.",
+        statValue: "Stunden",
+        statLabel: "gesparte Handarbeit — jede Woche",
         copy: "Rechnen Sie selbst: Sparen Sie pro Woche nur ein paar Stunden Routinearbeit zu Ihrem Stundensatz, hat sich die Software über das Jahr längst bezahlt gemacht. Alles darüber — weniger Fehler, schnellere Abläufe — ist reine Zugabe.",
       },
 
