@@ -28,7 +28,14 @@ export const siteConfig = {
     "dashboards and CRMs",
     "Next.js developer",
   ],
-  ogImage: "https://ericstrohmaier.com/og-image.jpeg",
+  // Branded 1200x630 social card, generated on the fly (app/api/og-card).
+  // ?lang=de renders the German variant.
+  ogImage: "https://ericstrohmaier.com/api/og-card",
+  // Local-SEO signals consumed by the JSON-LD in app/layout.tsx (and reused in
+  // the Impressum). Fill `locality` once confirmed for a stronger local signal.
+  areaServed: ["Austria", "Germany"],
+  addressCountry: "AT",
+  locality: "Wien", // Vienna - drives local schema + Impressum
   links: {
     twitter: "https://twitter.com/EricStrohmaier",
     github: "https://github.com/EricStrohmaier",

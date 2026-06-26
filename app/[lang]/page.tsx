@@ -12,6 +12,8 @@ import {
   Users,
   Store,
   Quote,
+  FileText,
+  Clock,
 } from "lucide-react"
 import type { Locale } from "@/i18n-config"
 import { getDictionary } from "@/lib/dictionaries"
@@ -107,10 +109,16 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
         <FeaturedWork lang={lang} dict={dict} />
       </Reveal>
       <Reveal>
+        <FreeTools lang={lang} dict={dict} />
+      </Reveal>
+      <Reveal>
         <Testimonials dict={dict} />
       </Reveal>
       <Reveal>
         <Pricing dict={dict} />
+      </Reveal>
+      <Reveal>
+        <Faq dict={dict} />
       </Reveal>
       <Reveal>
         <FinalCta dict={dict} />
@@ -188,6 +196,9 @@ function Hero({ lang, dict }: { lang: Locale; dict: HomeDict }) {
         </span>{" "}
         {t.trust.usersLabel}
       </p>
+
+      {/* Local signal - crawlable Austria/Germany line */}
+      <p className="text-foreground/40 mt-3 text-sm">{t.location}</p>
 
       {/* Project logos - directly under the trust line */}
       {projects.length > 0 && (
@@ -413,6 +424,53 @@ function FeaturedWork({ lang, dict }: { lang: Locale; dict: HomeDict }) {
 }
 
 /* ----------------------------------------------------------------------- */
+/* FREE TOOLS  (real, usable tools = a discovery + trust engine)            */
+/* ----------------------------------------------------------------------- */
+function FreeTools({ lang, dict }: { lang: Locale; dict: HomeDict }) {
+  const t = dict.freeTools
+  const meta: Record<string, { href: string; Icon: typeof FileText }> = {
+    invoice: { href: "/invoice", Icon: FileText },
+    timetracking: { href: `/${lang}/timetracking`, Icon: Clock },
+  }
+
+  return (
+    <Section>
+      <h2 className="mb-2 max-w-2xl text-2xl font-semibold tracking-tight md:text-3xl">
+        {t.title}
+      </h2>
+      <p className="text-foreground/50 mb-6 max-w-xl leading-relaxed">
+        {t.subtitle}
+      </p>
+      <div className="grid gap-3 md:grid-cols-2">
+        {t.items.map((tool) => {
+          const m = meta[tool.key] ?? meta.invoice
+          const Icon = m.Icon
+          return (
+            <Link
+              key={tool.key}
+              href={m.href}
+              className="hover:border-foreground/10 hover:bg-foreground/[0.04] group flex flex-col rounded-2xl border border-[var(--card-border)] bg-card p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
+            >
+              <Icon className="mb-3 size-6 text-blue-500" strokeWidth={1.5} />
+              <h3 className="text-foreground/90 mb-1.5 font-semibold">
+                {tool.name}
+              </h3>
+              <p className="text-foreground/50 text-sm leading-relaxed">
+                {tool.blurb}
+              </p>
+              <span className="text-foreground/50 mt-4 inline-flex items-center gap-1.5 text-sm font-medium transition-colors group-hover:text-foreground">
+                {tool.cta}
+                <ArrowRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+              </span>
+            </Link>
+          )
+        })}
+      </div>
+    </Section>
+  )
+}
+
+/* ----------------------------------------------------------------------- */
 /* TESTIMONIALS  (renders only once real quotes exist)                      */
 /* ----------------------------------------------------------------------- */
 function initials(name: string): string {
@@ -569,6 +627,45 @@ function About({ lang, dict }: { lang: Locale; dict: HomeDict }) {
             <ArrowRight className="size-4" />
           </Link>
         </div>
+      </div>
+    </Section>
+  )
+}
+
+/* ----------------------------------------------------------------------- */
+/* FAQ  (visible answers + FAQPage JSON-LD for AI/LLM citation)             */
+/* ----------------------------------------------------------------------- */
+function Faq({ dict }: { dict: HomeDict }) {
+  const t = dict.faq
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: t.items.map((it) => ({
+      "@type": "Question",
+      name: it.q,
+      acceptedAnswer: { "@type": "Answer", text: it.a },
+    })),
+  }
+
+  return (
+    <Section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+      />
+      <h2 className="mb-6 max-w-2xl text-2xl font-semibold tracking-tight md:text-3xl">
+        {t.title}
+      </h2>
+      <div className="grid gap-3 md:grid-cols-2">
+        {t.items.map((it) => (
+          <div
+            key={it.q}
+            className="rounded-2xl border border-[var(--card-border)] bg-card p-5 shadow-sm"
+          >
+            <h3 className="text-foreground/90 mb-1.5 font-semibold">{it.q}</h3>
+            <p className="text-foreground/55 text-sm leading-relaxed">{it.a}</p>
+          </div>
+        ))}
       </div>
     </Section>
   )

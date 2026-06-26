@@ -11,6 +11,10 @@ const nextConfig = {
       "@libsql/kysely-libsql",
       "libsql",
     ],
+    // Ensure the OG-card font is bundled into the route's serverless function.
+    outputFileTracingIncludes: {
+      "/api/og-card": ["./public/fonts/**"],
+    },
   },
   images: {
     remotePatterns: [

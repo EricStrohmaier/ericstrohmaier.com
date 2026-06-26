@@ -22,6 +22,7 @@
     "subtitle": "I build custom tools, automations, and websites for small and mid-sized businesses - software designed to cut costs, save hours, and bring in revenue. The kind that pays for itself.",
     "ctaPrimary": "Book a free call",
     "ctaSecondary": "See the work",
+    "location": "Based in Vienna, Austria - building software for small and mid-sized businesses across Austria and Germany.",
     "trust": {
       "prefix": "Trusted by",
       "businessesLabel": "businesses",
@@ -97,6 +98,24 @@
     "title": "Built to be used - and to last.",
     "link": "See all work"
   },
+  "freeTools": {
+    "title": "Free tools, no signup.",
+    "subtitle": "Small tools I built and use myself - free for you too. The same kind of software I build for clients.",
+    "items": [
+      {
+        "key": "invoice",
+        "name": "Invoice generator",
+        "blurb": "Create clean, professional invoices and download them as PDF in seconds.",
+        "cta": "Open the invoice tool"
+      },
+      {
+        "key": "timetracking",
+        "name": "Time tracking",
+        "blurb": "Track billable hours and turn them straight into an invoice.",
+        "cta": "Open time tracking"
+      }
+    ]
+  },
   "testimonials": {
     "label": "What clients say",
     "title": "Don't just take my word for it."
@@ -157,5 +176,26 @@
     "title": "Let's find the software that pays for itself.",
     "copy": "Book a free call. We'll look at where you're leaking time or money and what it would take to fix it. No pressure, no jargon.",
     "cta": "Book a free call"
+  },
+  "faq": {
+    "title": "Questions, answered.",
+    "items": [
+      {
+        "q": "What does custom software cost?",
+        "a": "Projects start at €5,000 and are scoped up front, so you get a clear price and a clear outcome. Ongoing work is month-to-month: a fully managed website from €249/month, or a senior developer on call from €2,500/month."
+      },
+      {
+        "q": "Do you work with businesses in Austria and Germany?",
+        "a": "Yes - most of my clients are small and mid-sized businesses across Austria and Germany. Communication and the website are available in both German and English."
+      },
+      {
+        "q": "Is everything DSGVO (GDPR) compliant?",
+        "a": "Yes. I build with EU data protection (DSGVO/GDPR) in mind and can host inside the EU - which matters for Austrian and German businesses."
+      },
+      {
+        "q": "Can I cancel the monthly plans?",
+        "a": "Anytime. The Website Care and Software Partner plans are month-to-month with no lock-in - you stay because the software pays for itself."
+      }
+    ]
   }
 }

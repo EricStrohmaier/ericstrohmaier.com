@@ -22,6 +22,7 @@
     "subtitle": "Ich entwickle individuelle Tools, Automatisierungen und Websites für kleine und mittlere Unternehmen - Software, die Kosten senkt, Stunden spart und Umsatz bringt. Die Art, die sich selbst bezahlt macht.",
     "ctaPrimary": "Kostenloses Gespräch buchen",
     "ctaSecondary": "Projekte ansehen",
+    "location": "Mit Sitz in Wien - Softwareentwicklung für kleine und mittlere Unternehmen in ganz Österreich und Deutschland.",
     "trust": {
       "prefix": "Vertraut von",
       "businessesLabel": "Unternehmen",
@@ -97,6 +98,24 @@
     "title": "Gebaut, um genutzt zu werden - und zu bleiben.",
     "link": "Alle Projekte ansehen"
   },
+  "freeTools": {
+    "title": "Kostenlose Tools, ohne Anmeldung.",
+    "subtitle": "Kleine Tools, die ich selbst gebaut habe und nutze - kostenlos auch für Sie. Genau die Art Software, die ich für Kunden baue.",
+    "items": [
+      {
+        "key": "invoice",
+        "name": "Rechnungs-Generator",
+        "blurb": "Saubere, professionelle Rechnungen erstellen und in Sekunden als PDF herunterladen.",
+        "cta": "Rechnungs-Tool öffnen"
+      },
+      {
+        "key": "timetracking",
+        "name": "Zeiterfassung",
+        "blurb": "Abrechenbare Stunden erfassen und direkt in eine Rechnung verwandeln.",
+        "cta": "Zeiterfassung öffnen"
+      }
+    ]
+  },
   "testimonials": {
     "label": "Was Kunden sagen",
     "title": "Verlassen Sie sich nicht nur auf mein Wort."
@@ -157,5 +176,26 @@
     "title": "Lassen Sie uns die Software finden, die sich selbst bezahlt macht.",
     "copy": "Buchen Sie ein kostenloses Gespräch. Wir schauen, wo Sie Zeit oder Geld verlieren und was es bräuchte, um das zu beheben. Kein Druck, kein Fachjargon.",
     "cta": "Kostenloses Gespräch buchen"
+  },
+  "faq": {
+    "title": "Häufige Fragen, beantwortet.",
+    "items": [
+      {
+        "q": "Was kostet individuelle Software?",
+        "a": "Projekte starten ab 5.000 € und werden vorab klar definiert - klarer Preis, klares Ergebnis. Laufende Arbeit ist monatlich kündbar: eine vollständig betreute Website ab 249 €/Monat oder ein erfahrener Entwickler auf Abruf ab 2.500 €/Monat."
+      },
+      {
+        "q": "Arbeiten Sie mit Unternehmen in Österreich und Deutschland?",
+        "a": "Ja - die meisten meiner Kunden sind kleine und mittlere Unternehmen in Österreich und Deutschland. Kommunikation und Website gibt es auf Deutsch und Englisch."
+      },
+      {
+        "q": "Ist alles DSGVO-konform?",
+        "a": "Ja. Ich entwickle mit Blick auf den EU-Datenschutz (DSGVO) und kann innerhalb der EU hosten - wichtig für Unternehmen in Österreich und Deutschland."
+      },
+      {
+        "q": "Kann ich die monatlichen Pläne kündigen?",
+        "a": "Jederzeit. Website Care und Software Partner sind monatlich kündbar, ohne Bindung - Sie bleiben, weil sich die Software selbst bezahlt macht."
+      }
+    ]
   }
 }

@@ -1,0 +1,43 @@
+# Eric Strohmaier
+
+> Independent software engineer ("software partner") who builds custom software,
+> internal tools, automations, and high-converting websites for small and
+> mid-sized businesses (KMU) in Austria, Germany, and worldwide - software
+> designed to cut costs, save hours, and bring in revenue.
+
+Languages: English (/en) and German (/de). German-speaking visitors (AT/DE) are
+served the German site by default.
+
+## What Eric does
+- Custom software development (dashboards, CRMs, booking & payment flows)
+- Internal tools & automations that replace manual busywork and fragile spreadsheets
+- AI tools tailored to a business's real workflows
+- Revenue websites & lead systems (high-converting sites, lead capture, follow-up)
+- Ongoing software partnership: maintenance, monitoring, monthly improvements
+
+## Engagement options
+- Website Care Plan - EUR 249/mo (managed, conversion-focused website)
+- Software Partner - EUR 2,500/mo (a senior developer on call, month to month)
+- Custom Software - from EUR 5,000/project (scoped up front, clear outcome)
+- All month-to-month, no lock-in. Start with a free call.
+
+## Selected work & products
+- PromptSloth - own product; 7,000+ users and ~$3K revenue in 9 months on organic search alone.
+- AutoReview (https://getautoreview.com) - SaaS that automates Google-review collection for local service businesses.
+- Friends in Flats - first technical hire; built the platform to 20,000+ users and led a 4-person team.
+- One client: grew revenue 270% by rebuilding their SEO.
+
+## Key pages
+- Home (EN): https://ericstrohmaier.com/en
+- Home (DE): https://ericstrohmaier.com/de
+- Work / projects: https://ericstrohmaier.com/en/projects
+- About: https://ericstrohmaier.com/en/about
+- Contact / book a free call: https://ericstrohmaier.com/en/contact
+- Free invoice generator: https://ericstrohmaier.com/invoice
+- Free time tracking: https://ericstrohmaier.com/en/timetracking
+
+## Contact
+- Email: contact@ericstrohmaier.com
+- GitHub: https://github.com/EricStrohmaier
+- LinkedIn: https://www.linkedin.com/in/eric-strohmaier-3a0767267/
+- X/Twitter: https://twitter.com/EricStrohmaier

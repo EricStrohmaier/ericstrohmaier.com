@@ -82,6 +82,10 @@ export const metadata: Metadata = {
     "MaklerOS - Das Betriebssystem für Ihr Maklerbüro | Leads, Objekte, Team & Termine an einem Ort",
   description:
     "MaklerOS erfasst Ihre Leads automatisch und fasst nach, verwaltet Ihre Objekte, lässt Termine direkt buchen und verbindet Ihr Team - damit Sie keinen Abschluss mehr verlieren. Für Makler in Österreich & Deutschland.",
+  // Unfinished placeholder landing (prices, testimonials, Impressum are still
+  // [PLATZHALTER]). Keep it out of the index until the real copy is in - then
+  // delete this `robots` block.
+  robots: { index: false, follow: true },
   openGraph: {
     title: "MaklerOS - Das Betriebssystem für Ihr Maklerbüro",
     description:

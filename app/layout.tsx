@@ -71,6 +71,15 @@ const jsonLd = {
       image: `${siteConfig.url}/eric-avatar.png`,
       jobTitle: "Software Engineer & Founder",
       description: siteConfig.description,
+      knowsAbout: [
+        "Custom software development",
+        "Web development",
+        "Business automation",
+        "Internal tools and dashboards",
+        "Next.js",
+        "SaaS",
+      ],
+      knowsLanguage: ["en", "de"],
       sameAs: [
         siteConfig.links.github,
         siteConfig.links.linkedin,
@@ -85,7 +94,16 @@ const jsonLd = {
       image: siteConfig.ogImage,
       description: siteConfig.description,
       founder: { "@id": `${siteConfig.url}/#person` },
-      areaServed: "Worldwide",
+      areaServed: [
+        { "@type": "Country", name: "Austria" },
+        { "@type": "Country", name: "Germany" },
+      ],
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: siteConfig.locality, // "Wien"
+        addressCountry: "AT",
+      },
+      availableLanguage: ["de", "en"],
       serviceType: [
         "Custom software development",
         "Internal tools & automations",
@@ -105,6 +123,7 @@ const jsonLd = {
       url: siteConfig.url,
       name: "Eric Strohmaier",
       description: siteConfig.description,
+      inLanguage: ["en", "de"],
       publisher: { "@id": `${siteConfig.url}/#person` },
     },
   ],
