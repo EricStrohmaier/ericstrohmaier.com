@@ -7,6 +7,7 @@ import {
   Clock,
   Calculator,
   Gauge,
+  Search,
 } from "lucide-react"
 import { isLocale, type Locale } from "@/i18n-config"
 import { siteConfig } from "@/site-config"
@@ -16,6 +17,7 @@ const ICONS = {
   timetracking: Clock,
   cost: Calculator,
   lead: Gauge,
+  seocheck: Search,
 } as const
 
 const copy = {
@@ -41,6 +43,13 @@ const copy = {
         name: "Lead-Response-Rechner",
         blurb:
           "Sehen Sie, wie viel Umsatz Sie pro Monat verlieren, weil Anfragen zu spät beantwortet werden.",
+      },
+      {
+        key: "seocheck",
+        href: "/de/tools/seo-check",
+        name: "SEO-Check",
+        blurb:
+          "In 2 Minuten einschätzen, wie gut Sie bei Google und in KI-Antworten gefunden werden.",
       },
       {
         key: "invoice",
@@ -85,6 +94,13 @@ const copy = {
         name: "Lead Response Calculator",
         blurb:
           "See how much revenue you lose each month because inquiries are answered too late.",
+      },
+      {
+        key: "seocheck",
+        href: "/en/tools/seo-check",
+        name: "SEO Check",
+        blurb:
+          "Assess in 2 minutes how well Google and AI answers find you.",
       },
       {
         key: "invoice",

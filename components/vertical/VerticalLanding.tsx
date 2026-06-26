@@ -472,6 +472,26 @@ export function VerticalLanding({
         </Section>
       </Reveal>
 
+      {/* Related links — internal linking to comparison/related pages */}
+      {c.relatedLinks && c.relatedLinks.length > 0 && (
+        <Reveal>
+          <Section id="mehr">
+            <div className="flex flex-wrap items-center gap-2.5">
+              {c.relatedLinks.map((r) => (
+                <Link
+                  key={r.href}
+                  href={r.href}
+                  className="text-foreground/70 hover:text-foreground inline-flex items-center gap-1.5 rounded-full border border-[var(--card-border)] bg-card px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:border-foreground/20"
+                >
+                  {r.label}
+                  <ArrowRight className="size-3.5" />
+                </Link>
+              ))}
+            </div>
+          </Section>
+        </Reveal>
+      )}
+
       {/* Final CTA */}
       <section className="mt-10 md:mt-14">
         <div className="bg-foreground/[0.03] relative overflow-hidden rounded-2xl border border-[var(--card-border)] px-6 py-12 text-center md:py-16">

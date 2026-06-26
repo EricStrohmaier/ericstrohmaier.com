@@ -199,6 +199,12 @@ export const immobilienmakler: Vertical = {
       finalCtaCopy:
         "Lassen Sie uns das ändern. Im kostenlosen Erstgespräch zeige ich Ihnen, wie Ihr System ab Tag eins für Sie arbeitet.",
       finalCtaLabel: "Kostenloses Erstgespräch buchen",
+      relatedLinks: [
+        {
+          href: "/de/vergleich/onoffice-alternative",
+          label: "MaklerOS vs. onOffice & Propstack",
+        },
+      ],
     },
 
     en: {
@@ -388,6 +394,12 @@ export const immobilienmakler: Vertical = {
       finalCtaCopy:
         "Let's change that. On a free intro call I'll show you how your system works for you from day one.",
       finalCtaLabel: "Book a free intro call",
+      relatedLinks: [
+        {
+          href: "/en/vergleich/onoffice-alternative",
+          label: "MaklerOS vs. onOffice & Propstack",
+        },
+      ],
     },
   },
 }

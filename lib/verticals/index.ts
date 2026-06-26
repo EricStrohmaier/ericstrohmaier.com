@@ -4,6 +4,9 @@ import { immobilienmakler } from "./immobilienmakler"
 import { handwerker } from "./handwerker"
 import { steuerberater } from "./steuerberater"
 import { softwareAutomatisierung } from "./software-automatisierung"
+import { seo } from "./seo"
+import { freiberufler } from "./freiberufler"
+import { arztpraxis } from "./arztpraxis"
 
 export type { Vertical, VerticalContent, Accent } from "./types"
 
@@ -17,6 +20,9 @@ export const verticals: Vertical[] = [
   handwerker,
   steuerberater,
   softwareAutomatisierung,
+  seo,
+  freiberufler,
+  arztpraxis,
 ]
 
 export function getVertical(slug: string): Vertical | undefined {

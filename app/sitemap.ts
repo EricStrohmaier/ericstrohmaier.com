@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next"
 import { graveyardProjects } from "@/lib/project-graveyard"
 import { getVerticalSlugs } from "@/lib/verticals"
+import { getComparisonSlugs } from "@/lib/comparisons"
 import { siteConfig } from "@/site-config"
 import { i18n } from "@/i18n-config"
 
@@ -16,6 +17,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
       changeFrequency: "monthly" as const,
     })),
+    ...getComparisonSlugs().map((slug) => ({
+      path: `/vergleich/${slug}`,
+      priority: 0.7,
+      changeFrequency: "monthly" as const,
+    })),
     { path: "/projects", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/contact", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/tools", priority: 0.8, changeFrequency: "monthly" as const },
@@ -26,6 +32,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       path: "/tools/lead-response-rechner",
+      priority: 0.8,
+      changeFrequency: "monthly" as const,
+    },
+    {
+      path: "/tools/seo-check",
       priority: 0.8,
       changeFrequency: "monthly" as const,
     },

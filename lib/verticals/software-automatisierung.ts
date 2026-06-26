@@ -206,6 +206,12 @@ export const softwareAutomatisierung: Vertical = {
       finalCtaCopy:
         "Lassen Sie uns das ändern. Im kostenlosen Erstgespräch zeige ich Ihnen, welcher Ablauf sich bei Ihnen am schnellsten automatisieren lässt — und was er Sie gerade kostet.",
       finalCtaLabel: "Kostenloses Erstgespräch buchen",
+      relatedLinks: [
+        {
+          href: "/de/vergleich/individuelle-software-vs-standardsoftware",
+          label: "Individuelle Software vs. Standardsoftware",
+        },
+      ],
     },
 
     en: {
@@ -402,6 +408,12 @@ export const softwareAutomatisierung: Vertical = {
       finalCtaCopy:
         "Let's change that. On a free intro call I'll show you which workflow you can automate fastest — and what it's costing you right now.",
       finalCtaLabel: "Book a free intro call",
+      relatedLinks: [
+        {
+          href: "/en/vergleich/individuelle-software-vs-standardsoftware",
+          label: "Custom software vs. off-the-shelf",
+        },
+      ],
     },
   },
 }

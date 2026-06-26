@@ -117,6 +117,9 @@ export interface VerticalContent {
   finalCtaHeading: string
   finalCtaCopy: string
   finalCtaLabel: string
+
+  /** Optional related pages (e.g. comparison pages) for internal linking. */
+  relatedLinks?: { href: string; label: string }[]
 }
 
 export interface Vertical {
