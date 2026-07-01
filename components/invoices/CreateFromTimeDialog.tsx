@@ -6,7 +6,10 @@ import { Clock } from "lucide-react"
 import { toast } from "sonner"
 
 import { updateProject, type Project } from "@/app/dashboard/actions"
-import { createInvoiceFromTimeEntries } from "@/app/dashboard/invoices/actions"
+import {
+  createInvoiceFromTimeEntries,
+  type InvoiceDateFormat,
+} from "@/app/dashboard/invoices/actions"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -51,6 +54,7 @@ export function CreateFromTimeDialog({
   const [startDate, setStartDate] = useState("")
   const [endDate, setEndDate] = useState("")
   const [rate, setRate] = useState("")
+  const [dateFormat, setDateFormat] = useState<InvoiceDateFormat>("european")
   const [loading, setLoading] = useState(false)
 
   const selectedProject = projects.find((p) => p.id === projectId) ?? null
@@ -99,6 +103,7 @@ export function CreateFromTimeDialog({
         startDate: startDate || undefined,
         endDate: endDate || undefined,
         timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        dateFormat,
       })
 
       if (res.error) {
@@ -184,6 +189,29 @@ export function CreateFromTimeDialog({
             />
             <p className="text-foreground/55 text-xs">
               Prefilled from the project. Changing it updates the saved rate.
+            </p>
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="from-time-date-format">Date format</Label>
+            <Select
+              value={dateFormat}
+              onValueChange={(v) => setDateFormat(v as InvoiceDateFormat)}
+            >
+              <SelectTrigger id="from-time-date-format">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="european">
+                  European — 01.01.2026
+                </SelectItem>
+                <SelectItem value="iso">ISO — 2026-01-01</SelectItem>
+                <SelectItem value="us">US — 01/01/2026</SelectItem>
+              </SelectContent>
+            </Select>
+            <p className="text-foreground/55 text-xs">
+              Used for day-based line items (e.g. &ldquo;Work on
+              01.01.2026&rdquo;) when a time entry has no description.
             </p>
           </div>
 

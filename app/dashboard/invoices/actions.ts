@@ -263,6 +263,25 @@ export const updateInvoiceStatus = async (
 
 const round2 = (n: number) => Math.round(n * 100) / 100
 
+// Date format for line-item labels ("Work on <day>"). Defaults to European.
+export type InvoiceDateFormat = "european" | "iso" | "us"
+
+// `iso` is a YYYY-MM-DD string (e.g. "2026-06-28"). Formats without relying on
+// Date parsing so it stays timezone-agnostic.
+const formatDay = (iso: string, format: InvoiceDateFormat = "european") => {
+  const [y, m, d] = iso.split("-")
+  if (!y || !m || !d) return iso
+  switch (format) {
+    case "iso":
+      return iso
+    case "us":
+      return `${m}/${d}/${y}`
+    case "european":
+    default:
+      return `${d}.${m}.${y}`
+  }
+}
+
 // Build a draft invoice from a project's tracked time in a date range. Each
 // distinct task description becomes a line item: quantity = hours, unitCost =
 // the project's hourly rate. Returns the new invoice id (open it in the editor).
@@ -271,6 +290,7 @@ export const createInvoiceFromTimeEntries = async (input: {
   startDate?: string
   endDate?: string
   timezone?: string
+  dateFormat?: InvoiceDateFormat
 }): Promise<{ id?: string; error?: string }> => {
   try {
     const userId = await requireUserId()
@@ -295,7 +315,7 @@ export const createInvoiceFromTimeEntries = async (input: {
       const desc = (e.description || "").trim()
       const day = (e.start_time || "").slice(0, 10)
       const key = desc || `__day__${day}`
-      const label = desc || `Work on ${day}`
+      const label = desc || `Work on ${formatDay(day, input.dateFormat)}`
       const g = groups.get(key) || { label, seconds: 0 }
       g.seconds += e.duration || 0
       groups.set(key, g)
