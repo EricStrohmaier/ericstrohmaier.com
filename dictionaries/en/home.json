@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Eric Strohmaier - Custom Software for Small Businesses",
-    "description": "I build custom software, internal tools, automations, and high-converting websites for small and mid-sized businesses - software that pays for itself.",
+    "description": "I build custom software, internal tools, automations, and high-converting websites for small and mid-sized businesses. Software that pays for itself.",
     "keywords": [
       "custom software developer",
       "custom software development",
@@ -19,10 +19,10 @@
   "hero": {
     "eyebrow": "Your software partner.",
     "title": "Software that makes your business more money.",
-    "subtitle": "I build custom tools, automations, and websites for small and mid-sized businesses - software designed to cut costs, save hours, and bring in revenue. The kind that pays for itself.",
+    "subtitle": "I build custom tools, automations, and websites for small and mid-sized businesses. Software that cuts costs, saves hours, and brings in revenue. The kind that pays for itself.",
     "ctaPrimary": "Book a free call",
     "ctaSecondary": "See the work",
-    "location": "Based in Vienna, Austria - building software for small and mid-sized businesses across Austria and Germany.",
+    "location": "Based in Vienna, Austria, building software for small and mid-sized businesses across Austria and Germany.",
     "trust": {
       "prefix": "Trusted by",
       "businessesLabel": "businesses",
@@ -35,9 +35,9 @@
   "about": {
     "imageAlt": "Eric Strohmaier",
     "paragraphs": [
-      "I'm Eric - a self-taught engineer who learned to build by shipping, and solving real problems.",
+      "I'm Eric, a self-taught engineer who learned to build by shipping and solving real problems.",
       "Most of my work is boring and profitable for my clients: automating the repetitive tasks, building custom tools that replace fragile spreadsheets, and fixing websites so they actually earn.",
-      "For one client I grew revenue 270% by rebuilding their SEO and bringing in the right traffic. I build my own products too - PromptSloth reached 7,000+ users and $3K in revenue in just 9 months on organic search alone, with no active marketing, and now runs on autopilot."
+      "For one client I grew revenue 270% by rebuilding their SEO and bringing in the right traffic. I build my own products too. PromptSloth reached 7,000+ users and $3K in revenue in just 9 months on organic search alone, with no active marketing, and now runs on autopilot."
     ],
     "link": "More about me"
   },
@@ -83,7 +83,7 @@
       },
       {
         "title": "Build",
-        "copy": "I scope it, build it, and ship it fast - software that does the job, with nothing you don't need."
+        "copy": "I scope it, build it, and ship it fast. Software that does the job, with nothing you don't need."
       },
       {
         "title": "Maintain & grow",
@@ -96,12 +96,12 @@
     "copy": "That's what the call is for. We'll find the highest-payback fix together."
   },
   "featuredWork": {
-    "title": "Built to be used - and to last.",
+    "title": "Built to be used, and built to last.",
     "link": "See all work"
   },
   "freeTools": {
     "title": "Free tools, no signup.",
-    "subtitle": "Small tools I built and use myself - free for you too. The same kind of software I build for clients.",
+    "subtitle": "Small tools I built and use myself, free for you too. The same kind of software I build for clients.",
     "items": [
       {
         "key": "invoice",
@@ -128,7 +128,7 @@
     "tiers": [
       {
         "name": "Website Care Plan",
-        "who": "For businesses that need a site that gets found and brings in leads - fully managed.",
+        "who": "For businesses that need a site that gets found and brings in leads, fully managed.",
         "price": "$249",
         "cadence": "/mo",
         "cta": "Book a free call",
@@ -138,12 +138,12 @@
           "Uptime monitoring so you're never down quietly",
           "Small content & design changes every month",
           "Fast load times that keep customers from bouncing",
-          "One point of contact - no agencies, no runaround"
+          "One point of contact, no agencies, no runaround"
         ]
       },
       {
         "name": "Software Partner",
-        "who": "For businesses that want to keep improving - a senior dev on call, month to month.",
+        "who": "For businesses that want to keep improving. A senior dev on call, month to month.",
         "price": "$2,500",
         "cadence": "/mo",
         "cta": "Become a partner",
@@ -153,12 +153,12 @@
           "Ongoing maintenance, monitoring & fixes",
           "Priority turnaround on what matters most",
           "Continuous work toward more revenue, less busywork",
-          "Month-to-month - cancel anytime, no lock-in"
+          "Month-to-month, cancel anytime, no lock-in"
         ]
       },
       {
         "name": "Custom Software",
-        "who": "For specific problems worth solving - internal tools, automations, and revenue features.",
+        "who": "For specific problems worth solving: internal tools, automations, and revenue features.",
         "price": "From $5,000",
         "cadence": " / project",
         "cta": "Scope a project",
@@ -167,7 +167,7 @@
           "Dashboards, CRMs, booking & payment flows",
           "Automations that kill repetitive manual work",
           "AI tools tailored to how you actually operate",
-          "Scoped up front - clear price, clear outcome",
+          "Scoped up front, clear price, clear outcome",
           "Rolls into a care or partner plan once it ships"
         ]
       }
@@ -187,15 +187,15 @@
       },
       {
         "q": "Do you work with businesses in Austria and Germany?",
-        "a": "Yes - most of my clients are small and mid-sized businesses across Austria and Germany. Communication and the website are available in both German and English."
+        "a": "Yes, most of my clients are small and mid-sized businesses across Austria and Germany. Communication and the website are available in both German and English."
       },
       {
         "q": "Is everything DSGVO (GDPR) compliant?",
-        "a": "Yes. I build with EU data protection (DSGVO/GDPR) in mind and can host inside the EU - which matters for Austrian and German businesses."
+        "a": "Yes. I build with EU data protection (DSGVO/GDPR) in mind and can host inside the EU, which matters for Austrian and German businesses."
       },
       {
         "q": "Can I cancel the monthly plans?",
-        "a": "Anytime. The Website Care and Software Partner plans are month-to-month with no lock-in - you stay because the software pays for itself."
+        "a": "Anytime. The Website Care and Software Partner plans are month-to-month with no lock-in. You stay because the software pays for itself."
       }
     ]
   }

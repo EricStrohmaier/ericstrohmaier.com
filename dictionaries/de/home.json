@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Eric Strohmaier - Individuelle Software für KMU",
-    "description": "Ich entwickle individuelle Software, interne Tools, Automatisierungen und conversion-starke Websites für kleine und mittlere Unternehmen - Software, die sich selbst bezahlt macht.",
+    "description": "Ich entwickle individuelle Software, interne Tools, Automatisierungen und conversion-starke Websites für kleine und mittlere Unternehmen. Software, die sich selbst bezahlt macht.",
     "keywords": [
       "Softwareentwickler Österreich",
       "individuelle Softwareentwicklung",
@@ -19,10 +19,10 @@
   "hero": {
     "eyebrow": "Ihr Software-Partner.",
     "title": "Software, die Ihrem Unternehmen mehr Geld bringt.",
-    "subtitle": "Ich entwickle individuelle Tools, Automatisierungen und Websites für kleine und mittlere Unternehmen - Software, die Kosten senkt, Stunden spart und Umsatz bringt. Die Art, die sich selbst bezahlt macht.",
+    "subtitle": "Ich entwickle individuelle Tools, Automatisierungen und Websites für kleine und mittlere Unternehmen. Software, die Kosten senkt, Stunden spart und Umsatz bringt. Die Art, die sich selbst bezahlt macht.",
     "ctaPrimary": "Kostenloses Gespräch buchen",
     "ctaSecondary": "Projekte ansehen",
-    "location": "Mit Sitz in Wien - Softwareentwicklung für kleine und mittlere Unternehmen in ganz Österreich und Deutschland.",
+    "location": "Mit Sitz in Wien, Softwareentwicklung für kleine und mittlere Unternehmen in ganz Österreich und Deutschland.",
     "trust": {
       "prefix": "Vertraut von",
       "businessesLabel": "Unternehmen",
@@ -35,9 +35,9 @@
   "about": {
     "imageAlt": "Eric Strohmaier",
     "paragraphs": [
-      "Ich bin Eric - ein autodidaktischer Entwickler, der das Bauen durch das Ausliefern echter Lösungen und das Lösen realer Probleme gelernt hat.",
+      "Ich bin Eric, ein autodidaktischer Entwickler, der das Bauen durch das Ausliefern echter Lösungen und das Lösen realer Probleme gelernt hat.",
       "Der Großteil meiner Arbeit ist für meine Kunden unspektakulär und profitabel: wiederkehrende Aufgaben automatisieren, individuelle Tools bauen, die fragile Tabellen ersetzen, und Websites so reparieren, dass sie tatsächlich Umsatz bringen.",
-      "Für einen Kunden habe ich den Umsatz um 270 % gesteigert, indem ich seine SEO neu aufgebaut und die richtigen Besucher gebracht habe. Ich entwickle auch eigene Produkte - PromptSloth erreichte in nur 9 Monaten über 7.000 Nutzer und 3.000 USD Umsatz, allein über organische Suche, ganz ohne aktives Marketing, und läuft heute auf Autopilot."
+      "Für einen Kunden habe ich den Umsatz um 270 % gesteigert, indem ich seine SEO neu aufgebaut und die richtigen Besucher gebracht habe. Ich entwickle auch eigene Produkte. PromptSloth erreichte in nur 9 Monaten über 7.000 Nutzer und 3.000 USD Umsatz, allein über organische Suche, ganz ohne aktives Marketing, und läuft heute auf Autopilot."
     ],
     "link": "Mehr über mich"
   },
@@ -83,7 +83,7 @@
       },
       {
         "title": "Umsetzung",
-        "copy": "Ich definiere den Umfang, baue es und liefere schnell aus - Software, die ihren Zweck erfüllt, ohne unnötigen Ballast."
+        "copy": "Ich definiere den Umfang, baue es und liefere schnell aus. Software, die ihren Zweck erfüllt, ohne unnötigen Ballast."
       },
       {
         "title": "Pflege & Wachstum",
@@ -96,12 +96,12 @@
     "copy": "Genau dafür ist das Gespräch da. Wir finden gemeinsam die Lösung mit dem höchsten Return."
   },
   "featuredWork": {
-    "title": "Gebaut, um genutzt zu werden - und zu bleiben.",
+    "title": "Gebaut, um genutzt zu werden, und zu bleiben.",
     "link": "Alle Projekte ansehen"
   },
   "freeTools": {
     "title": "Kostenlose Tools, ohne Anmeldung.",
-    "subtitle": "Kleine Tools, die ich selbst gebaut habe und nutze - kostenlos auch für Sie. Genau die Art Software, die ich für Kunden baue.",
+    "subtitle": "Kleine Tools, die ich selbst gebaut habe und nutze, kostenlos auch für Sie. Genau die Art Software, die ich für Kunden baue.",
     "items": [
       {
         "key": "invoice",
@@ -128,7 +128,7 @@
     "tiers": [
       {
         "name": "Website Care Plan",
-        "who": "Für Unternehmen, die eine Website brauchen, die gefunden wird und Leads bringt - vollständig betreut.",
+        "who": "Für Unternehmen, die eine Website brauchen, die gefunden wird und Leads bringt, vollständig betreut.",
         "price": "249 €",
         "cadence": "/Monat",
         "cta": "Kostenloses Gespräch buchen",
@@ -138,12 +138,12 @@
           "Uptime-Monitoring, damit Sie nie unbemerkt offline sind",
           "Kleine Inhalts- & Designänderungen jeden Monat",
           "Schnelle Ladezeiten, die Kunden zum Bleiben bewegen",
-          "Ein Ansprechpartner - keine Agenturen, kein Hin und Her"
+          "Ein Ansprechpartner, keine Agenturen, kein Hin und Her"
         ]
       },
       {
         "name": "Software Partner",
-        "who": "Für Unternehmen, die sich laufend verbessern wollen - ein erfahrener Entwickler auf Abruf, von Monat zu Monat.",
+        "who": "Für Unternehmen, die sich laufend verbessern wollen. Ein erfahrener Entwickler auf Abruf, von Monat zu Monat.",
         "price": "2.500 €",
         "cadence": "/Monat",
         "cta": "Partner werden",
@@ -153,12 +153,12 @@
           "Laufende Wartung, Monitoring & Fehlerbehebung",
           "Priorisierte Bearbeitung dessen, was am wichtigsten ist",
           "Kontinuierliche Arbeit für mehr Umsatz, weniger Fleißarbeit",
-          "Monatlich kündbar - jederzeit, keine Bindung"
+          "Monatlich kündbar, jederzeit, keine Bindung"
         ]
       },
       {
         "name": "Individuelle Software",
-        "who": "Für konkrete Probleme, die sich zu lösen lohnen - interne Tools, Automatisierungen und umsatzbringende Funktionen.",
+        "who": "Für konkrete Probleme, die sich zu lösen lohnen: interne Tools, Automatisierungen und umsatzbringende Funktionen.",
         "price": "Ab 5.000 €",
         "cadence": " / Projekt",
         "cta": "Projekt definieren",
@@ -167,7 +167,7 @@
           "Dashboards, CRMs, Termin- & Zahlungsflüsse",
           "Automatisierungen, die wiederkehrende Handarbeit beseitigen",
           "KI-Tools, zugeschnitten auf Ihre tatsächlichen Abläufe",
-          "Vorab definiert - klarer Preis, klares Ergebnis",
+          "Vorab definiert, klarer Preis, klares Ergebnis",
           "Geht nach dem Launch in einen Care- oder Partner-Plan über"
         ]
       }
@@ -183,19 +183,19 @@
     "items": [
       {
         "q": "Was kostet individuelle Software?",
-        "a": "Projekte starten ab 5.000 € und werden vorab klar definiert - klarer Preis, klares Ergebnis. Laufende Arbeit ist monatlich kündbar: eine vollständig betreute Website ab 249 €/Monat oder ein erfahrener Entwickler auf Abruf ab 2.500 €/Monat."
+        "a": "Projekte starten ab 5.000 € und werden vorab klar definiert, mit klarem Preis und klarem Ergebnis. Laufende Arbeit ist monatlich kündbar: eine vollständig betreute Website ab 249 €/Monat oder ein erfahrener Entwickler auf Abruf ab 2.500 €/Monat."
       },
       {
         "q": "Arbeiten Sie mit Unternehmen in Österreich und Deutschland?",
-        "a": "Ja - die meisten meiner Kunden sind kleine und mittlere Unternehmen in Österreich und Deutschland. Kommunikation und Website gibt es auf Deutsch und Englisch."
+        "a": "Ja, die meisten meiner Kunden sind kleine und mittlere Unternehmen in Österreich und Deutschland. Kommunikation und Website gibt es auf Deutsch und Englisch."
       },
       {
         "q": "Ist alles DSGVO-konform?",
-        "a": "Ja. Ich entwickle mit Blick auf den EU-Datenschutz (DSGVO) und kann innerhalb der EU hosten - wichtig für Unternehmen in Österreich und Deutschland."
+        "a": "Ja. Ich entwickle mit Blick auf den EU-Datenschutz (DSGVO) und kann innerhalb der EU hosten, was für Unternehmen in Österreich und Deutschland wichtig ist."
       },
       {
         "q": "Kann ich die monatlichen Pläne kündigen?",
-        "a": "Jederzeit. Website Care und Software Partner sind monatlich kündbar, ohne Bindung - Sie bleiben, weil sich die Software selbst bezahlt macht."
+        "a": "Jederzeit. Website Care und Software Partner sind monatlich kündbar, ohne Bindung. Sie bleiben, weil sich die Software selbst bezahlt macht."
       }
     ]
   }
