@@ -396,6 +396,17 @@ export const graveyardProjects: GraveyardProject[] = [
     users: "You're here!",
     tags: ["Portfolio", "Next.js", "Personal"],
   },
+  {
+    name: "Riot of the Blondes",
+    slug: "riotoftheblondes",
+    description:
+      "Homepage for my mom's band to share resources and get gigs",
+    date: "2026",
+    status: "live",
+    url: "https://riotoftheblondes.ericstrohmaier.com/",
+    users: "Band use",
+    tags: ["Music", "Band", "Homepage"],
+  },
   // ---------------------------------------------------------------------------
   // PLACEHOLDER CASE STUDY - copy this entry, replace every PLACEHOLDER value
   // with a real client story, then delete this one. It demonstrates the full
