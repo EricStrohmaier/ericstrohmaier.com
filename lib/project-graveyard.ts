@@ -403,9 +403,9 @@ export const graveyardProjects: GraveyardProject[] = [
       "Homepage for my mom's band to share resources and get gigs",
     date: "2026",
     status: "live",
-    url: "https://riotoftheblondes.ericstrohmaier.com/",
+    url: "https://www.riotoftheblondes.at",
     users: "Band use",
-    tags: ["Music", "Band", "Homepage"],
+    tags: ["Music", "Band", "Homepage","Domain Managment"],
   },
   // ---------------------------------------------------------------------------
   // PLACEHOLDER CASE STUDY - copy this entry, replace every PLACEHOLDER value
