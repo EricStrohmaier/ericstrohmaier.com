@@ -1,6 +1,7 @@
 "use client"
 
 import { formatHoursMinutes } from "@/lib/invoice/hours"
+import { DecimalInput } from "./DecimalInput"
 import { useState, useEffect, useRef } from "react"
 import dynamic from "next/dynamic"
 import { Card, CardContent } from "@/components/ui/card"
@@ -266,7 +267,8 @@ ${companySettings.email || ""}`.trim()
 
     if (field === "unitCost" || field === "quantity") {
       newItems[index].amount =
-        newItems[index].unitCost * newItems[index].quantity
+        Math.round(newItems[index].unitCost * newItems[index].quantity * 100) /
+        100
     }
 
     setItems(newItems)
@@ -633,42 +635,21 @@ ${contact.email || ""}`.trim()
                           />
                         </div>
                         <div className="col-span-3 md:col-span-2">
-                          <Input
-                            type="text"
-                            inputMode="decimal"
+                          <DecimalInput
                             className="text-right"
                             placeholder={`${currency}0.00`}
-                            value={
-                              item.unitCost === 0
-                                ? ""
-                                : item.unitCost.toLocaleString("en-US", {
-                                    minimumFractionDigits: 2,
-                                    maximumFractionDigits: 2,
-                                  })
-                            }
-                            onChange={(e) => {
-                              const value =
-                                parseFloat(e.target.value.replace(/,/g, "")) || 0
-                              if (value > 999999999.99) return
-                              updateItem(index, "unitCost", Math.max(0, value))
-                            }}
+                            value={item.unitCost}
+                            format={(v) => v.toFixed(2)}
+                            onValueChange={(v) => updateItem(index, "unitCost", v)}
                           />
                         </div>
                         <div className="col-span-2">
-                          <Input
-                            type="text"
-                            inputMode="numeric"
+                          <DecimalInput
                             className="text-right"
                             placeholder="0"
-                            value={item.quantity || ""}
-                            onChange={(e) => {
-                              const value =
-                                parseInt(
-                                  e.target.value.replace(/[^0-9]/g, "")
-                                ) || 0
-                              if (value > 999999) return
-                              updateItem(index, "quantity", Math.max(0, value))
-                            }}
+                            value={item.quantity}
+                            max={999999}
+                            onValueChange={(v) => updateItem(index, "quantity", v)}
                           />
                         </div>
                         <div className="col-span-2 flex items-center gap-1">
