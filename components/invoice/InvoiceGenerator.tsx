@@ -1,5 +1,6 @@
 "use client"
 
+import { formatHoursMinutes } from "@/lib/invoice/hours"
 import { useState, useEffect, useRef } from "react"
 import dynamic from "next/dynamic"
 import { Card, CardContent } from "@/components/ui/card"
@@ -716,13 +717,13 @@ ${contact.email || ""}`.trim()
                           Subtotal
                           <span className="ml-1 text-muted-foreground">
                             (
-                            {Math.round(
+                            {formatHoursMinutes(
                               items.reduce(
                                 (sum, item) => sum + (Number(item.quantity) || 0),
                                 0
-                              ) * 100
-                            ) / 100}{" "}
-                            h)
+                              )
+                            )}
+                            )
                           </span>
                           :
                         </span>

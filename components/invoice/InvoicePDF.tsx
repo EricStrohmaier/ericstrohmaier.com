@@ -1,6 +1,7 @@
 "use client"
 import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer"
 import { InvoiceItem, CompanySettings } from "@/types/invoice"
+import { formatHoursMinutes } from "@/lib/invoice/hours"
 import { formatDate } from "@/lib/invoice/dateFormat"
 import { getTranslation } from "@/lib/invoice/translations"
 
@@ -98,6 +99,10 @@ const styles = StyleSheet.create({
   },
   subtotalStrong: {
     fontFamily: "Helvetica-Bold",
+  },
+  subtotalHours: {
+    fontFamily: "Helvetica-Bold",
+    fontSize: 10,
   },
   summarySection: {
     marginTop: 30,
@@ -269,8 +274,8 @@ const InvoicePDF = ({
               {getTranslation("subtotal", settings?.language)}
             </Text>
             <Text style={styles.unitCost}></Text>
-            <Text style={[styles.qty, styles.subtotalStrong]}>
-              {totalQuantity(items)}
+            <Text style={[styles.qty, styles.subtotalHours]}>
+              {formatHoursMinutes(totalQuantity(items))}
             </Text>
             <Text style={[styles.amount, styles.subtotalStrong]}>
               {currency} {formatLargeNumber(subtotal)}
