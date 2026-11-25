@@ -100,6 +100,9 @@ const styles = StyleSheet.create({
   subtotalStrong: {
     fontFamily: "Helvetica-Bold",
   },
+  qtyHours: {
+    fontSize: 10,
+  },
   subtotalHours: {
     fontFamily: "Helvetica-Bold",
     fontSize: 10,
@@ -261,7 +264,9 @@ const InvoicePDF = ({
               <Text style={styles.unitCost}>
                 {currency} {formatLargeNumber(item.unitCost)}
               </Text>
-              <Text style={styles.qty}>{item.quantity}</Text>
+              <Text style={[styles.qty, styles.qtyHours]}>
+                {formatHoursMinutes(item.quantity)}
+              </Text>
               <Text style={styles.amount}>
                 {currency} {formatLargeNumber(item.amount)}
               </Text>

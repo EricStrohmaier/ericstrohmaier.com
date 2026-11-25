@@ -1,5 +1,6 @@
 "use client"
 
+import { formatDurationSeconds, formatHoursMinutes } from "@/lib/invoice/hours"
 import { useState, useEffect, useCallback, useMemo } from "react"
 import {
   format,
@@ -58,12 +59,7 @@ import { EditEntryDialog } from "./EditEntryDialog"
 
 const ALL_PROJECTS = "all"
 
-function formatDuration(seconds?: number | null): string {
-  if (!seconds) return "0h 0m"
-  const hours = Math.floor(seconds / 3600)
-  const minutes = Math.floor((seconds % 3600) / 60)
-  return `${hours}h ${minutes}m`
-}
+const formatDuration = formatDurationSeconds
 
 // Date-range presets (computed in the user's local time). Each returns the
 // inclusive start/end as yyyy-MM-dd strings the getTimeEntries filter expects.
@@ -236,7 +232,7 @@ export function TimeEntryTable({
         </div>
         <div className="flex items-center gap-3">
           <span className="rounded-full border border-[var(--card-border)] px-3 py-1 font-mono text-sm tabular-nums text-foreground/70">
-            Total: {totalHours.toFixed(2)} h
+            Total: {formatHoursMinutes(totalHours)}
           </span>
           <TimeTrackingPDFButton
             timeEntries={entries}

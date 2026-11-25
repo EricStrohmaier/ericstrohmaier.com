@@ -6,3 +6,7 @@ export const formatHoursMinutes = (decimalHours: number): string => {
   const minutes = totalMinutes % 60
   return minutes === 0 ? `${hours} h` : `${hours} h ${minutes} min`
 }
+
+// Same format for a duration in seconds (time entries store seconds).
+export const formatDurationSeconds = (seconds?: number | null): string =>
+  formatHoursMinutes((seconds || 0) / 3600)

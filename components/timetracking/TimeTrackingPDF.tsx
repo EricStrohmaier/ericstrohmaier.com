@@ -1,16 +1,12 @@
 "use client"
 
+import { formatDurationSeconds } from "@/lib/invoice/hours"
 import { format } from "date-fns"
 import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer"
 
 import type { TimeEntry, Project } from "@/app/dashboard/actions"
 
-const formatDuration = (seconds?: number | null): string => {
-  if (!seconds) return "0h 0m"
-  const hours = Math.floor(seconds / 3600)
-  const minutes = Math.floor((seconds % 3600) / 60)
-  return `${hours}h ${minutes}m`
-}
+const formatDuration = formatDurationSeconds
 
 const styles = StyleSheet.create({
   page: {
@@ -137,7 +133,7 @@ const TimeTrackingPDF = ({
     (total, entry) => total + (entry.duration || 0),
     0,
   )
-  const totalHours = (totalSeconds / 3600).toFixed(2)
+  const totalHours = formatDurationSeconds(totalSeconds)
 
   return (
     <Document>
