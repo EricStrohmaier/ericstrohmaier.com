@@ -712,7 +712,20 @@ ${contact.email || ""}`.trim()
                     <div className="col-span-1 space-y-4"></div>
                     <div className="col-span-1 w-full space-y-4 lg:w-80 lg:justify-self-end">
                       <div className="flex items-center justify-between">
-                        <span>Subtotal:</span>
+                        <span>
+                          Subtotal
+                          <span className="ml-1 text-muted-foreground">
+                            (
+                            {Math.round(
+                              items.reduce(
+                                (sum, item) => sum + (Number(item.quantity) || 0),
+                                0
+                              ) * 100
+                            ) / 100}{" "}
+                            h)
+                          </span>
+                          :
+                        </span>
                         <span
                           className="min-w-[120px] cursor-help text-right"
                           title={`${currency} ${subtotal.toLocaleString(

@@ -4,6 +4,17 @@ import { InvoiceItem, CompanySettings } from "@/types/invoice"
 import { formatDate } from "@/lib/invoice/dateFormat"
 import { getTranslation } from "@/lib/invoice/translations"
 
+const visibleItems = (items: InvoiceItem[]) =>
+  items.filter(
+    (item) => item.description && item.quantity > 0 && item.amount > 0
+  )
+
+// Sum of the QTY column (hours), shown on the subtotal line.
+const totalQuantity = (items: InvoiceItem[]) =>
+  Math.round(
+    visibleItems(items).reduce((sum, item) => sum + item.quantity, 0) * 100
+  ) / 100
+
 const formatLargeNumber = (num: number): string => {
   // Format with commas and limit to 2 decimal places
   return num.toLocaleString("en-US", {
@@ -77,6 +88,16 @@ const styles = StyleSheet.create({
     textAlign: "right",
     paddingRight: 10,
     fontSize: 10,
+  },
+  subtotalRow: {
+    flexDirection: "row",
+    paddingVertical: 8,
+  },
+  subtotalLabel: {
+    color: "#666666",
+  },
+  subtotalStrong: {
+    fontFamily: "Helvetica-Bold",
   },
   summarySection: {
     marginTop: 30,
@@ -229,11 +250,7 @@ const InvoicePDF = ({
           </Text>
         </View>
 
-        {items
-          .filter(
-            (item) => item.description && item.quantity > 0 && item.amount > 0
-          )
-          .map((item, index) => (
+        {visibleItems(items).map((item, index) => (
             <View key={index} style={styles.tableRow}>
               <Text style={styles.description}>{item.description}</Text>
               <Text style={styles.unitCost}>
@@ -245,19 +262,24 @@ const InvoicePDF = ({
               </Text>
             </View>
           ))}
-      </View>
 
-      <View style={styles.summarySection}>
         {subtotal > 0 && (
-          <View style={styles.summaryRow}>
-            <Text style={styles.summaryLabel}>
+          <View style={styles.subtotalRow}>
+            <Text style={[styles.description, styles.subtotalLabel]}>
               {getTranslation("subtotal", settings?.language)}
             </Text>
-            <Text style={styles.summaryValue}>
+            <Text style={styles.unitCost}></Text>
+            <Text style={[styles.qty, styles.subtotalStrong]}>
+              {totalQuantity(items)}
+            </Text>
+            <Text style={[styles.amount, styles.subtotalStrong]}>
               {currency} {formatLargeNumber(subtotal)}
             </Text>
           </View>
         )}
+      </View>
+
+      <View style={styles.summarySection}>
 
         {taxRate > 0 && (
           <View style={styles.summaryRow}>
